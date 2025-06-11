@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Nam Tran">
+    <meta name="keywords" content="Portfolio, Nam Trần, Lập trình viên, IT, Công nghệ, ReactJS, HTML, CSS, JavaScript, Dự án, Kỹ năng mềm, Thiết kế, AI, Chatbot, Web Developer, Tuyển dụng, Học IT, Sinh viên, Trà Vinh, Developer, Software Engineer, Resume, Frontend, Backend, Github, Canva, Photoshop, PowerPoint, Marketing, Utility Tools, Bio Page, ShopeeFood, Trường Cao đẳng Nghề Trà Vinh, TVC, Nguyễn Hữu Cảnh, GDTX, HNDN, Việt Nam">
+    <meta property="og:title" content="Portfolio Nam Tran">
+    <meta property="og:description" content="Click For More Details">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tranvohoangnam.id.vn">
+    <meta property="og:image" content="https://namtran592005.github.io/Portfolio/src/Images/portfolio.webp">
+    <meta property="og:locale" content="vi_VN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio Nam Tran">
+    <meta name="twitter:description" content="Click For More Details">
+    <meta name="twitter:image" content="https://namtran592005.github.io/Portfolio/src/Images/portfolio.webp">
+    <link rel="canonical" href="https://tranvohoangnam.id.vn">
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <title>Nam Trần | Portfolio</title>
+    <link rel="icon" href="./src/Images/portfolio.webp" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./src/Images/Apple.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F5F5F7;
+            --bg-card: #FFFFFF;
+            --text-primary: #1D1D1F;
+            --text-secondary: #6E6E73;
+            --text-tertiary: #86868B;
+            --accent-primary: #007AFF; 
+            --accent-primary-rgb: 0, 122, 255;
+            --border-color: #D2D2D7;
+            --border-color-subtle: #EAEAEA;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            --shadow-color-hover: rgba(0, 0, 0, 0.1);
+
+            --font-primary: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            
+            --header-height: 68px;
+            --border-radius-s: 8px;
+            --border-radius-m: 12px;
+            --border-radius-l: 18px;
+
+            --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-duration: 0.3s;
+
+            /* Dark Mode Variables */
+            --dark-bg-primary: #161617;
+            --dark-bg-primary-rgb: 22, 22, 23;
+            --dark-bg-secondary: #1D1D1F;
+            --dark-bg-card: #2C2C2E;
+            --dark-text-primary: #F5F5F7;
+            --dark-text-secondary: #A1A1A6;
+            --dark-text-tertiary: #8E8E93;
+            --dark-accent-primary: #0A84FF;
+            --dark-accent-primary-rgb: 10, 132, 255;
+            --dark-border-color: #3A3A3C;
+            --dark-border-color-subtle: #2A2A2C;
+            --dark-shadow-color: rgba(255, 255, 255, 0.04);
+            --dark-shadow-color-hover: rgba(255, 255, 255, 0.08);
+
+            /* Neutron effect variables */
+            --neutron-dot-color-light: rgb(var(--accent-primary-rgb));
+            --neutron-dot-color-dark: rgb(var(--dark-accent-primary-rgb));
+            --neutron-opacity-light: 0.06; /* Increased opacity */
+            --neutron-opacity-dark: 0.08;  /* Increased opacity */
+        }
+
+        body.dark-mode {
+            --bg-primary: var(--dark-bg-primary);
+            --bg-secondary: var(--dark-bg-secondary);
+            --bg-card: var(--dark-bg-card);
+            --text-primary: var(--dark-text-primary);
+            --text-secondary: var(--dark-text-secondary);
+            --text-tertiary: var(--dark-text-tertiary);
+            --accent-primary: var(--dark-accent-primary);
+            --accent-primary-rgb: var(--dark-accent-primary-rgb);
+            --border-color: var(--dark-border-color);
+            --border-color-subtle: var(--dark-border-color-subtle);
+            --shadow-color: var(--dark-shadow-color);
+            --shadow-color-hover: var(--dark-shadow-color-hover);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overscroll-behavior-y: none;
+            font-size: 16px; 
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.65;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            transition: background-color var(--transition-duration) var(--transition-cubic), color var(--transition-duration) var(--transition-cubic);
+        }
+        body.no-scroll {
+            overflow-y: hidden;
+        }
+
+        /* Neutron Background Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; 
+            pointer-events: none; 
+            background-image: radial-gradient(circle, var(--neutron-dot-color-light) 1px, transparent 1px);
+            background-size: 25px 25px; /* Adjusted size */
+            animation: neutron-drift 30s infinite linear; /* Adjusted duration */
+            opacity: var(--neutron-opacity-light);
+            transition: background-image var(--transition-duration) var(--transition-cubic), opacity var(--transition-duration) var(--transition-cubic);
+        }
+        body.dark-mode::before {
+            background-image: radial-gradient(circle, var(--neutron-dot-color-dark) 1px, transparent 1px);
+            opacity: var(--neutron-opacity-dark);
+        }
+
+        @keyframes neutron-drift {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; } /* Adjusted for new size */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1080px; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
+            border-radius: var(--border-radius-s);
+        }
+        :focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color-subtle);
+            transition: background-color var(--transition-duration) var(--transition-cubic), 
+                        box-shadow var(--transition-duration) var(--transition-cubic),
+                        border-bottom-color var(--transition-duration) var(--transition-cubic);
+        }
+        body.dark-mode header {
+            background: rgba(var(--dark-bg-primary-rgb), 0.75);
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; /* Ensure container takes full width for flex items */
+        }
+        
+        .mobile-nav-toggle {
+            /* display: none; /* Controlled by media query */
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem; 
+            cursor: pointer;
+            z-index: 1002;
+            padding: 10px;
+            border-radius: var(--border-radius-s);
+            order: 3; /* Ensures it's last in flex order on mobile if needed */
+        }
+        .mobile-nav-toggle .fa-times { display: none; }
+        .mobile-nav-toggle.nav-open .fa-bars { display: none; }
+        .mobile-nav-toggle.nav-open .fa-times { display: block; color: var(--text-primary); }
+
+        header .logo {
+            font-family: 'SF Pro Display', 'Segoe UI', 'Inter', 'Arial', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111;
+            text-shadow: 0 2px 12px #00000011;
+            transition: color 0.3s, text-shadow 0.3s;
+            margin-right: auto;
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            background-clip: initial;
+            filter: none;
+        }
+        header .logo:hover {
+            color: #007AFF; text-decoration: none;
+            text-shadow: 0 4px 18px #007aff22;
+            filter: none;
+        }
+        body.dark-mode header .logo {
+            color: #fff;
+            text-shadow: 0 2px 12px #00000033;
+        }
+        header .logo span { color: var(--accent-primary); font-weight: 700; }
+
+        /* Desktop Navigation */
+        header nav#main-nav {
+            /* display: flex; /* Controlled by media query */
+            list-style: none;
+        }
+        header nav#main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+        header nav#main-nav ul li {
+            margin-left: 28px; 
+        }
+        header nav#main-nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem; 
+            transition: color var(--transition-duration) var(--transition-cubic);
+            padding: 5px 0;
+        }
+        header nav#main-nav ul li a:hover, 
+        header nav#main-nav ul li a.active {
+            color: var(--accent-primary);
+        }
+
+        /* Theme Toggle Button */
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 20px; /* Default spacing for desktop */
+            border-radius: var(--border-radius-s);
+            line-height: 1;
+            transition: color var(--transition-duration) var(--transition-cubic);
+            order: 2; /* Default order */
+        }
+        #theme-toggle:focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
+        }
+        #theme-toggle .fa-moon { display: none; }
+        body.dark-mode #theme-toggle .fa-sun { display: none; }
+        body.dark-mode #theme-toggle .fa-moon { display: inline-block; }
+
+
+        /* Mobile Navigation Menu (#mobile-nav-menu-actual) */
+        nav#mobile-nav-menu-actual {
+            display: none; 
+            position: fixed;
+            top: var(--header-height); 
+            left: 0;
+            width: 100%; 
+            height: calc(100vh - var(--header-height)); 
+            background: var(--bg-primary); 
+            transform: translateY(-100%); 
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.35s var(--transition-cubic), opacity 0.35s var(--transition-cubic), visibility 0.35s, background-color var(--transition-duration) var(--transition-cubic);
+            z-index: 999; 
+            box-shadow: 0 5px 15px var(--shadow-color);
+            padding-top: 20px;
+            overflow-y: auto;
+        }
+        nav#mobile-nav-menu-actual.nav-open {
+            display: block; 
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        nav#mobile-nav-menu-actual ul {
+            list-style: none;
+            padding: 20px 0;
+            margin: 0;
+            display: flex; /* Use flex for alignment */
+            flex-direction: column;
+            align-items: center; 
+            width: 100%;
+        }
+        nav#mobile-nav-menu-actual ul li {
+            margin: 0; 
+            width: 100%;
+            text-align: center;
+        }
+        nav#mobile-nav-menu-actual ul li a {
+            padding: 15px 30px; 
+            display: block;
+            font-size: 1.2rem; 
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-color-subtle);
+            transition: color var(--transition-duration) var(--transition-cubic), background-color var(--transition-duration) var(--transition-cubic), border-bottom-color var(--transition-duration) var(--transition-cubic);
+        }
+        nav#mobile-nav-menu-actual ul li:last-child a {
+            border-bottom: none;
+        }
+        nav#mobile-nav-menu-actual ul li a:hover,
+        nav#mobile-nav-menu-actual ul li a.active {
+            background-color: var(--bg-secondary);
+            color: var(--accent-primary);
+        }
+
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: calc(var(--header-height) + 60px);
+            padding-bottom: 80px;
+            /* background-color: var(--bg-primary); /* Inherits from body */
+            overflow: hidden;
+        }
+        .hero-content { max-width: 800px; z-index: 1; }
+        .hero img.profile-pic {
+            width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
+            margin-bottom: 30px; box-shadow: 0 10px 30px var(--shadow-color); 
+            transition: transform var(--transition-duration) var(--transition-cubic), box-shadow var(--transition-duration) var(--transition-cubic);
+        }
+        .hero img.profile-pic:hover { transform: scale(1.03); }
+        .hero h1 {
+            font-size: 3.5rem; font-weight: 700; letter-spacing: -0.02em; 
+            color: #111;
+            text-shadow: 0 2px 12px #00000011;
+            margin-bottom: 12px;
+            transition: color 0.3s, text-shadow 0.3s, font-size 0.3s;
+        }
+        body.dark-mode .hero h1 {
+            color: #fff;
+            text-shadow: 0 2px 12px #00000033;
+        }
+        .hero .subtitle {
+            font-size: 1.75rem; color: var(--text-secondary); margin-bottom: 25px;
+            font-weight: 400; max-width: 600px; margin-left: auto; margin-right: auto;
+            text-align: center; 
+        }
+        .hero .subtitle .typing-text {
+            color: #007AFF;
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: 0.01em;
+            text-shadow: 0 2px 8px #00000011;
+            border-right: 2.5px solid #111;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 0.8s step-end infinite;
+            transition: color 0.9s, font-size 0.9s, border-right-color 0.3s;
+        }
+
+
+        body.dark-mode .hero .typing-text {
+            color: #fff;
+            border-right: 2.5px solid #fff;
+            text-shadow: 0 2px 8px #00000033;
+            animation: typing 14s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+        .hero .intro-paragraph {
+            font-family: var(--font-primary); font-weight: 600;
+            font-size: 1.125rem; color: var(--text-secondary); max-width: 650px;
+            margin: 0 auto 30px auto; line-height: 1.7;
+        }
+        .hero .cta-button {
+            display: inline-block; background-color: var(--accent-primary); color: #fff; 
+            padding: 12px 28px; text-decoration: none; border-radius: var(--border-radius-m); 
+            font-weight: 500; font-size: 1.05rem; margin-top: 15px;
+            transition: background-color var(--transition-duration) var(--transition-cubic), transform var(--transition-duration) var(--transition-cubic);
+        }
+        .hero .cta-button:hover { background-color: #0056b3; text-decoration: none; transform: translateY(-2px); }
+        body.dark-mode .hero .cta-button:hover { background-color: #0060CC; }
+        .social-links-hero { margin-top: 40px; }
+        .social-links-hero a {
+            color: var(--text-tertiary); margin: 0 12px; font-size: 1.5rem;
+            transition: color var(--transition-duration) var(--transition-cubic), transform var(--transition-duration) var(--transition-cubic);
+        }
+        .social-links-hero a:hover { color: var(--text-primary); text-decoration: none; transform: scale(1.1); }
+
+        /* General Section Styling */
+        section {
+            padding: 80px 0; position: relative;
+            transition: background-color var(--transition-duration) var(--transition-cubic);
+        }
+        section:nth-child(even) { background-color: var(--bg-secondary); }
+        .section-title {
+            text-align: center; font-size: 2.5rem; font-weight: 600;
+            letter-spacing: -0.015em; margin-bottom: 60px; color: var(--text-primary);
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+        .section-subtitle { 
+            text-align:center; max-width: 700px; margin: -40px auto 50px auto; 
+            color: var(--text-secondary); font-size: 1.125rem; line-height: 1.7;
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+
+        /* Card Styling */
+        .apple-card {
+            background: var(--bg-card); border: 1px solid var(--border-color-subtle);
+            border-radius: var(--border-radius-l); padding: 30px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform var(--transition-duration) var(--transition-cubic), 
+                        opacity 0.6s var(--transition-cubic);
+            opacity: 0; transform: translateY(30px);
+        }
+        .apple-card.is-visible { opacity: 1; transform: translateY(0); }
+        .apple-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px var(--shadow-color-hover); }
+        .apple-card h3 { 
+            color: var(--text-primary); margin-bottom: 12px; font-size: 1.35rem; font-weight: 600;
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+        .apple-card ul { list-style: none; padding-left: 0; }
+        .apple-card ul li { margin-bottom: 8px; position: relative; padding-left: 22px; color: var(--text-secondary); font-size: 1rem; line-height: 1.7; transition: color var(--transition-duration) var(--transition-cubic); }
+        .apple-card ul li::before { 
+            content: "•"; color: var(--accent-primary); position: absolute;
+            left: 0; top: -1px; font-size: 1.4em; 
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+
+        /* About Me Section */
+        #about .about-content { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: center; }
+        #about .about-image-container img {
+            max-width: 100%;
+            border-radius: var(--border-radius-m);
+            box-shadow: 0 6px 15px var(--shadow-color);
+            transition: box-shadow 0.3s var(--transition-cubic), transform 0.35s var(--transition-cubic), filter 0.35s var(--transition-cubic);
+        }
+        #about .about-image-container img:hover {
+            box-shadow: 0 12px 32px var(--shadow-color-hover), 0 2px 12px #007AFF33;
+            transform: scale(1.045) rotate(-2deg);
+            filter: brightness(1.08) saturate(1.15) contrast(1.08);
+        }
+        #about .about-text p { margin-bottom: 16px; font-size: 1.05rem; }
+        #about .about-text strong { color: var(--text-primary); font-weight: 600; transition: color var(--transition-duration) var(--transition-cubic); }
+
+        /* Skills Section */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .skill-category .apple-card { padding: 25px; }
+        .skill-category h3 { font-size: 1.25rem; display: flex; align-items: center; }
+        .skill-category h3 i { margin-right: 12px; color: var(--accent-primary); font-size: 1.1em; width: 20px; text-align: center; transition: color var(--transition-duration) var(--transition-cubic);}
+        .skill-category ul li::before { content: "›"; font-size: 1.3em; top: 0; } 
+
+        /* Experience & Activities Section */
+        .experience-grid { display: grid; gap: 30px; }
+        .experience-item .apple-card h3 { font-size: 1.5rem; }
+        .experience-item .date {
+            font-family: var(--font-primary); color: var(--text-tertiary); 
+            font-weight: 500; font-size: 0.9rem; margin-bottom: 10px; display: block;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+
+        /* Portfolio/Projects Section */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .portfolio-item .apple-card {
+            display: flex; flex-direction: column; height: 100%;
+            padding: 0; overflow: hidden; 
+        }
+        .portfolio-item img {
+            width: 100%; height: 250px; object-fit: contain; display: block; 
+            background-color: var(--bg-secondary); 
+            transition: background-color var(--transition-duration) var(--transition-cubic);
+        }
+        body.dark-mode .portfolio-item img { background-color: var(--dark-bg-card); }
+        .portfolio-content {
+            padding: 25px; flex-grow: 1; display: flex; flex-direction: column;
+        }
+        .portfolio-content h3 { font-size: 1.6rem; margin-bottom: 8px; }
+        .portfolio-content p {
+            flex-grow: 1; margin-bottom: 15px; color: var(--text-secondary); font-size: 0.95rem;
+        }
+        .portfolio-tags { margin-bottom: 20px; flex-wrap: wrap; }
+        .portfolio-tags .tag {
+            display: inline-block; background-color: rgba(var(--accent-primary-rgb), 0.1);
+            color: var(--accent-primary); padding: 6px 12px; border-radius: var(--border-radius-s);
+            font-size: 0.8rem; font-weight: 500; margin-right: 8px; margin-bottom: 8px;
+            transition: background-color var(--transition-duration) var(--transition-cubic), color var(--transition-duration) var(--transition-cubic);
+        }
+        body.dark-mode .portfolio-tags .tag { background-color: rgba(var(--dark-accent-primary-rgb), 0.15); }
+        .portfolio-links a {
+            color: var(--accent-primary); text-decoration: none; margin-right: 18px;
+            font-weight: 500; font-size: 0.95rem; display: inline-flex; align-items: center;
+        }
+        .portfolio-links a i { margin-right: 6px; }
+        .portfolio-links a:hover { text-decoration: underline; }
+
+        /* Contact Section */
+        #contact .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: flex-start; }
+        #contact .apple-card { width: 100%; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; margin-bottom: 6px; color: var(--text-secondary);
+            font-weight: 500; font-size: 0.9rem;
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px 15px; background-color: var(--bg-secondary); 
+            border: 1px solid var(--border-color); border-radius: var(--border-radius-m);
+            color: var(--text-primary); font-family: var(--font-primary); font-size: 1rem;
+            transition: border-color var(--transition-duration) var(--transition-cubic), 
+                        box-shadow var(--transition-duration) var(--transition-cubic),
+                        background-color var(--transition-duration) var(--transition-cubic),
+                        color var(--transition-duration) var(--transition-cubic);
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(var(--accent-primary-rgb), 0.2);
+        }
+        body.dark-mode .form-group input:focus, 
+        body.dark-mode .form-group textarea:focus {
+            box-shadow: 0 0 0 3px rgba(var(--dark-accent-primary-rgb), 0.25);
+        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        button[type="submit"].contact-button { 
+            display: inline-block; background-color: var(--accent-primary); color: #fff; 
+            padding: 12px 28px; border: none; border-radius: var(--border-radius-m);
+            font-weight: 500; font-size: 1rem; cursor: pointer;
+            transition: background-color var(--transition-duration) var(--transition-cubic), transform var(--transition-duration) var(--transition-cubic);
+        }
+        button[type="submit"].contact-button:hover { background-color: #0056b3; transform: translateY(-2px); }
+        body.dark-mode button[type="submit"].contact-button:hover { background-color: #0060CC; }
+        .contact-info-wrapper h3 {
+            color: var(--text-primary); margin-bottom: 15px;
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+        .contact-info-item {
+            display: flex; align-items: center; margin-bottom: 15px;
+            color: var(--text-secondary); font-size: 1rem;
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+        .contact-info-item i {
+            font-size: 1.2rem; color: var(--text-tertiary); 
+            margin-right: 12px; width: 24px; text-align: center;
+            transition: color var(--transition-duration) var(--transition-cubic);
+        }
+        .contact-info-item a { color: var(--text-secondary); transition: color var(--transition-duration) var(--transition-cubic); }
+        .contact-info-item a:hover { color: var(--accent-primary); }
+
+        /* Footer */
+        footer {
+            text-align: center; padding: 50px 0; background-color: var(--bg-secondary); 
+            border-top: 1px solid var(--border-color-subtle); color: var(--text-tertiary); 
+            font-size: 0.9rem;
+            transition: background-color var(--transition-duration) var(--transition-cubic), 
+                        color var(--transition-duration) var(--transition-cubic),
+                        border-top-color var(--transition-duration) var(--transition-cubic);
+        }
+        footer p { margin-bottom: 5px; }
+        footer a { color: var(--text-secondary); font-weight: 500; }
+        footer a:hover { color: var(--accent-primary); text-decoration: underline;}
+        .scroll-to-top {
+            position: fixed; bottom: 25px; right: 25px; background: rgba(0,0,0,0.6); 
+            color: white; width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            opacity: 0; visibility: hidden; transform: translateY(20px);
+            transition: opacity var(--transition-duration) var(--transition-cubic), visibility var(--transition-duration) var(--transition-cubic), transform var(--transition-duration) var(--transition-cubic), background-color var(--transition-duration) var(--transition-cubic),
+                        color var(--transition-duration) var(--transition-cubic);
+            z-index: 999;
+        }
+        .scroll-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .scroll-to-top:hover { background: rgba(0,0,0,0.8); text-decoration: none; color: white; }
+        body.dark-mode .scroll-to-top { background: rgba(240,240,240,0.7); color: var(--dark-bg-primary); }
+        body.dark-mode .scroll-to-top:hover { background: rgba(255,255,255,0.9); color: var(--dark-bg-primary); }
+
+        @media (max-width: 992px) {
+            html { font-size: 15px; }
+            .container { max-width: 900px; }
+            .hero h1 { font-size: 3rem; }
+            .hero .subtitle { font-size: 1.5rem; }
+            #about .about-content { grid-template-columns: 1fr; gap: 40px; }
+            #about .about-image-container { order: -1; margin: 0 auto 30px auto; max-width: 350px;}
+            .portfolio-grid { grid-template-columns: 1fr; } 
+        }
+
+        @media (max-width: 768px) {
+            html { font-size: 14.5px; }
+            :root { --header-height: 60px; }
+            .container { padding: 0 15px; }
+            .hero { padding-top: calc(var(--header-height) + 40px); padding-bottom: 60px; min-height: 75vh; }
+            .hero img.profile-pic { width: 130px; height: 130px; margin-bottom: 25px;}
+            .hero h1 { font-size: 2.4rem; }
+            .hero .subtitle { font-size: 1.3rem; margin-bottom: 20px; }
+            .hero .intro-paragraph { font-size: 1rem; }
+            .hero .cta-button { padding: 10px 24px; font-size: 0.95rem; }
+
+            .section-title { font-size: 2rem; margin-bottom: 40px; }
+            .section-subtitle { font-size: 1rem; margin: -25px auto 30px auto; }
+            section { padding: 60px 0; }
+            
+            header nav#main-nav { display: none !important; } /* Hide desktop nav */
+            .mobile-nav-toggle { display: flex; } /* Show mobile toggle */
+            
+            #theme-toggle {
+                margin-left: 0; /* Reset desktop margin */
+                margin-right: 5px; /* Space before mobile toggle */
+                font-size: 1.4rem;
+                order: 2; /* Ensure it's before mobile nav toggle */
+            }
+            .mobile-nav-toggle {
+                 order: 3; /* After theme toggle */
+            }
+            header .logo {
+                font-size: 1.3rem;
+                order: 1; /* Ensure logo is first */
+                margin-right: auto; /* Push toggles to the right */
+            }
+        }
+
+        /* Animation classes */
+        .animate-on-scroll { 
+             opacity: 0;
+             transform: translateY(20px); 
+             transition: opacity 0.6s var(--transition-cubic), transform 0.6s var(--transition-cubic);
+        }
+        .animate-on-scroll.is-visible,
+        .apple-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Contact Section Responsive Fix */
+        #contact .contact-container {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        #contact .contact-form-wrapper, #contact .contact-info-wrapper {
+            flex: 1 1 0;
+            min-width: 0;
+            width: 100%;
+            max-width: none;
+        }
+        @media (max-width: 768px) {
+            #contact .contact-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            #contact .contact-form-wrapper, #contact .contact-info-wrapper {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        /* Neuron Network Canvas Background */
+        #neuron-bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.7;
+            transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+            filter: blur(0.5px) contrast(1.1);
+        }
+        body.neuron-bright #neuron-bg-canvas {
+            opacity: 0.38;
+        }
+        /* Hide mobile nav toggle on desktop */
+        .mobile-nav-toggle { display: none; }
+        @media (max-width: 768px) {
+            .mobile-nav-toggle { display: flex; }
+        }
+        /* Smooth scroll for all browsers */
+        html { scroll-behavior: smooth; }
+        /* Card, button, tag hover improvements */
+        .apple-card:hover, .portfolio-item:hover .apple-card {
+            box-shadow: 0 12px 32px var(--shadow-color-hover), 0 1.5px 8px var(--accent-primary);
+            transform: translateY(-6px) scale(1.015);
+        }
+        .cta-button, button[type="submit"].contact-button {
+            box-shadow: 0 2px 8px rgba(var(--accent-primary-rgb),0.08);
+        }
+        .cta-button:hover, button[type="submit"].contact-button:hover {
+            background: linear-gradient(90deg, #007AFF 60%, #0A84FF 100%);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(var(--accent-primary-rgb),0.18);
+            transform: translateY(-3px) scale(1.03);
+        }
+        .portfolio-tags .tag:hover {
+            background: linear-gradient(90deg, #007AFF22 60%, #0A84FF22 100%);
+            color: #0A84FF;
+            box-shadow: 0 2px 8px #0A84FF22;
+        }
+        .social-links-hero a:hover {
+            color: #007AFF;
+            transform: scale(1.18) rotate(-6deg);
+        }
+        /* Typing text effect styling - always blue in light, white in dark */
+        .hero .typing-text {
+            color: #007AFF;
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: 0.01em;
+            text-shadow: 0 2px 8px #007aff33;
+            border-right: 2.5px solid #007AFF;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 3s step-end infinite;
+            transition: color 0.3s, font-size 0.3s, border-right-color 0.3s;
+        }
+        body.dark-mode .hero .typing-text  {
+            color: #fff;
+            border-right: 2.5px solid #fff;
+            text-shadow: 0 2px 8px #00000033;
+            animation: typing 14s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            50% { border-color: transparent; }
+        }
+
+        @media (max-width: 992px) {
+            .hero .typing-text { font-size: 1.15rem; }
+        }
+        @media (max-width: 768px) {
+            .hero .typing-text { font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .hero .typing-text { font-size: 0.92rem; }
+        }
+        /* Logo and hero font style */
+        header .logo {
+            font-family: 'SF Pro Display', 'Segoe UI', 'Inter', 'Arial', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111;
+            text-shadow: 0 2px 12px #00000011;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        header .logo:hover {
+            color: #007AFF;
+            text-shadow: 0 4px 18px #007aff22;
+        }
+        body.dark-mode header .logo {
+            color: #fff;
+            text-shadow: 0 2px 12px #00000033;
+        }
+        .hero h1 {
+            font-family: 'SF Pro Display', 'Segoe UI', 'Inter', 'Arial', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #111;
+            text-shadow: 0 2px 12px #00000011;
+            margin-bottom: 12px;
+            transition: color 0.3s, text-shadow 0.3s, font-size 0.3s;
+        }
+        body.dark-mode .hero h1 {
+            color: #fff;
+            text-shadow: 0 2px 12px #00000033;
+        }
+
+        /* Navigation bold and English */
+        header nav#main-nav ul li a,
+        nav#mobile-nav-menu-actual ul li a {
+            font-weight: 700;
+        }
+
+        /* Smooth scroll and scroll-behavior improvements */
+        html {
+            scroll-behavior: smooth;
+            overscroll-behavior-y: none;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0,122,255,0.13);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,122,255,0.22);
+        }
+        /* Section scroll fade-in effect */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        html, body, * {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -ms-user-select: none !important;
+            -moz-user-select: none !important;
+            cursor:pointer !important;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="neuron-bg-canvas"></canvas>
+    <header>
+        <div class="container">
+            <a href="#hero" class="logo">Portfolio</a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" title="Switch Light/Dark Mode">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav-menu-actual">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
+    <nav id="mobile-nav-menu-actual">
+        <ul>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero" id="hero">
+            <div class="container hero-content">
+                <img src="./src/Images/Avatar.webp" alt="Ảnh đại diện của Nam Trần" class="profile-pic animate-on-scroll" loading="lazy" decoding="async">
+                <h1 class="animate-on-scroll" style="transition-delay: 0.1s;">Chào bạn, Mình là Nam Trần.</h1>
+                <p class="subtitle animate-on-scroll" style="transition-delay: 0.2s;"><span class="typing-text"></span></p>
+                <p class="intro-paragraph animate-on-scroll" style="transition-delay: 0.3s;">
+                Khám phá xây dựng giải pháp để tạo ra những sản phẩm ý nghĩa.
+                </p>
+                <a href="#projects" class="cta-button animate-on-scroll" style="transition-delay: 0.4s;">Xem Dự Án Của Mình</a>
+                <div class="social-links-hero animate-on-scroll" style="transition-delay: 0.5s;">
+                    <a href="https://facebook.com/Namtran5905" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://Instragram.com/Namtran5905" target="_blank" title="Instragram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://threads.com/Namtran5905" target="_blank" title="Threads"><i class="fa-brands fa-threads"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Về Bản Thân</h2>
+                <div class="about-content">
+                    <div class="about-text animate-on-scroll" style="transition-delay: 0.1s;">
+                        <p>Xin chào! Mình là Nam Trần một sinh viên và là người làm bán thời gian.</p>
+                        <p>Dù chưa có nhiều kinh nghiệm chuyên sâu, tôi luôn mang trong mình một tinh thần ham học hỏi,<strong style="color: green; font-weight: bold;"> khả năng thích ứng nhanh và một thái độ làm việc tích cực.</strong> Các công việc bán thời gian và hoạt động ngoại khóa đã giúp tôi rèn luyện nhiều kỹ năng mềm quan trọng.</p>
+                        <p>Mục tiêu của Mình là được cống hiến và phát triển trong một môi trường công nghệ sáng tạo, nơi Mình có thể áp dụng kiến thức, đối mặt với thử thách và đóng góp vào sự thành công của các dự án và sẵn sàng khám phá các cơ hội mới.</p>
+                    </div>
+                    <div class="about-image-container animate-on-scroll" style="transition-delay: 0.2s;">
+                        <img src="./src/Images/image.webp" alt="Nam Trần - Đam mê công nghệ" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Kỹ Năng & Công Cụ</h2>
+                <div class="skills-grid">
+                    <div class="skill-category animate-on-scroll">
+                        <div class="apple-card">
+                            <h3><i class="fas fa-brain"></i>Kỹ Năng Mềm</h3>
+                            <ul>
+                                <li>Giao tiếp & Trình bày</li>
+                                <li>Làm việc nhóm & Độc lập</li>
+                                <li>Giải quyết vấn đề</li>
+                                <li>Tư duy phản biện & Phân tích</li>
+                                <li>Quản lý thời gian</li>
+                                <li>Khả năng thích ứng & Học hỏi nhanh</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="skill-category animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="apple-card">
+                            <h3><i class="fas fa-tools"></i>Công Cụ & Tin Học</h3>
+                            <ul>
+                                <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+                                <li>Google Workspace (Docs, Sheets, Slides)</li>
+                                <li>Thiết kế: Photoshop, Canva (Cơ bản)</li>
+                                <li>Video Editing: Premiere Pro, Capcut (Cơ bản)</li>
+                                <li>Hệ điều hành: Windows, Linux (Cơ bản)</li>
+                                <li>Tiếng Anh: Đọc hiểu tài liệu chuyên ngành</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="skill-category animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="apple-card">
+                            <h3><i class="fas fa-laptop-code"></i>Kiến Thức Kỹ Thuật</h3>
+                            <ul>
+                                <li>Ngôn ngữ: HTML, CSS, JavaScript, C++, C#</li>
+                                <li>Framework/Library: ReactJS (Đang học)</li>
+                                <li>Version Control: Git & GitHub</li>
+                                <li>Mạng máy tính & Phần cứng cơ bản</li>
+                                <li>Sử dụng AI hỗ trợ công việc</li>
+                                <li>Thương mại Điện tử & Marketing cơ bản</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Kinh Nghiệm & Hoạt Động</h2>
+                <div class="experience-grid">
+                    <div class="experience-item animate-on-scroll">
+                        <div class="apple-card">
+                            <span class="date">03/2025 – Hiện tại</span>
+                            <h3>Nhân viên Vận chuyển & Phân phối Thực phẩm</h3>
+                            <p style="color: var(--text-tertiary); font-weight: 500; margin-bottom: 10px;">Đối tác ShopeeFood</p>
+                            <p>Công việc bán thời gian nhằm tăng cường kinh nghiệm thực tế và kỹ năng mềm.</p>
+                            <ul>
+                                <li>Giao nhận đơn hàng, đảm bảo chất lượng dịch vụ và sự hài lòng của khách hàng.</li>
+                                <li>Tương tác, giải quyết các yêu cầu và phản hồi từ khách hàng.</li>
+                                <li>Rèn luyện kỹ năng quản lý thời gian, làm việc độc lập và chịu áp lực.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="experience-item animate-on-scroll" style="transition-delay: 0.1s;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Dự Án Nổi Bật</h2>
+                <p class="section-subtitle animate-on-scroll" style="transition-delay: 0.05s;">
+                    Một số dự án cá nhân và bài tập Mình đã thực hiện để rèn luyện kỹ năng và khám phá niềm đam mê công nghệ.
+                </p>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="apple-card">
+                            <img src="./src/Project/Product1.webp" alt="Website cá nhân Nam Trần" loading="lazy" decoding="async">
+                            <div class="portfolio-content">
+                                <h3>BIO</h3>
+                                <p>Trang Bio cá nhân, thiết kế và xây dựng bằng ReactJS. Tập trung vào trải nghiệm người dùng mượt mà và responsive.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Bio</span><span class="tag">ReactJS</span><span class="tag">Link</span>
+                                    <span class="tag">Responsive</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="https://github.com/Namtran592005/BioPage" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                                    <a href="https://namtran592005.github.io/BioPage/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="apple-card">
+                            <img src="./src/Project/Product2.webp" alt="Chatbot AI VEGA" loading="lazy" decoding="async">
+                            <div class="portfolio-content">
+                                <h3>VEGA AI Chatbot</h3>
+                                <p>Ứng dụng Chatbot AI được xây dựng bằng React, tích hợp API từ Google Gemini. Giao diện trực quan, hỗ trợ nhập liệu giọng nói và lưu trữ hội thoại.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">ReactJS</span><span class="tag">API</span><span class="tag">AI</span>
+                                    <span class="tag">Gemini</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="https://github.com/Namtran592005/VEGA-AI" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                                    <a href="https://namtran592005.github.io/VEGA-AI/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="apple-card">
+                            <img src="./src/Project/Product3.webp" alt="Website Tiện ích" loading="lazy" decoding="async">
+                            <div class="portfolio-content">
+                                <h3>Utility Tools Website</h3>
+                                <p>Một trang web tập hợp các công cụ tiện ích online cơ bản, phát triển bằng React. Mục tiêu cung cấp giải pháp nhanh chóng và tiện lợi cho người dùng.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">ReactJS</span><span class="tag">Web Tools</span><span class="tag">Utility</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="https://github.com/Namtran592005/Utility-Tools" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                                    <a href="https://namtran592005.github.io/Utility-Tools/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Học Vấn</h2>
+                 <div class="experience-grid">
+                    <div class="experience-item animate-on-scroll">
+                        <div class="apple-card">
+                            <span class="date">2024 – DỰ KIẾN 2027</span>
+                            <h3>Trường Cao đẳng Nghề Trà Vinh (TVC)</h3>
+                            <p style="color: var(--text-tertiary); font-weight: 500; margin-bottom: 10px;">Chuyên ngành: Công nghệ Thông Tin</p>
+                        </div>
+                    </div>
+                    <div class="experience-item animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="apple-card">
+                            <span class="date">2020 – 2022</span>
+                            <h3>Trường Trung Cấp Kinh tế - Kỹ thuật Nguyễn Hữu Cảnh</h3>
+                             <p style="color: var(--text-tertiary); font-weight: 500; margin-bottom: 10px;">Chuyên ngành: Tin Học Ứng dụng</p>
+                        </div>
+                    </div>
+                    <div class="experience-item animate-on-scroll" style="transition-delay: 0.2s;">
+                         <div class="apple-card">
+                            <span class="date">TỐT NGHIỆP 2023</span>
+                            <h3>Trung Tâm GDTX - HNDN Thành Phố Trà Vinh</h3>
+                             <p style="color: var(--text-tertiary); font-weight: 500; margin-bottom: 10px;">Chương trình Giáo dục Thường xuyên Cấp THPT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Kết Nối Với Mình</h2>
+                <p class="section-subtitle animate-on-scroll" style="transition-delay: 0.05s;">
+                    Mình luôn sẵn sàng lắng nghe các cơ hội hợp tác, dự án thú vị hoặc đơn giản là một lời chào. Đừng ngần ngại liên hệ!
+                </p>
+                <div class="contact-container">
+                    <div class="contact-form-wrapper animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="apple-card">
+                            <h3>Gửi Lời Nhắn</h3>
+                            <form id="contact-form" action="https://formspree.io/f/xzzryjzq" method="POST">
+                                <div class="form-group">
+                                    <label for="name">Họ và Tên</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Lời nhắn</label>
+                                    <textarea id="message" name="message" required></textarea>
+                                </div>
+                                <button type="submit" class="contact-button">Gửi Đi <i class="fas fa-arrow-right" style="margin-left: 8px; font-size: 0.8em"></i></button>
+                                <p id="form-status" style="margin-top: 15px; font-size: 0.9rem;"></p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="contact-info-wrapper animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="apple-card">
+                            <h3>Thông Tin Liên Hệ</h3>
+                            <div class="contact-info-item">
+                                <i class="fas fa-envelope"></i>
+                                <span><a href="mailto:Namtran5905@gmail.com">Namtran5905@gmail.com</a></span>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span><a href="tel:+84YOURPHONENUMBER">096****439</a></span> 
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Phường Nguyệt Hóa, Tỉnh Vĩnh Long</span>
+                            </div>
+                            <h3 style="margin-top: 30px;">Mạng Xã Hội</h3>
+                             <div class="contact-info-item">
+                                <i class="fab fa-facebook"></i>
+                                <a href="https://fb.com/namtran5905" target="_blank">Facebook</a>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fab fa-instagram"></i>
+                                <a href="https://instagram.com/namtran5905" target="_blank">Instagram</a>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fab fa-threads"></i>
+                                <a href="https://threads.com/@namtran5905" target="_blank">Threads</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container" style="position: relative;">
+            <p style="margin-bottom: 2%;"><span id="currentYear"></span> Made by Nam Trần</p>
+            <a><i class="fa-brands fa-mandalorian fa-2xl"></i></a>
+            <a href="./src/File/Porfolio.pdf" download style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: var(--accent-primary); color: #fff; padding: 8px 18px; border-radius: 8px; font-size: 1rem; font-weight: 500; text-decoration: none; box-shadow: 0 2px 8px #007aff22; transition: background 0.2s;">
+                <i class="fa-solid fa-download"></i>
+            </a>
+        </div>
+    </footer>
+    <div style="background:var(--bg-secondary);color:var(--text-tertiary);font-size:0.92rem;text-align:center;padding:18px 8px 18px 8px;border-top:1px solid var(--border-color-subtle);">
+        <span style="display:inline-block;margin-bottom:4px;">🌱 Trang web này đã được tối ưu hóa để tải nhanh, tiết kiệm năng lượng và giảm phát thải carbon.</span><br>
+        <span style="display:inline-block;margin-bottom:4px;">🔒 An toàn & bảo mật, không thu thập dữ liệu cá nhân, không chứa mã độc hại.</span><br>
+        <span style="display:inline-block;">💚 Hãy cùng bảo vệ môi trường và sử dụng công nghệ một cách có trách nhiệm!</span>
+<div id="wcb" class="carbonbadge"></div>
+<script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
+    </div>
+    <a href="#hero" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Neuron network background effect
+        (function(){
+            const canvas = document.getElementById('neuron-bg-canvas');
+            if (!canvas) return;
+            let ctx, w, h, dpr, points = [], lines = [], mouse = {x:0,y:0,active:false};
+            function resize() {
+                dpr = window.devicePixelRatio || 1;
+                w = window.innerWidth; h = window.innerHeight;
+                canvas.width = w * dpr; canvas.height = h * dpr;
+                canvas.style.width = w+'px'; canvas.style.height = h+'px';
+                ctx = canvas.getContext('2d');
+                ctx.setTransform(dpr,0,0,dpr,0,0);
+            }
+            function randomPoint() {
+                return {
+                    x: Math.random()*w,
+                    y: Math.random()*h,
+                    vx: (Math.random()-0.5)*0.2,
+                    vy: (Math.random()-0.5)*0.2
+                };
+            }
+            function initPoints() {
+                points = [];
+                let count = Math.floor(w*h/12000);
+                for(let i=0;i<count;i++) points.push(randomPoint());
+            }
+            function draw() {
+                ctx.clearRect(0,0,w,h);
+                for(let i=0;i<points.length;i++){
+                    let p = points[i];
+                    ctx.beginPath();
+                    ctx.arc(p.x,p.y,2.2,0,2*Math.PI);
+                    ctx.fillStyle = mouse.active ? '#0A84FF' : '#007AFF';
+                    ctx.globalAlpha = mouse.active ? 0.7 : 0.45;
+                    ctx.fill();
+                }
+                ctx.globalAlpha = mouse.active ? 0.22 : 0.13;
+                for(let i=0;i<points.length;i++){
+                    for(let j=i+1;j<points.length;j++){
+                        let a = points[i], b = points[j];
+                        let dist = Math.hypot(a.x-b.x,a.y-b.y);
+                        if(dist<120){
+                            ctx.beginPath();
+                            ctx.moveTo(a.x,a.y);
+                            ctx.lineTo(b.x,b.y);
+                            ctx.strokeStyle = mouse.active ? '#0A84FF' : '#007AFF';
+                            ctx.lineWidth = 1.1;
+                            ctx.globalAlpha = mouse.active ? 0.22 : 0.13;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                ctx.globalAlpha = 1;
+            }
+            function animate() {
+                for(let p of points){
+                    p.x += p.vx; p.y += p.vy;
+                    if(p.x<0||p.x>w) p.vx*=-1;
+                    if(p.y<0||p.y>h) p.vy*=-1;
+                }
+                draw();
+                requestAnimationFrame(animate);
+            }
+            window.addEventListener('resize',()=>{resize();initPoints();});
+            canvas.addEventListener('mousemove',e=>{mouse.active=true;document.body.classList.add('neuron-bright');});
+            canvas.addEventListener('mouseleave',e=>{mouse.active=false;document.body.classList.remove('neuron-bright');});
+            resize();initPoints();animate();
+        })();
+
+        // Typing animation (with deleting effect and smooth transition)
+        const typingTextElement = document.querySelector('.hero .typing-text');
+        const rolesToType = [
+            "Bình tĩnh - Tự tin - Chiến thắng",
+            "Devolper - Part-timer - Student",
+            "Chill - Relax - Enjoy",
+            "Moore than you know",
+        ];
+        let currentRoleIndex = 0, currentCharIndex = 0, isDeletingText = false;
+
+        function typeRole() {
+            if (!typingTextElement) return;
+            const fullText = rolesToType[currentRoleIndex];
+            typingTextElement.textContent = fullText.substring(0, currentCharIndex);
+            // Hiệu ứng mờ khi chuyển đoạn
+            if ((isDeletingText && currentCharIndex === 0) || (!isDeletingText && currentCharIndex === fullText.length)) {
+                typingTextElement.style.opacity = 0.5;
+                setTimeout(() => {
+                    typingTextElement.style.transition = 'opacity 0.4s';
+                    typingTextElement.style.opacity = 1;
+                }, 200);
+            }
+            let typeSpeed = isDeletingText ? 40 : 80;
+            if (!isDeletingText && currentCharIndex < fullText.length) {
+                currentCharIndex++;
+                setTimeout(typeRole, typeSpeed);
+            } else if (!isDeletingText && currentCharIndex === fullText.length) {
+                setTimeout(() => {
+                    isDeletingText = true;
+                    setTimeout(typeRole, 600);
+                }, 1400); // pause before deleting
+            } else if (isDeletingText && currentCharIndex > 0) {
+                currentCharIndex--;
+                setTimeout(typeRole, typeSpeed);
+            } else if (isDeletingText && currentCharIndex === 0) {
+                isDeletingText = false;
+                currentRoleIndex = (currentRoleIndex + 1) % rolesToType.length;
+                setTimeout(typeRole, 600); // pause before typing next
+            }
+        }
+        setTimeout(typeRole, 800);
+
+        // Intersection Observer for animations (improved)
+        const animatedElements = document.querySelectorAll('.animate-on-scroll, .apple-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Cải thiện hiệu ứng cuộn trang mượt mà
+        // (Đã có scroll-behavior: smooth trong CSS, thêm scrollIntoView cho các link)
+        const allNavLinks = document.querySelectorAll('a[href^="#"]');
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        // Active navigation link highlighting & Smooth Scroll
+        const desktopNavLinks = document.querySelectorAll('header nav#main-nav ul li a');
+        const mobileNavLinksList = document.querySelectorAll('nav#mobile-nav-menu-actual ul li a');
+        const allNavLinks2 = [...desktopNavLinks, ...mobileNavLinksList];
+
+        const pageSections = document.querySelectorAll('main section[id]');
+        const siteHeader = document.querySelector('header');
+        const headerHeightOffset = siteHeader ? siteHeader.offsetHeight : 60;
+
+        function updateActiveNavLink() {
+            let currentSectionId = 'hero'; 
+            const scrollPosition = window.pageYOffset + headerHeightOffset + 50; 
+
+            pageSections.forEach(section => {
+                if (scrollPosition >= section.offsetTop) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+            
+            if (window.pageYOffset < (document.getElementById('hero') ? document.getElementById('hero').offsetHeight / 2 : 300) ) {
+                 currentSectionId = 'hero';
+            }
+
+            allNavLinks2.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#') && href.length > 1 && href.substring(1) === currentSectionId) {
+                    link.classList.add('active');
+                } else if (currentSectionId === 'hero' && href === '#hero') { 
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        allNavLinks2.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const targetPosition = targetElement.offsetTop - headerHeightOffset + 1;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                        if (mobileNavMenuActual && mobileNavMenuActual.classList.contains('nav-open')) {
+                           closeMobileNavigation();
+                        }
+                    }
+                }
+            });
+        });
+
+        window.addEventListener('scroll', updateActiveNavLink);
+        window.addEventListener('load', updateActiveNavLink);
+
+        // Scroll to top button
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        window.addEventListener('scroll', () => {
+            if (scrollToTopButton) {
+                scrollToTopButton.classList.toggle('visible', window.pageYOffset > 300);
+            }
+        });
+        if (scrollToTopButton) {
+
+            scrollToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetHref = scrollToTopButton.getAttribute('href');
+                if (targetHref && targetHref.startsWith('#')) {
+                    const targetElement = document.querySelector(targetHref);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        }
+        
+        // Mobile Navigation
+        const mobileNavToggleButton = document.querySelector('.mobile-nav-toggle');
+        const mobileNavMenuActual = document.getElementById('mobile-nav-menu-actual');
+        const pageBody = document.body;
+
+        function closeMobileNavigation() {
+            if (mobileNavMenuActual) mobileNavMenuActual.classList.remove('nav-open');
+            if (mobileNavToggleButton) {
+                mobileNavToggleButton.classList.remove('nav-open');
+                mobileNavToggleButton.setAttribute('aria-expanded', 'false');
+            }
+            pageBody.classList.remove('no-scroll');
+        }
+
+        if (mobileNavToggleButton && mobileNavMenuActual) {
+            mobileNavToggleButton.addEventListener('click', () => {
+                const isNavOpen = mobileNavMenuActual.classList.toggle('nav-open');
+                mobileNavToggleButton.classList.toggle('nav-open');
+                mobileNavToggleButton.setAttribute('aria-expanded', isNavOpen);
+                pageBody.classList.toggle('no-scroll', isNavOpen);
+            });
+        }
+        
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) { // Desktop viewport width
+                if (mobileNavMenuActual && mobileNavMenuActual.classList.contains('nav-open')) {
+                    closeMobileNavigation();
+                }
+            }
+        });
+        
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNavMenuActual && mobileNavMenuActual.classList.contains('nav-open')) {
+                closeMobileNavigation();
+            }
+        });
+        
+        // Theme Toggle
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const userPreferredTheme = localStorage.getItem('theme');
+
+        // Apply theme on initial load
+        if (userPreferredTheme === 'dark' || (!userPreferredTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode'); // Explicitly ensure light mode if not dark
+        }
+        
+        themeToggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+        
+        // Formspree Submission
+        const contactForm = document.getElementById('contact-form');
+        const formStatusMessage = document.getElementById('form-status');
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            if(formStatusMessage) formStatusMessage.innerHTML = 'Đang gửi...';
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: contactForm.method,
+                    body: formData,
+                    headers: {'Accept': 'application/json'}
+                });
+                if (response.ok) {
+                    if(formStatusMessage) formStatusMessage.innerHTML = "Cảm ơn! Lời nhắn của bạn đã được gửi.";
+                    if(formStatusMessage) formStatusMessage.style.color = 'green';
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                             if(formStatusMessage) formStatusMessage.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                             if(formStatusMessage) formStatusMessage.innerHTML = "Oops! Có lỗi xảy ra khi gửi form.";
+                        }
+                         if(formStatusMessage) formStatusMessage.style.color = 'red';
+                    })
+                }
+            } catch (error) {
+                 if(formStatusMessage) formStatusMessage.innerHTML = "Oops! Có lỗi xảy ra khi gửi form.";
+                 if(formStatusMessage) formStatusMessage.style.color = 'red';
+            }
+            if(formStatusMessage) setTimeout(() => { formStatusMessage.innerHTML = ''; }, 6000);
+        }
+        if (contactForm) {
+            contactForm.addEventListener("submit", handleFormSubmit);
+        }
+
+        // Chặn thao tác copy, cut, paste, drag, context menu
+        document.addEventListener('copy', e => e.preventDefault());
+        document.addEventListener('cut', e => e.preventDefault());
+        document.addEventListener('paste', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('dragstart', e => e.preventDefault());
+        document.addEventListener('contextmenu', e => e.preventDefault());
+
+        // Initialize typing animation & initial active link check
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typingTextElement) setTimeout(typeRole, 1200);
+            updateActiveNavLink(); 
+        });
+
+        // Lazy loading for all images
+        document.querySelectorAll('img').forEach(img => {
+            img.setAttribute('loading','lazy');
+            img.setAttribute('decoding','async');
+        });
+    </script>
+</body>
+</html>
