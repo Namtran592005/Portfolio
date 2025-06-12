@@ -1,1008 +1,2149 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio Nam Tran">
-    <meta name="keywords" content="Portfolio, Nam Trần, Lập trình viên, IT, Công nghệ, ReactJS, HTML, CSS, JavaScript, Dự án, Kỹ năng mềm, Thiết kế, AI, Chatbot, Web Developer, Tuyển dụng, Học IT, Sinh viên, Trà Vinh, Developer, Software Engineer, Resume, Frontend, Backend, Github, Canva, Photoshop, PowerPoint, Marketing, Utility Tools, Bio Page, ShopeeFood, Trường Cao đẳng Nghề Trà Vinh, TVC, Nguyễn Hữu Cảnh, GDTX, HNDN, Việt Nam">
-    <meta property="og:title" content="Portfolio Nam Tran">
-    <meta property="og:description" content="Click For More Details">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tranvohoangnam.id.vn">
-    <meta property="og:image" content="https://namtran592005.github.io/Portfolio/src/Images/portfolio.webp">
-    <meta property="og:locale" content="vi_VN">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Portfolio Nam Tran">
-    <meta name="twitter:description" content="Click For More Details">
-    <meta name="twitter:image" content="https://namtran592005.github.io/Portfolio/src/Images/portfolio.webp">
-    <link rel="canonical" href="https://tranvohoangnam.id.vn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio Nam Tran" />
+    <meta
+      name="keywords"
+      content="Portfolio, Nam Trần, Lập trình viên, IT, Công nghệ, ReactJS, HTML, CSS, JavaScript, Dự án, Kỹ năng mềm, Thiết kế, AI, Chatbot, Web Developer, Tuyển dụng, Học IT, Sinh viên, Trà Vinh, Developer, Software Engineer, Resume, Frontend, Backend, Github, Canva, Photoshop, PowerPoint, Marketing, Utility Tools, Bio Page, ShopeeFood, Trường Cao đẳng Nghề Trà Vinh, TVC, Nguyễn Hữu Cảnh, GDTX, HNDN, Việt Nam"
+    />
+    <meta property="og:title" content="Portfolio Nam Tran" />
+    <meta property="og:description" content="Click For More Details" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tranvohoangnam.id.vn" />
+    <meta
+      property="og:image"
+      content="https://namtran592005.github.io/Portfolio/src/Images/portfolio.webp"
+    />
+    <meta property="og:locale" content="vi_VN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portfolio Nam Tran" />
+    <meta name="twitter:description" content="Click For More Details" />
+    <meta
+      name="twitter:image"
+      content="https://namtran592005.github.io/Portfolio/src/Images/portfolio.webp"
+    />
+    <link rel="canonical" href="https://tranvohoangnam.id.vn" />
     <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
     </script>
 
     <title>Nam Trần | Portfolio</title>
-    <link rel="icon" href="./src/Images/portfolio.webp" type="image/x-icon">
-    <link rel="apple-touch-icon" href="./src/Images/Apple.webp">
+    <link rel="icon" href="./src/Images/portfolio.webp" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./src/Images/Apple.webp" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <style>
+      html {
+        overflow-x: hidden;
+      }
+
+      :root {
+        --hue-accent: 210;
+        --hue-secondary: 260;
+        --bg-light: hsl(220, 30%, 96%);
+        --glass-bg-light: hsla(0, 0%, 100%, 0.25);
+        --glass-border-light: hsla(0, 0%, 100%, 0.5);
+        --glass-inset-shadow-light: inset 1px 1px 0px hsla(0, 0%, 100%, 0.7);
+        --text-primary-light: hsl(220, 25%, 15%);
+        --text-secondary-light: hsl(220, 15%, 45%);
+        --text-tertiary-light: hsl(220, 12%, 65%);
+        --accent-primary-light: hsl(var(--hue-accent), 100%, 55%);
+        --shadow-color-light: hsla(var(--hue-accent), 50%, 20%, 0.1);
+        --light-effect-light: hsla(var(--hue-accent), 100%, 75%, 0.3);
+        --bg-dark: hsl(225, 20%, 12%);
+        --glass-bg-dark: hsla(0, 0%, 100%, 0.07);
+        --glass-border-dark: hsla(0, 0%, 100%, 0.2);
+        --glass-inset-shadow-dark: inset 1px 1px 0px hsla(0, 0%, 100%, 0.2);
+        --text-primary-dark: hsl(220, 25%, 95%);
+        --text-secondary-dark: hsl(220, 15%, 75%);
+        --text-tertiary-dark: hsl(220, 10%, 60%);
+        --accent-primary-dark: hsl(var(--hue-accent), 100%, 65%);
+        --shadow-color-dark: hsla(var(--hue-accent), 100%, 55%, 0.15);
+        --light-effect-dark: hsla(0, 0%, 100%, 0.06);
+        --header-height: 72px;
+        --border-radius: 24px;
+        --border-radius-m: 16px;
+        --border-radius-s: 12px;
+        --transition-fast: 0.2s ease;
+        --transition-medium: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        --transition-slow: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif;
+        --bg: var(--bg-light);
+        --glass-bg: var(--glass-bg-light);
+        --glass-border: var(--glass-border-light);
+        --glass-inset-shadow: var(--glass-inset-shadow-light);
+        --text-primary: var(--text-primary-light);
+        --text-secondary: var(--text-secondary-light);
+        --text-tertiary: var(--text-tertiary-light);
+        --accent-primary: var(--accent-primary-light);
+        --shadow-color: var(--shadow-color-light);
+        --light-effect: var(--light-effect-light);
+        --glass-light-effect: hsla(0, 0%, 100%, 0.4);
+      }
+
+      body.dark-mode {
+        --bg: var(--bg-dark);
+        --glass-bg: var(--glass-bg-dark);
+        --glass-border: var(--glass-border-dark);
+        --glass-inset-shadow: var(--glass-inset-shadow-dark);
+        --text-primary: var(--text-primary-dark);
+        --text-secondary: var(--text-secondary-dark);
+        --text-tertiary: var(--text-tertiary-dark);
+        --accent-primary: var(--accent-primary-dark);
+        --shadow-color: var(--shadow-color-dark);
+        --light-effect: var(--light-effect-dark);
+        --glass-light: var(--glass-light-effect-dark);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+        overflow-x: hidden;
+      }
+      body {
+        font-family: var(--font-primary);
+        line-height: 1.6;
+        background-color: var(--bg);
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+        transition: background-color var(--transition-medium),
+          color var(--transition-medium);
+        opacity: 0;
+        filter: blur(8px);
+        transform: scale(1.02);
+        transition: opacity 0.8s var(--transition-medium),
+          filter 0.8s var(--transition-medium),
+          transform 0.8s var(--transition-medium);
+        max-width: 100vw;
+      }
+      body.loaded {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+      }
+      body.no-scroll {
+        overflow: hidden;
+      }
+
+      body {
+        background: url("./src/Images/Wallpaper.webp") center/cover no-repeat
+          fixed;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        pointer-events: none;
+        background: rgba(255, 255, 255, 0.92);
+        opacity: 0;
+        transition: opacity var(--transition-slow);
+      }
+      body.dark-mode::before {
+        background: rgba(0, 0, 0, 0.85);
+      }
+      body.loaded::before {
+        opacity: 1;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      a {
+        color: var(--accent-primary);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+      }
+      a:hover {
+        filter: brightness(1.2);
+        text-decoration: none;
+      }
+
+      /* --- STICKY HEADER IMPLEMENTATION --- */
+      .header-container {
+        position: sticky;
+        top: 12px;
+        width: 100%;
+        z-index: 1000;
+        transition: top var(--transition-fast);
+      }
+
+      header {
+        background: var(--glass-bg);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        position: relative;
+        width: 95%;
+        max-width: 1100px;
+        border: 1px solid var(--glass-border);
+        border-radius: var(--border-radius-m);
+        box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
+        transition: all var(--transition-medium);
+      }
+
+      header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 20px; /* Thêm khoảng cách giữa các phần tử */
+      }
+
+      header .logo {
+        font-size: 1.5rem;
+        font-weight: 900; /* Tăng độ đậm của logo */
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+        flex-shrink: 0; /* Ngăn logo bị co lại */
+      }
+
+      @media (min-width: 993px) {
+        header nav#main-nav {
+          display: block;
+        }
+      }
+      @media (max-width: 992px) {
+        header nav#main-nav {
+          display: none;
+        }
+      }
+      header nav#main-nav {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+      header nav#main-nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        gap: 12px; /* Khoảng cách giữa các nav items */
+      }
+      header nav#main-nav ul li {
+        margin-left: 0; /* Reset margin */
+      }
+      header nav#main-nav ul li a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 8px 16px;
+        position: relative;
+        z-index: 1;
+        transition: color var(--transition-fast);
+      }
+      header nav#main-nav ul li a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--accent-primary);
+        border-radius: 99px;
+        transform: scale(0.8);
+        opacity: 0;
+        z-index: -1;
+        transition: transform var(--transition-fast),
+          opacity var(--transition-fast);
+        box-shadow: inset 0 1px 1px hsla(0, 0%, 100%, 0.3);
+      }
+      header nav#main-nav ul li a:hover,
+      header nav#main-nav ul li a.active {
+        color: white;
+      }
+      header nav#main-nav ul li a:hover::before,
+      header nav#main-nav ul li a.active::before {
+        transform: scale(1);
+        opacity: 1;
+      }
+      body.dark-mode header nav#main-nav ul li a:hover,
+      body.dark-mode header nav#main-nav ul li a.active {
+        color: var(--bg-dark);
+      }
+
+      #theme-toggle,
+      .control-center-toggle {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        color: var(--text-primary);
+        font-size: 1.1rem;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
+        position: relative;
+        overflow: hidden;
+      }
+      #theme-toggle::before,
+      .control-center-toggle::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          350px circle at var(--mouse-x) var(--mouse-y),
+          hsla(0, 0%, 100%, 0.4),
+          transparent 80%
+        );
+        opacity: 0;
+        transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        z-index: 0;
+        pointer-events: none;
+      }
+      #theme-toggle:hover::before,
+      .control-center-toggle:hover::before {
+        opacity: 1;
+      }
+      #theme-toggle:hover,
+      .control-center-toggle:hover {
+        transform: scale(1.1);
+        background: hsla(0, 0%, 100%, 0.25);
+      }
+      #theme-toggle > *,
+      .control-center-toggle > * {
+        position: relative;
+        z-index: 1;
+      }
+      #theme-toggle .fa-moon {
+        display: none;
+      }
+      body.dark-mode #theme-toggle .fa-sun {
+        display: none;
+      }
+      body.dark-mode #theme-toggle .fa-moon {
+        display: inline-block;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 25px;
+        padding-bottom: 80px;
+      }
+
+      .apple-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--border-radius);
+        padding: 30px;
+        box-shadow: var(--glass-inset-shadow), 0 16px 48px 0 var(--shadow-color);
+        backdrop-filter: blur(24px) saturate(150%);
+        -webkit-backdrop-filter: blur(24px) saturate(150%);
+        transition: transform var(--transition-medium),
+          box-shadow var(--transition-medium);
+        position: relative;
+        overflow: hidden;
+      }
+      .apple-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: var(--glass-inset-shadow), 0 24px 64px 0 var(--shadow-color);
+      }
+      .apple-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          350px circle at var(--mouse-x) var(--mouse-y),
+          var(--light-effect),
+          transparent 80%
+        );
+        opacity: 0;
+        transition: opacity var(--transition-medium);
+        z-index: 0;
+      }
+      .apple-card:hover::before {
+        opacity: 1;
+      }
+      .apple-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+      .skill-category .apple-card {
+        padding: 25px;
+      }
+      .skill-category h3 {
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+      }
+      .skill-category h3 i {
+        margin-right: 12px;
+        color: var(--accent-primary);
+        font-size: 1.1em;
+        width: 20px;
+        text-align: center;
+      }
+      .skill-category ul li::before {
+        content: "›";
+        font-size: 1.3em;
+        top: 0;
+        color: var(--accent-primary);
+        position: absolute;
+        left: 0;
+      }
+
+      .footer-download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        border-radius: var(--border-radius-m);
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--text-primary);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
+        transition: all var(--transition-medium);
+        position: relative;
+        overflow: hidden;
+      }
+      .footer-download-btn .icon-download {
+        transition: transform 0.3s ease;
+      }
+      .footer-download-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: var(--glass-inset-shadow),
+          0 12px 36px 0 hsla(0, 0%, 100%, 0.3);
+        background: var(--glass-bg);
+      }
+      .footer-download-btn:hover .icon-download {
+        transform: translateY(3px);
+      }
+      .design-credit-footer {
+        padding: 20px;
+        text-align: center;
+        color: var(--text-tertiary);
+        font-size: 0.85rem;
+      }
+      .design-credit-footer p {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      #control-center-nav {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: hsla(0, 0%, 0%, 0.2);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 0.4s,
+          opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      #control-center-nav.nav-open {
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0s;
+      }
+      #control-center-nav .panel {
+        background: hsla(230, 15%, 18%, 0.6);
+        border: 1px solid hsla(0, 0%, 100%, 0.2);
+        border-radius: var(--border-radius);
+        width: 100%;
+        max-width: 420px;
+        max-height: 90vh;
+        box-shadow: inset 1px 1px 0px hsla(0, 0%, 100%, 0.15),
+          0 24px 64px 0 hsla(0, 0%, 0%, 0.3);
+        backdrop-filter: blur(32px) saturate(180%);
+        -webkit-backdrop-filter: blur(32px) saturate(180%);
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transform: scale(0.8) translateY(20px);
+        opacity: 0;
+        transition: transform 0.5s cubic-bezier(0.22, 1.12, 0.58, 1),
+          opacity 0.4s ease;
+        will-change: transform, opacity;
+      }
+      #control-center-nav.nav-open .panel {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+      .cc-grabber {
+        width: 40px;
+        height: 5px;
+        border-radius: 2.5px;
+        background: hsla(0, 0%, 100%, 0.3);
+        margin: 12px auto 0 auto;
+        flex-shrink: 0;
+      }
+      .control-center-grid {
+        display: grid;
+        gap: 16px;
+        padding: 20px;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .control-center-grid::-webkit-scrollbar {
+        display: none;
+      }
+      .cc-widget {
+        background: hsla(0, 0%, 100%, 0.08);
+        border-radius: var(--border-radius-m);
+        padding: 16px;
+        box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.1);
+        border: 1px solid hsla(0, 0%, 100%, 0.1);
+        color: var(--text-primary-dark);
+      }
+      .widget-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 12px;
+      }
+      #cc-clock {
+        font-size: clamp(2rem, 10vw, 3rem);
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: -2px;
+        color: #fff;
+      }
+      .quick-actions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 12px;
+      }
+      .quick-action-btn {
+        background: hsla(0, 0%, 100%, 0.12);
+        border: 1px solid hsla(0, 0%, 100%, 0.15);
+        border-radius: var(--border-radius-m);
+        padding: 12px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-primary-dark);
+        font-weight: 500;
+        transition: background 0.2s, transform 0.2s;
+        cursor: pointer;
+        box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.1);
+      }
+      .quick-action-btn:hover {
+        background: hsla(0, 0%, 100%, 0.2);
+        transform: scale(1.05);
+      }
+      .quick-action-btn i {
+        font-size: 1.5rem;
+        color: var(--accent-primary-dark);
+      }
+      .quick-action-btn span {
+        font-size: 0.8rem;
+        text-align: center;
+        font-weight: 600;
+      }
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 14px;
+        background: hsla(0, 0%, 0%, 0.3);
+        border-radius: 7px;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 28px;
+        height: 28px;
+        background: #fff;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
+      }
+      input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        background: #fff;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+      input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.1);
+      }
+      .cc-nav-links ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .cc-nav-links a {
+        background: hsla(0, 0%, 100%, 0.08);
+        border-radius: var(--border-radius-s);
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text-primary-dark);
+        font-size: 1rem;
+        font-weight: 600;
+        transition: background 0.2s, transform 0.2s;
+      }
+      .cc-nav-links a:hover {
+        background: hsla(0, 0%, 100%, 0.15);
+        transform: translateX(5px);
+      }
+      .cc-nav-links a i {
+        color: var(--accent-primary-dark);
+        width: 20px;
+        text-align: center;
+      }
+
+      html,
+      body,
+      * {
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -ms-user-select: none !important;
+        -moz-user-select: none !important;
+      }
+      a,
+      button,
+      input,
+      textarea,
+      [onclick] {
+        cursor: pointer !important;
+      }
+      section {
+        padding: 100px 0;
+        position: relative;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+      }
+      .section-subtitle {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px auto;
+        color: var(--text-secondary);
+        font-size: 1.125rem;
+        line-height: 1.7;
+      }
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+        filter: blur(8px);
+        transition: opacity 0.8s var(--transition-slow),
+          transform 0.8s var(--transition-slow),
+          filter 0.8s var(--transition-slow);
+        will-change: opacity, transform, filter;
+      }
+      .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+      .hero img.profile-pic {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 30px;
+        border: 4px solid var(--glass-border);
+        box-shadow: 0 10px 40px var(--shadow-color);
+        transition: transform 0.1s linear, opacity 0.1s linear;
+        will-change: transform, opacity;
+      }
+      .hero img.profile-pic:hover {
+        transform: scale(1.05) rotate(-3deg);
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        font-weight: 800;
+        letter-spacing: -0.05em;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+        transition: color var(--transition-medium);
+      }
+      .hero .intro-paragraph {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        max-width: 650px;
+        margin: 0 auto 40px auto;
+        line-height: 1.7;
+        font-weight: 500;
+      }
+      .social-links-hero {
+        margin-top: 40px;
+      }
+      .social-links-hero a {
+        color: var(--text-tertiary);
+        margin: 0 15px;
+        font-size: 1.6rem;
+        transition: all var(--transition-fast);
+      }
+      .social-links-hero a:hover {
+        color: var(--accent-primary);
+        transform: scale(1.2) rotate(-8deg);
+      }
+      .apple-card h3 {
+        color: var(--text-primary);
+        margin-bottom: 12px;
+        font-size: 1.35rem;
+        font-weight: 700;
+      }
+      .apple-card ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .apple-card ul li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 25px;
+        color: var(--text-secondary);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      .apple-card ul li::before {
+        content: "✦";
+        color: var(--accent-primary);
+        position: absolute;
+        left: 0;
+        top: 2px;
+        font-size: 1.1em;
+      }
+      #about .about-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+      #about .about-image-container img {
+        width: 100%;
+        border-radius: var(--border-radius);
+        transition: all var(--transition-medium);
+      }
+      #about .about-image-container:hover img {
+        transform: scale(1.08) rotate(3deg);
+      }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+      }
+      .portfolio-item .apple-card {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .portfolio-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        border-bottom: 1px solid var(--glass-border);
+      }
+      .portfolio-content {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .portfolio-content h3 {
+        font-size: 1.6rem;
+      }
+      .portfolio-content p {
+        flex-grow: 1;
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+      .portfolio-tags {
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .portfolio-tags .tag {
+        display: inline-block;
+        background-color: hsla(var(--hue-accent), 100%, 55%, 0.1);
+        color: var(--accent-primary);
+        padding: 6px 14px;
+        border-radius: var(--border-radius-s);
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin: 0 8px 8px 0;
+        transition: all var(--transition-fast);
+      }
+      .portfolio-tags .tag:hover {
+        transform: translateY(-2px);
+        background-color: hsla(var(--hue-accent), 100%, 55%, 0.2);
+      }
+      .portfolio-links a {
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        margin-right: 20px;
+      }
+      .portfolio-links a i {
+        margin-right: 8px;
+      }
+      .experience-grid {
+        display: grid;
+        gap: 30px;
+      }
+      .experience-item .date {
+        color: var(--text-tertiary);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .cta-button,
+      button[type="submit"].contact-button {
+        display: inline-block;
+        background: var(--glass-bg);
+        color: var(--text-primary);
+        padding: 14px 32px;
+        text-decoration: none;
+        border: 1px solid var(--glass-border);
+        border-radius: var(--border-radius-m);
+        font-weight: 600;
+        font-size: 1.05rem;
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
+        transition: all var(--transition-medium);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-button:hover,
+      button[type="submit"].contact-button:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: var(--glass-inset-shadow),
+          0 12px 36px 0 hsla(0, 0%, 100%, 0.3);
+        background: var(--glass-bg);
+        color: var(--text-primary);
+      }
+      #contact .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: flex-start;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 14px;
+        background-color: hsla(0, 0%, 50%, 0.1);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--border-radius-m);
+        color: var(--text-primary);
+        font-family: var(--font-primary);
+        font-size: 1rem;
+        transition: all var(--transition-fast);
+        box-shadow: var(--glass-inset-shadow);
+      }
+      body.dark-mode .form-group input,
+      body.dark-mode .form-group textarea {
+        background-color: hsla(0, 0%, 100%, 0.05);
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px hsla(var(--hue-accent), 100%, 60%, 0.3),
+          var(--glass-inset-shadow);
+      }
+      .contact-info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+      }
+      .contact-info-item i {
+        font-size: 1.3rem;
+        color: var(--accent-primary);
+        margin-right: 16px;
+        width: 24px;
+        text-align: center;
+      }
+      footer {
+        padding: 50px 0 0 0;
+        background: transparent;
+        color: var(--text-tertiary);
+        font-size: 0.95rem;
+        text-align: center;
+      }
+      .footer-content {
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .footer-content .mandalorian-icon {
+        color: var(--accent-primary);
+        font-size: 2.5rem;
+        transition: transform var(--transition-medium);
+      }
+      .footer-content .mandalorian-icon:hover {
+        transform: rotateY(180deg);
+      }
+      .eco-section {
+        padding: 25px;
+        border-top: 1px solid var(--glass-border);
+        background: var(--glass-bg);
+      }
+      .eco-section span {
+        display: block;
+        margin-bottom: 8px;
+      }
+      #wcb {
+        margin-top: 20px;
+      }
+      body.dark-mode #wcb.carbonbadge a {
+        filter: invert(1) hue-rotate(180deg) brightness(1.2);
+      }
+      .scroll-to-top {
+        display: none !important;
+      }
+
+      @media (max-width: 992px) {
         html {
-                overflow-x: hidden;
+          font-size: 15px;
         }
+        #about .about-content {
+          grid-template-columns: 1fr;
+        }
+        #about .about-image-container {
+          order: -1;
+          margin: 0 auto 40px;
+          max-width: 350px;
+        }
+        #contact .contact-container {
+          grid-template-columns: 1fr;
+        }
+      }
 
-        :root {
-            --hue-accent: 210; 
-            --hue-secondary: 260;
-            --bg-light: hsl(220, 30%, 96%); 
-            --glass-bg-light: hsla(0, 0%, 100%, 0.25);
-            --glass-border-light: hsla(0, 0%, 100%, 0.5);
-            --glass-inset-shadow-light: inset 1px 1px 0px hsla(0, 0%, 100%, 0.7);
-            --text-primary-light: hsl(220, 25%, 15%);
-            --text-secondary-light: hsl(220, 15%, 45%);
-            --text-tertiary-light: hsl(220, 12%, 65%);
-            --accent-primary-light: hsl(var(--hue-accent), 100%, 55%);
-            --shadow-color-light: hsla(var(--hue-accent), 50%, 20%, 0.1);
-            --light-effect-light: hsla(var(--hue-accent), 100%, 75%, 0.3);
-            --bg-dark: hsl(225, 20%, 12%);
-            --glass-bg-dark: hsla(0, 0%, 100%, 0.07);
-            --glass-border-dark: hsla(0, 0%, 100%, 0.2);
-            --glass-inset-shadow-dark: inset 1px 1px 0px hsla(0, 0%, 100%, 0.2);
-            --text-primary-dark: hsl(220, 25%, 95%);
-            --text-secondary-dark: hsl(220, 15%, 75%);
-            --text-tertiary-dark: hsl(220, 10%, 60%);
-            --accent-primary-dark: hsl(var(--hue-accent), 100%, 65%);
-            --shadow-color-dark: hsla(var(--hue-accent), 100%, 55%, 0.15);
-            --light-effect-dark: hsla(0, 0%, 100%, 0.06);
-            --header-height: 72px;
-            --border-radius: 24px;
-            --border-radius-m: 16px;
-            --border-radius-s: 12px;
-            --transition-fast: 0.2s ease;
-            --transition-medium: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            --transition-slow: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-            --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --bg: var(--bg-light);
-            --glass-bg: var(--glass-bg-light);
-            --glass-border: var(--glass-border-light);
-            --glass-inset-shadow: var(--glass-inset-shadow-light);
-            --text-primary: var(--text-primary-light);
-            --text-secondary: var(--text-secondary-light);
-            --text-tertiary: var(--text-tertiary-light);
-            --accent-primary: var(--accent-primary-light);
-            --shadow-color: var(--shadow-color-light);
-            --light-effect: var(--light-effect-light);
-            --glass-light-effect: hsla(0, 0%, 100%, 0.4);
-        }
-
-        body.dark-mode {
-            --bg: var(--bg-dark);
-            --glass-bg: var(--glass-bg-dark);
-            --glass-border: var(--glass-border-dark);
-            --glass-inset-shadow: var(--glass-inset-shadow-dark);
-            --text-primary: var(--text-primary-dark);
-            --text-secondary: var(--text-secondary-dark);
-            --text-tertiary: var(--text-tertiary-dark);
-            --accent-primary: var(--accent-primary-dark);
-            --shadow-color: var(--shadow-color-dark);
-            --light-effect: var(--light-effect-dark);
-            --glass-light: var(--glass-light-effect-dark);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
-        body { 
-            font-family: var(--font-primary); 
-            line-height: 1.6; 
-            background-color: var(--bg);
-            color: var(--text-primary); 
-            -webkit-font-smoothing: antialiased; 
-            transition: background-color var(--transition-medium), color var(--transition-medium);
-            opacity: 0; filter: blur(8px); transform: scale(1.02);
-            transition: opacity 0.8s var(--transition-medium), filter 0.8s var(--transition-medium), transform 0.8s var(--transition-medium);
-            max-width: 100vw;
-        }
-        body.loaded { opacity: 1; filter: blur(0); transform: scale(1); }
-        body.no-scroll { overflow: hidden; }
-
-        body {
-            background: url('./src/Images/Wallpaper.png') center/cover no-repeat fixed;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            pointer-events: none;
-            background: rgba(255, 255, 255, 0.92);
-            opacity: 0;
-            transition: opacity var(--transition-slow);
-        }
-        body.dark-mode::before {
-            background: rgba(0, 0, 0, 0.85);
-        }
-        body.loaded::before {
-            opacity: 1;
-        }
-
-        .container { width: 90%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-        a { color: var(--accent-primary); text-decoration: none; transition: color var(--transition-fast); }
-        a:hover { filter: brightness(1.2); text-decoration: none; }
-
-        /* --- STICKY HEADER IMPLEMENTATION --- */
+      @media (max-width: 768px) {
         .header-container {
-            position: sticky;
-            top: 12px;
-            width: 100%;
-            z-index: 1000;
-            transition: top var(--transition-fast);
+          top: 0;
         }
+        header {
+          width: 100%;
+          border-radius: 0;
+        }
+        .hero {
+          padding-top: calc(var(--header-height) + 5px);
+        }
+        #control-center-nav {
+          padding: 0;
+        }
+        #control-center-nav .panel {
+          max-height: 100vh;
+          height: 100%;
+          border-radius: 0;
+        }
+        .section-title {
+          font-size: 2.5rem;
+        }
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-        header { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(24px) saturate(180%); 
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            height: var(--header-height); 
-            display: flex; 
-            align-items: center; 
-            margin: 0 auto;
-            position: relative;
-            width: 95%; 
-            max-width: 1100px; 
-            border: 1px solid var(--glass-border); 
-            border-radius: var(--border-radius-m); 
-            box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color); 
-            transition: all var(--transition-medium); 
-        }
+      .carbonbadge.light-badge {
+        display: block;
+      }
+      .carbonbadge.dark-badge {
+        display: none;
+      }
+      body.dark-mode .carbonbadge.light-badge {
+        display: none;
+      }
+      body.dark-mode .carbonbadge.dark-badge {
+        display: block;
+      }
 
-        header .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        header .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); transition: all var(--transition-fast); }
-        header .logo:hover { color: var(--accent-primary); transform: scale(1.05); }
+      /* Control center button animation */
+      .control-center-toggle {
+        transition: opacity 0.4s, transform 0.4s;
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .control-center-toggle.hide-on-scroll {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+      }
 
-        @media (min-width: 993px) { header nav#main-nav { display: block; } }
-        @media (max-width: 992px) { header nav#main-nav { display: none; } }
-        header nav#main-nav ul { list-style: none; display: flex; align-items: center; margin: 0; padding: 0; }
-        header nav#main-nav ul li { margin-left: 12px; }
-        header nav#main-nav ul li a { color: var(--text-secondary); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 16px; position: relative; z-index: 1; transition: color var(--transition-fast); }
-        header nav#main-nav ul li a::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--accent-primary); border-radius: 99px; transform: scale(0.8); opacity: 0; z-index: -1; transition: transform var(--transition-fast), opacity var(--transition-fast); box-shadow: inset 0 1px 1px hsla(0,0%,100%,0.3); }
-        header nav#main-nav ul li a:hover, header nav#main-nav ul li a.active { color: white; }
-        header nav#main-nav ul li a:hover::before, header nav#main-nav ul li a.active::before { transform: scale(1); opacity: 1; }
-        body.dark-mode header nav#main-nav ul li a:hover, body.dark-mode header nav#main-nav ul li a.active { color: var(--bg-dark); }
+      /* Ngăn các phần tử vượt quá chiều rộng màn hình trên mobile */
+      * {
+        box-sizing: border-box;
+      }
 
-        #theme-toggle, .control-center-toggle { 
-            background: var(--glass-bg); 
-            border: 1px solid var(--glass-border);
-            color: var(--text-primary); 
-            font-size: 1.1rem; 
-            cursor: pointer; 
-            width: 44px; 
-            height: 44px; 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            box-shadow: var(--glass-inset-shadow),
-                       0 8px 32px 0 var(--shadow-color);
-            position: relative;
-            overflow: hidden;
+      @media (max-width: 600px) {
+        body,
+        html {
+          width: 100vw;
+          overflow-x: hidden;
         }
-        #theme-toggle::before, .control-center-toggle::before { 
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                350px circle at var(--mouse-x) var(--mouse-y), 
-                hsla(0, 0%, 100%, 0.4),
-                transparent 80%
-            );
-            opacity: 0;
-            transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-            z-index: 0;
-            pointer-events: none;
+        .container,
+        header,
+        .header-container {
+          max-width: 100vw;
+          width: 100vw;
         }
-        #theme-toggle:hover::before, .control-center-toggle:hover::before { 
-            opacity: 1; 
-        }
-        #theme-toggle:hover, .control-center-toggle:hover { 
-            transform: scale(1.1);
-            background: hsla(0, 0%, 100%, 0.25);
-        }
-        #theme-toggle > *, .control-center-toggle > * {
-            position: relative;
-            z-index: 1;
-        }
-        #theme-toggle .fa-moon { display: none; }
-        body.dark-mode #theme-toggle .fa-sun { display: none; }
-        body.dark-mode #theme-toggle .fa-moon { display: inline-block; }
+      }
 
-        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 60px; padding-bottom: 80px; }
+      /* Updated button styles with liquid glass effect */
+      .cta-button,
+      button[type="submit"].contact-button,
+      #theme-toggle,
+      .control-center-toggle,
+      .quick-action-btn,
+      .footer-download-btn {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px) saturate(180%);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
+        position: relative;
+        overflow: hidden;
+      }
 
-        .apple-card { 
-            background: var(--glass-bg); 
-            border: 1px solid var(--glass-border); 
-            border-radius: var(--border-radius); 
-            padding: 30px; 
-            box-shadow: var(--glass-inset-shadow), 0 16px 48px 0 var(--shadow-color); 
-            backdrop-filter: blur(24px) saturate(150%); 
-            -webkit-backdrop-filter: blur(24px) saturate(150%); 
-            transition: transform var(--transition-medium), box-shadow var(--transition-medium); 
-            position: relative; 
-            overflow: hidden; 
-        }
-        .apple-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--glass-inset-shadow), 0 24px 64px 0 var(--shadow-color); }
-        .apple-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(350px circle at var(--mouse-x) var(--mouse-y), var(--light-effect), transparent 80%); opacity: 0; transition: opacity var(--transition-medium); z-index: 0; }
-        .apple-card:hover::before { opacity: 1; }
-        .apple-card > * { position: relative; z-index: 1; }
+      .cta-button::before,
+      button[type="submit"].contact-button::before,
+      #theme-toggle::before,
+      .control-center-toggle::before,
+      .quick-action-btn::before,
+      .footer-download-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          var(--glass-light) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity var(--transition-medium);
+        z-index: 0;
+        pointer-events: none;
+      }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .skill-category .apple-card { padding: 25px; }
-        .skill-category h3 { font-size: 1.25rem; display: flex; align-items: center; }
-        .skill-category h3 i { margin-right: 12px; color: var(--accent-primary); font-size: 1.1em; width: 20px; text-align: center; }
-        .skill-category ul li::before { content: "›"; font-size: 1.3em; top: 0; color: var(--accent-primary); position: absolute; left: 0; }
+      .cta-button:hover::before,
+      button[type="submit"].contact-button:hover::before,
+      #theme-toggle:hover::before,
+      .control-center-toggle:hover::before,
+      .quick-action-btn:hover::before,
+      .footer-download-btn:hover::before {
+        opacity: 1;
+      }
 
-        .footer-download-btn { 
-    display: inline-flex; 
-    align-items: center; 
-    gap: 10px; 
-    padding: 12px 24px; 
-    border-radius: var(--border-radius-m); 
-    font-weight: 600; 
-    text-decoration: none; 
-    color: var(--text-primary); 
-    background: var(--glass-bg); 
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
-    transition: all var(--transition-medium);
-    position: relative;
-    overflow: hidden;
-}
-        .footer-download-btn .icon-download { transition: transform 0.3s ease; }
-        .footer-download-btn:hover { 
-    transform: translateY(-3px) scale(1.05); 
-    box-shadow: var(--glass-inset-shadow), 0 12px 36px 0 hsla(0, 0%, 100%, 0.3);
-    background: var(--glass-bg);
-}
-        .footer-download-btn:hover .icon-download { transform: translateY(3px); }
-        .design-credit-footer { padding: 20px; text-align: center; color: var(--text-tertiary); font-size: 0.85rem; }
-        .design-credit-footer p { display: inline-flex; align-items: center; gap: 8px; }
+      /* Liquid Glass Effect */
+      .liquid-glass {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px) saturate(180%);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s var(--transition-medium),
+          background-color 0.3s var(--transition-medium),
+          box-shadow 0.3s var(--transition-medium);
+      }
 
-        #control-center-nav { position: fixed; inset: 0; width: 100vw; height: 100vh; background: hsla(0, 0%, 0%, 0.2); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; visibility: hidden; opacity: 0; transition: visibility 0s 0.4s, opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        #control-center-nav.nav-open { visibility: visible; opacity: 1; transition-delay: 0s; }
-        #control-center-nav .panel { 
-            background: hsla(230, 15%, 18%, 0.6);
-            border: 1px solid hsla(0,0%,100%,0.2);
-            border-radius: var(--border-radius); 
-            width: 100%; 
-            max-width: 420px; 
-            max-height: 90vh; 
-            box-shadow: inset 1px 1px 0px hsla(0, 0%, 100%, 0.15), 0 24px 64px 0 hsla(0,0%,0%,0.3);
-            backdrop-filter: blur(32px) saturate(180%);
-            -webkit-backdrop-filter: blur(32px) saturate(180%);
-            overflow: hidden; 
-            position: relative; 
-            display: flex; 
-            flex-direction: column; 
-            transform: scale(0.8) translateY(20px); 
-            opacity: 0; 
-            transition: transform 0.5s cubic-bezier(.22,1.12,.58,1), opacity 0.4s ease; 
-            will-change: transform, opacity; 
-        }
-        #control-center-nav.nav-open .panel { transform: scale(1) translateY(0); opacity: 1; }
-        .cc-grabber { width: 40px; height: 5px; border-radius: 2.5px; background: hsla(0,0%,100%,0.3); margin: 12px auto 0 auto; flex-shrink: 0; }
-        .control-center-grid { display: grid; gap: 16px; padding: 20px; overflow-y: auto; -ms-overflow-style: none; scrollbar-width: none; }
-        .control-center-grid::-webkit-scrollbar { display: none; }
-        .cc-widget { 
-            background: hsla(0,0%,100%,0.08);
-            border-radius: var(--border-radius-m); 
-            padding: 16px; 
-            box-shadow: inset 1px 1px 0 hsla(0,0%,100%,0.1);
-            border: 1px solid hsla(0,0%,100%,0.1); 
-            color: var(--text-primary-dark); 
-        }
-        .widget-header { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 12px; }
-        #cc-clock { font-size: clamp(2rem, 10vw, 3rem); text-align:center; font-weight:700;letter-spacing:-2px; color: #fff; }
-        .quick-actions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 12px; }
-        .quick-action-btn { 
-            background: hsla(0,0%,100%,0.12); 
-            border: 1px solid hsla(0,0%,100%,0.15); 
-            border-radius: var(--border-radius-m); 
-            padding: 12px 0; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 8px; 
-            color: var(--text-primary-dark); 
-            font-weight: 500; 
-            transition: background 0.2s, transform 0.2s; 
-            cursor: pointer;
-            box-shadow: inset 1px 1px 0 hsla(0,0%,100%,0.1);
-        }
-        .quick-action-btn:hover { background: hsla(0,0%,100%,0.2); transform: scale(1.05); }
-        .quick-action-btn i { font-size: 1.5rem; color: var(--accent-primary-dark); }
-        .quick-action-btn span { font-size: 0.8rem; text-align: center; font-weight: 600; }
-        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 14px; background: hsla(0,0%,0%,0.3); border-radius: 7px; outline: none; padding: 0; margin: 0; cursor: pointer; }
-        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; background: #fff; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease; }
-        input[type="range"]::-moz-range-thumb { width: 24px; height: 24px; background: #fff; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 2px 4px rgba(0,0,0,0.2); cursor: pointer; }
-        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.1); }
-        .cc-nav-links ul { list-style: none; display: grid; grid-template-columns: 1fr; gap: 10px; }
-        .cc-nav-links a { background: hsla(0,0%,100%,0.08); border-radius: var(--border-radius-s); padding: 12px 16px; display: flex; align-items: center; gap: 12px; color: var(--text-primary-dark); font-size: 1rem; font-weight: 600; transition: background 0.2s, transform 0.2s; }
-        .cc-nav-links a:hover { background: hsla(0,0%,100%,0.15); transform: translateX(5px); }
-        .cc-nav-links a i { color: var(--accent-primary-dark); width: 20px; text-align: center; }
+      .liquid-glass::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          var(--glass-light),
+          transparent 40%
+        );
+        opacity: 0;
+        transition: opacity 0.3s var(--transition-medium);
+        pointer-events: none;
+      }
 
-        html, body, * { user-select: none !important; -webkit-user-select: none !important; -ms-user-select: none !important; -moz-user-select: none !important; } a, button, input, textarea, [onclick] { cursor: pointer !important; }
-        section { padding: 100px 0; position: relative; }
-        .section-title { text-align: center; font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 20px; color: var(--text-primary); }
-        .section-subtitle { text-align:center; max-width: 700px; margin: 0 auto 60px auto; color: var(--text-secondary); font-size: 1.125rem; line-height: 1.7; }
-        .animate-on-scroll { opacity: 0; transform: translateY(50px) scale(0.9); filter: blur(8px); transition: opacity 0.8s var(--transition-slow), transform 0.8s var(--transition-slow), filter 0.8s var(--transition-slow); will-change: opacity, transform, filter; }
-        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-        .hero img.profile-pic { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 30px; border: 4px solid var(--glass-border); box-shadow: 0 10px 40px var(--shadow-color); transition: transform 0.1s linear, opacity 0.1s linear; will-change: transform, opacity; }
-        .hero img.profile-pic:hover { transform: scale(1.05) rotate(-3deg); }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; letter-spacing: -0.05em; margin-bottom: 20px; color: var(--text-primary); transition: color var(--transition-medium); }
-        .hero .intro-paragraph { font-size: 1.125rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 40px auto; line-height: 1.7; font-weight: 500; }
-        .social-links-hero { margin-top: 40px; }
-        .social-links-hero a { color: var(--text-tertiary); margin: 0 15px; font-size: 1.6rem; transition: all var(--transition-fast); }
-        .social-links-hero a:hover { color: var(--accent-primary); transform: scale(1.2) rotate(-8deg); }
-        .apple-card h3 { color: var(--text-primary); margin-bottom: 12px; font-size: 1.35rem; font-weight: 700; }
-        .apple-card ul { list-style: none; padding-left: 0; }
-        .apple-card ul li { margin-bottom: 10px; position: relative; padding-left: 25px; color: var(--text-secondary); font-size: 1rem; line-height: 1.7; }
-        .apple-card ul li::before { content: "✦"; color: var(--accent-primary); position: absolute; left: 0; top: 2px; font-size: 1.1em; }
-        #about .about-content { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: center; }
-        #about .about-image-container img { width: 100%; border-radius: var(--border-radius); transition: all var(--transition-medium); }
-        #about .about-image-container:hover img { transform: scale(1.08) rotate(3deg); }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .portfolio-item .apple-card { padding: 0; display: flex; flex-direction: column; height: 100%; }
-        .portfolio-item img { width: 100%; height: 250px; object-fit: cover; display: block; border-radius: var(--border-radius) var(--border-radius) 0 0; border-bottom: 1px solid var(--glass-border); }
-        .portfolio-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-        .portfolio-content h3 { font-size: 1.6rem; }
-        .portfolio-content p { flex-grow: 1; margin-bottom: 20px; color: var(--text-secondary); font-size: 0.95rem; }
-        .portfolio-tags { margin-bottom: 20px; flex-wrap: wrap; }
-        .portfolio-tags .tag { display: inline-block; background-color: hsla(var(--hue-accent), 100%, 55%, 0.1); color: var(--accent-primary); padding: 6px 14px; border-radius: var(--border-radius-s); font-size: 0.8rem; font-weight: 600; margin: 0 8px 8px 0; transition: all var(--transition-fast); }
-        .portfolio-tags .tag:hover { transform: translateY(-2px); background-color: hsla(var(--hue-accent), 100%, 55%, 0.2); }
-        .portfolio-links a { font-weight: 600; display: inline-flex; align-items: center; margin-right: 20px; }
-        .portfolio-links a i { margin-right: 8px; }
-        .experience-grid { display: grid; gap: 30px; }
-        .experience-item .date { color: var(--text-tertiary); font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; display: block; text-transform: uppercase; letter-spacing: 0.08em; }
-        .cta-button, button[type="submit"].contact-button { 
-    display: inline-block; 
-    background: var(--glass-bg); 
-    color: var(--text-primary); 
-    padding: 14px 32px; 
-    text-decoration: none; 
-    border: 1px solid var(--glass-border); 
-    border-radius: var(--border-radius-m); 
-    font-weight: 600; 
-    font-size: 1.05rem; 
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
-    transition: all var(--transition-medium); 
-    cursor: pointer; 
-    position: relative;
-    overflow: hidden;
-}
-        .cta-button:hover, button[type="submit"].contact-button:hover { 
-    transform: translateY(-3px) scale(1.03); 
-    box-shadow: var(--glass-inset-shadow), 0 12px 36px 0 hsla(0, 0%, 100%, 0.3);
-    background: var(--glass-bg);
-    color: var(--text-primary);
-}
-        #contact .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: flex-start; }
-        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; }
-        .form-group input, .form-group textarea { width: 100%; padding: 14px; background-color: hsla(0, 0%, 50%, 0.1); border: 1px solid var(--glass-border); border-radius: var(--border-radius-m); color: var(--text-primary); font-family: var(--font-primary); font-size: 1rem; transition: all var(--transition-fast); box-shadow: var(--glass-inset-shadow); }
-        body.dark-mode .form-group input, body.dark-mode .form-group textarea { background-color: hsla(0, 0%, 100%, 0.05); }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 3px hsla(var(--hue-accent), 100%, 60%, 0.3), var(--glass-inset-shadow); }
-        .contact-info-item { display: flex; align-items: center; margin-bottom: 20px; color: var(--text-secondary); }
-        .contact-info-item i { font-size: 1.3rem; color: var(--accent-primary); margin-right: 16px; width: 24px; text-align: center; }
-        footer { padding: 50px 0 0 0; background: transparent; color: var(--text-tertiary); font-size: 0.95rem; text-align: center; }
-        .footer-content { padding-bottom: 50px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-        .footer-content .mandalorian-icon { color: var(--accent-primary); font-size: 2.5rem; transition: transform var(--transition-medium); }
-        .footer-content .mandalorian-icon:hover { transform: rotateY(180deg); }
-        .eco-section { padding: 25px; border-top: 1px solid var(--glass-border); background: var(--glass-bg); }
-        .eco-section span { display: block; margin-bottom: 8px; }
-        #wcb { margin-top: 20px; }
-        body.dark-mode #wcb.carbonbadge a { filter: invert(1) hue-rotate(180deg) brightness(1.2); }
-        .scroll-to-top { display: none !important; }
+      .liquid-glass:hover::before {
+        opacity: 1;
+      }
 
-        @media (max-width: 992px) { 
-            html { font-size: 15px; } 
-            #about .about-content { grid-template-columns: 1fr; } 
-            #about .about-image-container { order: -1; margin: 0 auto 40px; max-width: 350px;} 
-            #contact .contact-container { grid-template-columns: 1fr; } 
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                top: 0;
-            }
-            header {
-                width: 100%;
-                border-radius: 0;
-            }
-            .hero { padding-top: calc(var(--header-height) + 5px); }
-            #control-center-nav { padding: 0; }
-            #control-center-nav .panel { max-height: 100vh; height: 100%; border-radius: 0; }
-            .section-title { font-size: 2.5rem; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-        }
+      .liquid-glass .button-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
 
-        .carbonbadge.light-badge { display: block; } .carbonbadge.dark-badge { display: none; }
-        body.dark-mode .carbonbadge.light-badge { display: none; } body.dark-mode .carbonbadge.dark-badge { display: block; }
+      /* Header Actions Layout */
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-left: auto;
+        position: relative;
+        height: 44px;
+      }
 
-        /* Control center button animation */
-        .control-center-toggle {
-            transition: opacity 0.4s, transform 0.4s;
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .control-center-toggle.hide-on-scroll {
-            opacity: 0;
-            transform: translateY(-20px);
-            pointer-events: none;
-        }
+      /* Theme Toggle Button */
+      #theme-toggle {
+        position: absolute;
+        right: 60px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        transform-origin: center;
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+          right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+          opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        z-index: 2;
+      }
 
-        /* Ngăn các phần tử vượt quá chiều rộng màn hình trên mobile */
-        * {
-            box-sizing: border-box;
-        }
+      #theme-toggle.move-to-center {
+        right: 0;
+        transform: scale(0.95) translateY(0);
+        opacity: 1;
+      }
 
-        @media (max-width: 600px) {
-            body, html {
-                width: 100vw;
-                overflow-x: hidden;
-            }
-            .container, header, .header-container {
-                max-width: 100vw;
-                width: 100vw;
-            }
-        }
+      /* Control Center Toggle */
+      .control-center-toggle {
+        position: absolute;
+        right: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        transform-origin: center;
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+          opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+          background-color 0.3s var(--transition-medium);
+        z-index: 1;
+      }
 
-        /* Updated button styles with liquid glass effect */
-        .cta-button, 
-        button[type="submit"].contact-button,
-        #theme-toggle,
-        .control-center-toggle,
-        .quick-action-btn,
-        .footer-download-btn {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px) saturate(180%);
-            -webkit-backdrop-filter: blur(10px) saturate(180%);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
-            position: relative;
-            overflow: hidden;
-        }
+      .control-center-toggle.hide-on-scroll {
+        transform: translateY(-20px) scale(0.8);
+        opacity: 0;
+        pointer-events: none;
+      }
 
-        .cta-button::before, 
-        button[type="submit"].contact-button::before,
-        #theme-toggle::before,
-        .control-center-toggle::before,
-        .quick-action-btn::before,
-        .footer-download-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                var(--glass-light) 0%,
-                transparent 50%
-            );
-            opacity: 0;
-            transition: opacity var(--transition-medium);
-            z-index: 0;
-            pointer-events: none;
-        }
+      /* Button Hover Effects */
+      .liquid-glass:hover {
+        transform: scale(1.05);
+        background-color: var(--glass-bg);
+        box-shadow: var(--glass-inset-shadow), 0 12px 36px 0 var(--shadow-color);
+      }
 
-        .cta-button:hover::before, 
-        button[type="submit"].contact-button:hover::before,
-        #theme-toggle:hover::before,
-        .control-center-toggle:hover::before,
-        .quick-action-btn:hover::before,
-        .footer-download-btn:hover::before {
-            opacity: 1;
-        }
+      /* Ensure smooth transitions for dark mode */
+      html.dark-mode .liquid-glass {
+        transition: transform 0.3s var(--transition-medium),
+          background-color 0.3s var(--transition-medium),
+          box-shadow 0.3s var(--transition-medium);
+      }
 
-        /* Liquid Glass Effect */
-        .liquid-glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px) saturate(180%);
-            -webkit-backdrop-filter: blur(10px) saturate(180%);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-inset-shadow), 
-                       0 8px 32px 0 var(--shadow-color);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s var(--transition-medium),
-                      background-color 0.3s var(--transition-medium),
-                      box-shadow 0.3s var(--transition-medium);
-        }
-
-        .liquid-glass::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                var(--glass-light),
-                transparent 40%
-            );
-            opacity: 0;
-            transition: opacity 0.3s var(--transition-medium);
-            pointer-events: none;
-        }
-
-        .liquid-glass:hover::before {
-            opacity: 1;
-        }
-
-        .liquid-glass .button-content {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Header Actions Layout */
+      @media (max-width: 768px) {
         .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-left: auto;
-            position: relative;
-            height: 44px;
+          gap: 8px;
         }
 
-        /* Theme Toggle Button */
         #theme-toggle {
-            position: absolute;
-            right: 60px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            transform-origin: center;
-            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-                      right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-                      opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            z-index: 2;
+          right: 52px;
         }
 
         #theme-toggle.move-to-center {
-            right: 0;
-            transform: scale(0.95) translateY(0);
-            opacity: 1;
+          right: 0;
         }
-
-        /* Control Center Toggle */
-        .control-center-toggle {
-            position: absolute;
-            right: 0;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            transform-origin: center;
-            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-                      opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-                      background-color 0.3s var(--transition-medium);
-            z-index: 1;
-        }
-
-        .control-center-toggle.hide-on-scroll {
-            transform: translateY(-20px) scale(0.8);
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* Button Hover Effects */
-        .liquid-glass:hover {
-            transform: scale(1.05);
-            background-color: var(--glass-bg);
-            box-shadow: var(--glass-inset-shadow),
-                       0 12px 36px 0 var(--shadow-color);
-        }
-
-        /* Ensure smooth transitions for dark mode */
-        html.dark-mode .liquid-glass {
-            transition: transform 0.3s var(--transition-medium),
-                      background-color 0.3s var(--transition-medium),
-                      box-shadow 0.3s var(--transition-medium);
-        }
-
-        @media (max-width: 768px) {
-            .header-actions {
-                gap: 8px;
-            }
-
-            #theme-toggle {
-                right: 52px;
-            }
-
-            #theme-toggle.move-to-center {
-                right: 0;
-            }
-        }
+      }
+      
     </style>
-</head>
-<body class="no-scroll">
-    <div id="brightness-overlay" style="position:fixed; inset:0; background:black; opacity:0; z-index:9999; pointer-events:none; transition: opacity 0.2s;"></div>
+  </head>
+  <body class="no-scroll">
+    <div
+      id="brightness-overlay"
+      style="
+        position: fixed;
+        inset: 0;
+        background: black;
+        opacity: 0;
+        z-index: 9999;
+        pointer-events: none;
+        transition: opacity 0.2s;
+      "
+    ></div>
 
     <div class="header-container">
-        <header>
-            <div class="container">
-                <a href="#hero" class="logo">Portfolio</a>
-                <nav id="main-nav">
-                    <ul>
-                        <li><a href="#about" class="nav-link">About</a></li>
-                        <li><a href="#skills" class="nav-link">Skills</a></li>
-                        <li><a href="#experience" class="nav-link">Experience</a></li>
-                        <li><a href="#projects" class="nav-link">Projects</a></li>
-                        <li><a href="#education" class="nav-link">Education</a></li>
-                        <li><a href="#contact" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <button id="theme-toggle" class="button-hover-track liquid-glass" title="Switch Light/Dark Mode">
-                        <div class="button-content">
-                            <i class="fas fa-sun"></i>
-                            <i class="fas fa-moon"></i>
-                        </div>
-                    </button>
-                    <button class="control-center-toggle button-hover-track liquid-glass" title="Control Center">
-                        <div class="button-content">
-                            <i class="fas fa-sliders-h"></i>
-                        </div>
-                    </button>
-                </div>
-            </div>
-        </header>
-    </div>
-    
-    <nav id="control-center-nav">
-        <div class="panel">
-            <div class="cc-grabber"></div>
-            <div class="control-center-grid">
-                <div class="cc-widget">
-                    <div class="widget-header"><span>Clock</span></div>
-                    <div id="cc-clock">12:00:00</div>
-                </div>
-                <div class="cc-widget">
-                    <div class="widget-header"><i class="fas fa-sun"></i><span>Brightness</span></div>
-                    <input type="range" id="brightness-slider" min="0" max="70" value="0">
-                </div>
-                <div class="cc-widget">
-                     <div class="widget-header"><span>Quick Actions</span></div>
-                     <div class="quick-actions-grid">
-                        <button class="quick-action-btn" id="cc-theme-toggle-mobile">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Theme</span>
-                        </button>
-                        <button class="quick-action-btn" onclick="window.location.reload();">
-                            <i class="fas fa-sync-alt"></i>
-                            <span>Reload</span>
-                        </button>
-                         <button class="quick-action-btn" id="close-control-center">
-                            <i class="fas fa-times"></i>
-                            <span>Close</span>
-                        </button>
-                     </div>
-                </div>
-                <div class="cc-widget cc-nav-links">
-                     <div class="widget-header"><span>Navigation</span></div>
-                    <ul>
-                        <li><a href="#about" class="nav-link"><i class="fas fa-user"></i>About</a></li>
-                        <li><a href="#skills" class="nav-link"><i class="fas fa-cogs"></i>Skills</a></li>
-                        <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i>Experience</a></li>
-                        <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i>Projects</a></li>
-                        <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i>Education</a></li>
-                        <li><a href="#contact" class="nav-link"><i class="fas fa-paper-plane"></i>Contact</a></li>
-                    </ul>
-                </div>
-            </div>
+      <header>
+        <div class="container">
+          <a href="#hero" class="logo" style="font-family: var(--font-primary); font-weight: bold; font-size: 1.5rem; background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease;">
+            <span style="letter-spacing: -0.5px;">Portfolio</span>
+          </a>
+          <nav id="main-nav">
+            <ul>
+              <li><a href="#about" class="nav-link">About</a></li>
+              <li><a href="#skills" class="nav-link">Skills</a></li>
+              <li><a href="#experience" class="nav-link">Experience</a></li>
+              <li><a href="#projects" class="nav-link">Projects</a></li>
+              <li><a href="#education" class="nav-link">Education</a></li>
+              <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <button
+              id="theme-toggle"
+              class="button-hover-track liquid-glass"
+              title="Switch Light/Dark Mode"
+            >
+              <div class="button-content">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+              </div>
+            </button>
+            <button
+              class="control-center-toggle button-hover-track liquid-glass"
+              title="Control Center"
+            >
+              <div class="button-content">
+                <i class="fas fa-sliders-h"></i>
+              </div>
+            </button>
+          </div>
         </div>
+      </header>
+    </div>
+
+    <nav id="control-center-nav">
+      <div class="panel">
+        <div class="cc-grabber"></div>
+        <div class="control-center-grid">
+          <div class="cc-widget">
+            <div class="widget-header"><span>Clock</span></div>
+            <div id="cc-clock">12:00:00</div>
+          </div>
+          <div class="cc-widget">
+            <div class="widget-header">
+              <i class="fas fa-sun"></i><span>Brightness</span>
+            </div>
+            <input
+              type="range"
+              id="brightness-slider"
+              min="0"
+              max="70"
+              value="0"
+            />
+          </div>
+          <div class="cc-widget">
+            <div class="widget-header"><span>Quick Actions</span></div>
+            <div class="quick-actions-grid">
+              <button class="quick-action-btn" id="cc-theme-toggle-mobile">
+                <i class="fas fa-lightbulb"></i>
+                <span>Theme</span>
+              </button>
+              <button
+                class="quick-action-btn"
+                onclick="window.location.reload();"
+              >
+                <i class="fas fa-sync-alt"></i>
+                <span>Reload</span>
+              </button>
+              <button class="quick-action-btn" id="close-control-center">
+                <i class="fas fa-times"></i>
+                <span>Close</span>
+              </button>
+            </div>
+          </div>
+          <div class="cc-widget cc-nav-links">
+            <div class="widget-header"><span>Navigation</span></div>
+            <ul>
+              <li>
+                <a href="#about" class="nav-link"
+                  ><i class="fas fa-user"></i>About</a
+                >
+              </li>
+              <li>
+                <a href="#skills" class="nav-link"
+                  ><i class="fas fa-cogs"></i>Skills</a
+                >
+              </li>
+              <li>
+                <a href="#experience" class="nav-link"
+                  ><i class="fas fa-briefcase"></i>Experience</a
+                >
+              </li>
+              <li>
+                <a href="#projects" class="nav-link"
+                  ><i class="fas fa-project-diagram"></i>Projects</a
+                >
+              </li>
+              <li>
+                <a href="#education" class="nav-link"
+                  ><i class="fas fa-graduation-cap"></i>Education</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="nav-link"
+                  ><i class="fas fa-paper-plane"></i>Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <main>
-        <section class="hero" id="hero">
-            <div class="container hero-content">
-                <img src="./src/Images/Avatar.webp" alt="Ảnh đại diện của Nam Trần" class="profile-pic" loading="lazy" decoding="async">
-                <h1 class="animate-on-scroll" style="transition-delay: 0.1s;">Welcome to my Portfolio</h1>
-                <p class="intro-paragraph animate-on-scroll" style="transition-delay: 0.3s;">
-                Khám phá xây dựng giải pháp để tạo ra những sản phẩm ý nghĩa.
+      <section class="hero" id="hero">
+        <div class="container hero-content">
+          <img
+            src="./src/Images/Avatar.webp"
+            alt="Ảnh đại diện của Nam Trần"
+            class="profile-pic"
+            loading="lazy"
+            decoding="async"
+          />
+          <h1 class="animate-on-scroll" style="transition-delay: 0.1s">
+            Welcome to my Portfolio
+          </h1>
+          <p
+            class="intro-paragraph animate-on-scroll"
+            style="transition-delay: 0.3s"
+          >
+            Khám phá xây dựng giải pháp để tạo ra những sản phẩm ý nghĩa.
+          </p>
+          <a
+            href="#projects"
+            class="cta-button animate-on-scroll"
+            style="transition-delay: 0.4s"
+            >Xem Dự Án Của Mình</a
+          >
+          <div
+            class="social-links-hero animate-on-scroll"
+            style="transition-delay: 0.5s"
+          >
+            <a
+              href="https://facebook.com/Namtran5905"
+              target="_blank"
+              title="Facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://Instragram.com/Namtran5905"
+              target="_blank"
+              title="Instragram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              href="https://threads.com/Namtran5905"
+              target="_blank"
+              title="Threads"
+              ><i class="fa-brands fa-threads"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Về Bản Thân</h2>
+          <div class="about-content">
+            <div
+              class="about-text animate-on-scroll"
+              style="transition-delay: 0.1s"
+            >
+              <p>
+                Xin chào! Mình là Nam Trần một sinh viên và là người làm bán
+                thời gian.
+              </p>
+              <p>
+                Dù chưa có nhiều kinh nghiệm chuyên sâu, tôi luôn mang trong
+                mình một tinh thần ham học hỏi,<strong
+                  style="color: green; font-weight: bold"
+                >
+                  khả năng thích ứng nhanh và một thái độ làm việc tích
+                  cực.</strong
+                >
+                Các công việc bán thời gian và hoạt động ngoại khóa đã giúp tôi
+                rèn luyện nhiều kỹ năng mềm quan trọng.
+              </p>
+              <p>
+                Mục tiêu của Mình là được cống hiến và phát triển trong một môi
+                trường công nghệ sáng tạo, nơi Mình có thể áp dụng kiến thức,
+                đối mặt với thử thách và đóng góp vào sự thành công của các dự
+                án và sẵn sàng khám phá các cơ hội mới.
+              </p>
+            </div>
+            <div
+              class="about-image-container animate-on-scroll"
+              style="transition-delay: 0.2s"
+            >
+              <img
+                src="./src/Images/image.webp"
+                alt="Nam Trần - Đam mê công nghệ"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Kỹ Năng & Công Cụ</h2>
+          <div class="skills-grid">
+            <div class="skill-category animate-on-scroll">
+              <div class="apple-card">
+                <h3><i class="fas fa-brain"></i>Kỹ Năng Mềm</h3>
+                <ul>
+                  <li>Giao tiếp & Trình bày</li>
+                  <li>Làm việc nhóm & Độc lập</li>
+                  <li>Giải quyết vấn đề</li>
+                  <li>Tư duy phản biện & Phân tích</li>
+                  <li>Quản lý thời gian</li>
+                  <li>Khả năng thích ứng & Học hỏi nhanh</li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="skill-category animate-on-scroll"
+              style="transition-delay: 0.1s"
+            >
+              <div class="apple-card">
+                <h3><i class="fas fa-tools"></i>Công Cụ & Tin Học</h3>
+                <ul>
+                  <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+                  <li>Google Workspace (Docs, Sheets, Slides)</li>
+                  <li>Thiết kế: Photoshop, Canva (Cơ bản)</li>
+                  <li>Video Editing: Premiere Pro, Capcut (Cơ bản)</li>
+                  <li>Hệ điều hành: Windows, Linux (Cơ bản)</li>
+                  <li>Tiếng Anh: Đọc hiểu tài liệu chuyên ngành</li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="skill-category animate-on-scroll"
+              style="transition-delay: 0.2s"
+            >
+              <div class="apple-card">
+                <h3><i class="fas fa-laptop-code"></i>Kiến Thức Kỹ Thuật</h3>
+                <ul>
+                  <li>Ngôn ngữ: HTML, CSS, JavaScript, C++, C#</li>
+                  <li>Framework/Library: ReactJS (Đang học)</li>
+                  <li>Version Control: Git & GitHub</li>
+                  <li>Mạng máy tính & Phần cứng cơ bản</li>
+                  <li>Sử dụng AI hỗ trợ công việc</li>
+                  <li>Thương mại Điện tử & Marketing cơ bản</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="experience">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">
+            Kinh Nghiệm & Hoạt Động
+          </h2>
+          <div class="experience-grid">
+            <div class="experience-item animate-on-scroll">
+              <div class="apple-card">
+                <span class="date">03/2025 – Hiện tại</span>
+                <h3>Nhân viên Vận chuyển & Phân phối Thực phẩm</h3>
+                <p
+                  style="
+                    color: var(--text-tertiary);
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                  "
+                >
+                  Đối tác ShopeeFood
                 </p>
-                <a href="#projects" class="cta-button animate-on-scroll" style="transition-delay: 0.4s;">Xem Dự Án Của Mình</a>
-                <div class="social-links-hero animate-on-scroll" style="transition-delay: 0.5s;">
-                    <a href="https://facebook.com/Namtran5905" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://Instragram.com/Namtran5905" target="_blank" title="Instragram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://threads.com/Namtran5905" target="_blank" title="Threads"><i class="fa-brands fa-threads"></i></a>
-                </div>
+                <p>
+                  Công việc bán thời gian nhằm tăng cường kinh nghiệm thực tế và
+                  kỹ năng mềm.
+                </p>
+                <ul>
+                  <li>
+                    Giao nhận đơn hàng, đảm bảo chất lượng dịch vụ và sự hài
+                    lòng của khách hàng.
+                  </li>
+                  <li>
+                    Tương tác, giải quyết các yêu cầu và phản hồi từ khách hàng.
+                  </li>
+                  <li>
+                    Rèn luyện kỹ năng quản lý thời gian, làm việc độc lập và
+                    chịu áp lực.
+                  </li>
+                </ul>
+              </div>
             </div>
-        </section>
-
-        <section id="about"><div class="container"><h2 class="section-title animate-on-scroll">Về Bản Thân</h2><div class="about-content"><div class="about-text animate-on-scroll" style="transition-delay: 0.1s;"><p>Xin chào! Mình là Nam Trần một sinh viên và là người làm bán thời gian.</p><p>Dù chưa có nhiều kinh nghiệm chuyên sâu, tôi luôn mang trong mình một tinh thần ham học hỏi,<strong style="color: green; font-weight: bold;"> khả năng thích ứng nhanh và một thái độ làm việc tích cực.</strong> Các công việc bán thời gian và hoạt động ngoại khóa đã giúp tôi rèn luyện nhiều kỹ năng mềm quan trọng.</p><p>Mục tiêu của Mình là được cống hiến và phát triển trong một môi trường công nghệ sáng tạo, nơi Mình có thể áp dụng kiến thức, đối mặt với thử thách và đóng góp vào sự thành công của các dự án và sẵn sàng khám phá các cơ hội mới.</p></div><div class="about-image-container animate-on-scroll" style="transition-delay: 0.2s;"><img src="./src/Images/image.webp" alt="Nam Trần - Đam mê công nghệ" loading="lazy" decoding="async"></div></div></div></section>
-        
-        <section id="skills">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Kỹ Năng & Công Cụ</h2>
-                <div class="skills-grid">
-                    <div class="skill-category animate-on-scroll">
-                        <div class="apple-card">
-                            <h3><i class="fas fa-brain"></i>Kỹ Năng Mềm</h3>
-                            <ul><li>Giao tiếp & Trình bày</li><li>Làm việc nhóm & Độc lập</li><li>Giải quyết vấn đề</li><li>Tư duy phản biện & Phân tích</li><li>Quản lý thời gian</li><li>Khả năng thích ứng & Học hỏi nhanh</li></ul>
-                        </div>
-                    </div>
-                    <div class="skill-category animate-on-scroll" style="transition-delay: 0.1s;">
-                        <div class="apple-card">
-                            <h3><i class="fas fa-tools"></i>Công Cụ & Tin Học</h3>
-                            <ul><li>Microsoft Office (Word, Excel, PowerPoint)</li><li>Google Workspace (Docs, Sheets, Slides)</li><li>Thiết kế: Photoshop, Canva (Cơ bản)</li><li>Video Editing: Premiere Pro, Capcut (Cơ bản)</li><li>Hệ điều hành: Windows, Linux (Cơ bản)</li><li>Tiếng Anh: Đọc hiểu tài liệu chuyên ngành</li></ul>
-                        </div>
-                    </div>
-                    <div class="skill-category animate-on-scroll" style="transition-delay: 0.2s;">
-                        <div class="apple-card">
-                            <h3><i class="fas fa-laptop-code"></i>Kiến Thức Kỹ Thuật</h3>
-                            <ul><li>Ngôn ngữ: HTML, CSS, JavaScript, C++, C#</li><li>Framework/Library: ReactJS (Đang học)</li><li>Version Control: Git & GitHub</li><li>Mạng máy tính & Phần cứng cơ bản</li><li>Sử dụng AI hỗ trợ công việc</li><li>Thương mại Điện tử & Marketing cơ bản</li></ul>
-                        </div>
-                    </div>
+          </div>
+        </div>
+      </section>
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Dự Án Nổi Bật</h2>
+          <p
+            class="section-subtitle animate-on-scroll"
+            style="transition-delay: 0.05s"
+          >
+            Một số dự án cá nhân và bài tập Mình đã thực hiện để rèn luyện kỹ
+            năng và khám phá niềm đam mê công nghệ.
+          </p>
+          <div class="portfolio-grid">
+            <!--
+            <div
+              class="portfolio-item animate-on-scroll"
+              style="transition-delay: 0.1s"
+            >
+              <div class="apple-card">
+                <img
+                  src="./src/Project/Product1.webp"
+                  alt="Website cá nhân Nam Trần"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="portfolio-content">
+                  <h3>BIO</h3>
+                  <p>
+                    Trang Bio cá nhân, thiết kế và xây dựng bằng ReactJS. Tập
+                    trung vào trải nghiệm người dùng mượt mà và responsive.
+                  </p>
+                  <div class="portfolio-tags">
+                    <span class="tag">Bio</span><span class="tag">ReactJS</span
+                    ><span class="tag">Link</span
+                    ><span class="tag">Responsive</span>
+                  </div>
+                  <div class="portfolio-links">
+                    <a
+                      href="https://github.com/Namtran592005/BioPage"
+                      target="_blank"
+                      ><i class="fab fa-github"></i> Source Code</a
+                    ><a
+                      href="https://namtran592005.github.io/BioPage/"
+                      target="_blank"
+                      ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                    >
+                  </div>
                 </div>
+              </div>
+            </div>-->
+            <div
+              class="portfolio-item animate-on-scroll"
+              style="transition-delay: 0.2s"
+            >
+              <div class="apple-card">
+                <img
+                  src="./src/Project/Product1.webp"
+                  alt="Chatbot AI VEGA"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="portfolio-content">
+                  <h3>VEGA AI Chatbot</h3>
+                  <p>
+                    Ứng dụng Chatbot AI được xây dựng bằng React, tích hợp API
+                    từ Google Gemini. Giao diện trực quan, hỗ trợ nhập liệu
+                    giọng nói và lưu trữ hội thoại.
+                  </p>
+                  <div class="portfolio-tags">
+                    <span class="tag">ReactJS</span><span class="tag">API</span
+                    ><span class="tag">AI</span><span class="tag">Gemini</span>
+                  </div>
+                  <div class="portfolio-links">
+                    <a
+                      href="https://github.com/Namtran592005/VEGA-AI"
+                      target="_blank"
+                      ><i class="fab fa-github"></i> Source Code</a
+                    ><a
+                      href="https://namtran592005.github.io/VEGA-AI/"
+                      target="_blank"
+                      ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
-
-        <section id="experience"><div class="container"><h2 class="section-title animate-on-scroll">Kinh Nghiệm & Hoạt Động</h2><div class="experience-grid"><div class="experience-item animate-on-scroll"><div class="apple-card"><span class="date">03/2025 – Hiện tại</span><h3>Nhân viên Vận chuyển & Phân phối Thực phẩm</h3><p style="color: var(--text-tertiary); font-weight: 500; margin-bottom: 10px;">Đối tác ShopeeFood</p><p>Công việc bán thời gian nhằm tăng cường kinh nghiệm thực tế và kỹ năng mềm.</p><ul><li>Giao nhận đơn hàng, đảm bảo chất lượng dịch vụ và sự hài lòng của khách hàng.</li><li>Tương tác, giải quyết các yêu cầu và phản hồi từ khách hàng.</li><li>Rèn luyện kỹ năng quản lý thời gian, làm việc độc lập và chịu áp lực.</li></ul></div></div></div></div></section>
-        <section id="projects"><div class="container"><h2 class="section-title animate-on-scroll">Dự Án Nổi Bật</h2><p class="section-subtitle animate-on-scroll" style="transition-delay: 0.05s;">Một số dự án cá nhân và bài tập Mình đã thực hiện để rèn luyện kỹ năng và khám phá niềm đam mê công nghệ.</p><div class="portfolio-grid"><div class="portfolio-item animate-on-scroll" style="transition-delay: 0.1s;"><div class="apple-card"><img src="./src/Project/Product1.webp" alt="Website cá nhân Nam Trần" loading="lazy" decoding="async"><div class="portfolio-content"><h3>BIO</h3><p>Trang Bio cá nhân, thiết kế và xây dựng bằng ReactJS. Tập trung vào trải nghiệm người dùng mượt mà và responsive.</p><div class="portfolio-tags"><span class="tag">Bio</span><span class="tag">ReactJS</span><span class="tag">Link</span><span class="tag">Responsive</span></div><div class="portfolio-links"><a href="https://github.com/Namtran592005/BioPage" target="_blank"><i class="fab fa-github"></i> Source Code</a><a href="https://namtran592005.github.io/BioPage/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a></div></div></div></div><div class="portfolio-item animate-on-scroll" style="transition-delay: 0.2s;"><div class="apple-card"><img src="./src/Project/Product2.webp" alt="Chatbot AI VEGA" loading="lazy" decoding="async"><div class="portfolio-content"><h3>VEGA AI Chatbot</h3><p>Ứng dụng Chatbot AI được xây dựng bằng React, tích hợp API từ Google Gemini. Giao diện trực quan, hỗ trợ nhập liệu giọng nói và lưu trữ hội thoại.</p><div class="portfolio-tags"><span class="tag">ReactJS</span><span class="tag">API</span><span class="tag">AI</span><span class="tag">Gemini</span></div><div class="portfolio-links"><a href="https://github.com/Namtran592005/VEGA-AI" target="_blank"><i class="fab fa-github"></i> Source Code</a><a href="https://namtran592005.github.io/VEGA-AI/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a></div></div></div></div><div class="portfolio-item animate-on-scroll" style="transition-delay: 0.1s;"><div class="apple-card"><img src="./src/Project/Product3.webp" alt="Website Tiện ích" loading="lazy" decoding="async"><div class="portfolio-content"><h3>Utility Tools Website</h3><p>Một trang web tập hợp các công cụ tiện ích online cơ bản, phát triển bằng React. Mục tiêu cung cấp giải pháp nhanh chóng và tiện lợi cho người dùng.</p><div class="portfolio-tags"><span class="tag">ReactJS</span><span class="tag">Web Tools</span><span class="tag">Utility</span></div><div class="portfolio-links"><a href="https://github.com/Namtran592005/Utility-Tools" target="_blank"><i class="fab fa-github"></i> Source Code</a><a href="https://namtran592005.github.io/Utility-Tools/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a></div></div></div></div></div></div></section>
-        <section id="education"><div class="container"><h2 class="section-title animate-on-scroll">Học Vấn</h2><div class="experience-grid"><div class="experience-item animate-on-scroll"><div class="apple-card"><span class="date">2024 – DỰ KIẾN 2027</span><h3>Trường Cao đẳng Nghề Trà Vinh (TVC)</h3><p style="color: var(--text-tertiary); font-weight: 500; margin-bottom: 10px;">Chuyên ngành: Công nghệ Thông Tin</p></div></div><div class="experience-item animate-on-scroll" style="transition-delay: 0.1s;"><div class="apple-card"><span class="date">2020 – 2022</span><h3>Trường Trung Cấp Kinh tế - Kỹ thuật Nguyễn Hữu Cảnh</h3><p style="color: var(--text-tertiary); font-weight: 500; margin-bottom: 10px;">Chuyên ngành: Tin Học Ứng dụng</p></div></div><div class="experience-item animate-on-scroll" style="transition-delay: 0.2s;"><div class="apple-card"><span class="date">TỐT NGHIỆP 2023</span><h3>Trung Tâm GDTX - HNDN Thành Phố Trà Vinh</h3><p style="color: var(--text-tertiary); font-weight: 500; margin-bottom: 10px;">Chương trình Giáo dục Thường xuyên Cấp THPT</p></div></div></div></div></section>
-        <section id="contact"><div class="container"><h2 class="section-title animate-on-scroll">Kết Nối Với Mình</h2><p class="section-subtitle animate-on-scroll" style="transition-delay: 0.05s;">Mình luôn sẵn sàng lắng nghe các cơ hội hợp tác, dự án thú vị hoặc đơn giản là một lời chào. Đừng ngần ngại liên hệ!</p><div class="contact-container"><div class="contact-form-wrapper animate-on-scroll" style="transition-delay: 0.1s;"><div class="apple-card"><h3>Gửi Lời Nhắn</h3><form id="contact-form" action="https://formspree.io/f/xzzryjzq" method="POST"><div class="form-group"><label for="name">Họ và Tên</label><input type="text" id="name" name="name" required></div><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div><div class="form-group"><label for="message">Lời nhắn</label><textarea id="message" name="message" rows="5" required></textarea></div><button type="submit" class="contact-button">Gửi Đi <i class="fas fa-arrow-right" style="margin-left: 8px; font-size: 0.8em"></i></button><p id="form-status" style="margin-top: 15px; font-size: 0.9rem;"></p></form></div></div><div class="contact-info-wrapper animate-on-scroll" style="transition-delay: 0.2s;"><div class="apple-card"><h3>Thông Tin Liên Hệ</h3><div class="contact-info-item"><i class="fas fa-envelope"></i><span><a href="mailto:Namtran5905@gmail.com">Namtran5905@gmail.com</a></span></div><div class="contact-info-item"><i class="fas fa-phone-alt"></i><span><a href="tel:+84YOURPHONENUMBER">096****439</a></span></div><div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><span>Phường Nguyệt Hóa, Tỉnh Vĩnh Long</span></div><h3 style="margin-top: 30px;">Mạng Xã Hội</h3><div class="contact-info-item"><i class="fab fa-facebook"></i><a href="https://fb.com/namtran5905" target="_blank">Facebook</a></div><div class="contact-info-item"><i class="fab fa-instagram"></i><a href="https://instagram.com/namtran5905" target="_blank">Instagram</a></div><div class="contact-info-item"><i class="fab fa-threads"></i><a href="https://threads.com/@namtran5905" target="_blank">Threads</a></div></div></div></div></div></section>
+            <div
+              class="portfolio-item animate-on-scroll"
+              style="transition-delay: 0.1s"
+            >
+              <div class="apple-card">
+                <img
+                  src="./src/Project/Product2.webp"
+                  alt="Website Tiện ích"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="portfolio-content">
+                  <h3>Utility Tools Website</h3>
+                  <p>
+                    Một trang web tập hợp các công cụ tiện ích online cơ bản,
+                    phát triển bằng React. Mục tiêu cung cấp giải pháp nhanh
+                    chóng và tiện lợi cho người dùng.
+                  </p>
+                  <div class="portfolio-tags">
+                    <span class="tag">ReactJS</span
+                    ><span class="tag">Web Tools</span
+                    ><span class="tag">Utility</span>
+                  </div>
+                  <div class="portfolio-links">
+                    <a
+                      href="https://github.com/Namtran592005/Utility-Tools"
+                      target="_blank"
+                      ><i class="fab fa-github"></i> Source Code</a
+                    ><a
+                      href="https://namtran592005.github.io/Utility-Tools/"
+                      target="_blank"
+                      ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="education">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Học Vấn</h2>
+          <div class="experience-grid">
+            <div class="experience-item animate-on-scroll">
+              <div class="apple-card">
+                <span class="date">2024 – DỰ KIẾN 2027</span>
+                <h3>Trường Cao đẳng Nghề Trà Vinh (TVC)</h3>
+                <p
+                  style="
+                    color: var(--text-tertiary);
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                  "
+                >
+                  Chuyên ngành: Công nghệ Thông Tin
+                </p>
+              </div>
+            </div>
+            <div
+              class="experience-item animate-on-scroll"
+              style="transition-delay: 0.1s"
+            >
+              <div class="apple-card">
+                <span class="date">2020 – 2022</span>
+                <h3>Trường Trung Cấp Kinh tế - Kỹ thuật Nguyễn Hữu Cảnh</h3>
+                <p
+                  style="
+                    color: var(--text-tertiary);
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                  "
+                >
+                  Chuyên ngành: Tin Học Ứng dụng
+                </p>
+              </div>
+            </div>
+            <div
+              class="experience-item animate-on-scroll"
+              style="transition-delay: 0.2s"
+            >
+              <div class="apple-card">
+                <span class="date">TỐT NGHIỆP 2023</span>
+                <h3>Trung Tâm GDTX - HNDN Thành Phố Trà Vinh</h3>
+                <p
+                  style="
+                    color: var(--text-tertiary);
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                  "
+                >
+                  Chương trình Giáo dục Thường xuyên Cấp THPT
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Kết Nối Với Mình</h2>
+          <p
+            class="section-subtitle animate-on-scroll"
+            style="transition-delay: 0.05s"
+          >
+            Mình luôn sẵn sàng lắng nghe các cơ hội hợp tác, dự án thú vị hoặc
+            đơn giản là một lời chào. Đừng ngần ngại liên hệ!
+          </p>
+          <div class="contact-container">
+            <div
+              class="contact-form-wrapper animate-on-scroll"
+              style="transition-delay: 0.1s"
+            >
+              <div class="apple-card">
+                <h3>Gửi Lời Nhắn</h3>
+                <form
+                  id="contact-form"
+                  action="https://formspree.io/f/xzzryjzq"
+                  method="POST"
+                >
+                  <div class="form-group">
+                    <label for="name">Họ và Tên</label
+                    ><input type="text" id="name" name="name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label
+                    ><input type="email" id="email" name="email" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Lời nhắn</label
+                    ><textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      required
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="contact-button">
+                    Gửi Đi
+                    <i
+                      class="fas fa-arrow-right"
+                      style="margin-left: 8px; font-size: 0.8em"
+                    ></i>
+                  </button>
+                  <p
+                    id="form-status"
+                    style="margin-top: 15px; font-size: 0.9rem"
+                  ></p>
+                </form>
+              </div>
+            </div>
+            <div
+              class="contact-info-wrapper animate-on-scroll"
+              style="transition-delay: 0.2s"
+            >
+              <div class="apple-card">
+                <h3>Thông Tin Liên Hệ</h3>
+                <div class="contact-info-item">
+                  <i class="fas fa-envelope"></i
+                  ><span
+                    ><a href="mailto:Namtran5905@gmail.com"
+                      >Namtran5905@gmail.com</a
+                    ></span
+                  >
+                </div>
+                <div class="contact-info-item">
+                  <i class="fas fa-phone-alt"></i
+                  ><span><a href="tel:+84YOURPHONENUMBER">096****439</a></span>
+                </div>
+                <div class="contact-info-item">
+                  <i class="fas fa-map-marker-alt"></i
+                  ><span>Phường Nguyệt Hóa, Tỉnh Vĩnh Long</span>
+                </div>
+                <h3 style="margin-top: 30px">Mạng Xã Hội</h3>
+                <div class="contact-info-item">
+                  <i class="fab fa-facebook"></i
+                  ><a href="https://fb.com/namtran5905" target="_blank"
+                    >Facebook</a
+                  >
+                </div>
+                <div class="contact-info-item">
+                  <i class="fab fa-instagram"></i
+                  ><a href="https://instagram.com/namtran5905" target="_blank"
+                    >Instagram</a
+                  >
+                </div>
+                <div class="contact-info-item">
+                  <i class="fab fa-threads"></i
+                  ><a href="https://threads.com/@namtran5905" target="_blank"
+                    >Threads</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="footer-content container">
-            <p><span id="currentYear"></span> © Made with <i class="fas fa-heart" style="color:red;"></i> by Nam Trần</p>
-            <a class="mandalorian-icon" title="This is the way."><i class="fa-brands fa-mandalorian"></i></a>
-            <a href="./src/File/Porfolio.pdf" download class="footer-download-btn">
-                <span>Tải CV</span>
-                <i class="fas fa-download icon-download"></i>
-            </a>
+      <div class="footer-content container">
+        <p>
+          <span id="currentYear"></span> © Made with
+          <i class="fas fa-heart" style="color: red"></i> by Nam Trần
+        </p>
+        <a href="./src/File/Porfolio.pdf" download class="footer-download-btn">
+          <span>Tải CV</span>
+          <i class="fas fa-download icon-download"></i>
+        </a>
+      </div>
+      <div class="eco-section">
+        <div class="container" style="text-align: center; max-width: 100%; padding: 0 20px; margin: 0 auto; word-wrap: break-word;">
+          <p style="font-size: 14px; line-height: 1.5; margin-bottom: 8px;">
+            🌱 Trang web này đã được tối ưu hóa để tải nhanh, tiết kiệm năng lượng và giảm phát thải carbon.
+          </p>
+          <p style="font-size: 14px; line-height: 1.5; margin-bottom: 8px;">
+            🔒 An toàn & bảo mật, không thu thập dữ liệu cá nhân, không chứa mã độc hại.
+          </p>
+          <p style="font-size: 14px; line-height: 1.5; margin-bottom: 12px;">
+            💚 Hãy cùng bảo vệ môi trường và sử dụng công nghệ một cách có trách nhiệm!
+          </p>
+          <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+            <div id="wcb" class="carbonbadge"></div>
+            <div id="wcb" class="carbonbadge wcb-d"></div>
+          </div>
         </div>
-        <div class="eco-section">
-            <div class="container">
-                <span style="display:inline-block;margin-bottom:4px;">🌱 Trang web này đã được tối ưu hóa để tải nhanh, tiết kiệm năng lượng và giảm phát thải carbon.</span><br>
-                <span style="display:inline-block;margin-bottom:4px;">🔒 An toàn & bảo mật, không thu thập dữ liệu cá nhân, không chứa mã độc hại.</span><br>
-                <span style="display:inline-block;">💚 Hãy cùng bảo vệ môi trường và sử dụng công nghệ một cách có trách nhiệm!</span>
-                <div id="wcb" class="carbonbadge light-badge"></div>
-                <div id="wcb" class="carbonbadge wcb-d dark-badge"></div>
-            </div>
-        </div>
-        <div class="design-credit-footer">
-            <p>
-                <i class="fab fa-apple"></i>
-                Inspired by Apple's "Liquid Glass" design language.
-            </p>
-        </div>
+      </div>
+      <div class="design-credit-footer">
+        <p>
+          <i class="fab fa-apple"></i>
+          Inspired by Apple's "Liquid Glass" design language.
+        </p>
+      </div>
     </footer>
 
     <a href="#hero" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
 
-    <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
+    <script
+      src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
+      defer
+    ></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pageBody = document.body;
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-            
-            const profilePic = document.querySelector('.hero .profile-pic');
-            const themeToggle = document.getElementById('theme-toggle');
-            const controlCenterToggle = document.querySelector('.control-center-toggle');
-            
-            // Track mouse movement for liquid glass effect
-            document.addEventListener('mousemove', (e) => {
-                const liquidGlassElements = document.querySelectorAll('.liquid-glass');
-                liquidGlassElements.forEach(element => {
-                    const rect = element.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    element.style.setProperty('--mouse-x', `${x}px`);
-                    element.style.setProperty('--mouse-y', `${y}px`);
-                });
-            });
+      document.addEventListener("DOMContentLoaded", () => {
+        const pageBody = document.body;
+        document.getElementById("currentYear").textContent =
+          new Date().getFullYear();
 
-            setTimeout(() => {
-                pageBody.classList.remove('no-scroll');
-                pageBody.classList.add('loaded');
-            }, 100);
+        const profilePic = document.querySelector(".hero .profile-pic");
+        const themeToggle = document.getElementById("theme-toggle");
+        const controlCenterToggle = document.querySelector(
+          ".control-center-toggle"
+        );
 
-            const cards = document.querySelectorAll('.apple-card');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    card.style.setProperty('--mouse-x', `${x}px`);
-                    card.style.setProperty('--mouse-y', `${y}px`);
-                });
-            });
-
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    } else {
-                         entry.target.classList.remove('is-visible');
-                    }
-                });
-            }, { threshold: 0.15 });
-            animatedElements.forEach(el => observer.observe(el));
-
-            const navLinks = document.querySelectorAll('a.nav-link');
-            const sections = document.querySelectorAll('main section[id]');
-            const headerHeight = document.querySelector('header')?.offsetHeight || 72;
-            
-            function updateActiveNavLink() {
-                let currentSectionId = 'hero';
-                const scrollY = window.pageYOffset;
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - headerHeight - 150;
-                    if (scrollY >= sectionTop) { currentSectionId = section.getAttribute('id'); }
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSectionId}`) { link.classList.add('active'); }
-                });
-            }
-
-            const themeToggleDesktop = document.getElementById('theme-toggle');
-            const themeToggleMobile = document.getElementById('cc-theme-toggle-mobile');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            let currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
-            
-            function applyTheme(theme) {
-                pageBody.classList.toggle('dark-mode', theme === 'dark');
-                localStorage.setItem('theme', theme);
-            }
-
-            function toggleTheme() {
-                currentTheme = pageBody.classList.contains('dark-mode') ? 'light' : 'dark';
-                applyTheme(currentTheme);
-            }
-
-            if (themeToggleDesktop) themeToggleDesktop.addEventListener('click', toggleTheme);
-            if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
-            applyTheme(currentTheme);
-
-            const controlCenter = document.getElementById('control-center-nav');
-            const controlCenterToggles = document.querySelectorAll('.control-center-toggle');
-            const closeCCBtn = document.getElementById('close-control-center');
-
-            function openControlCenter() {
-                if (controlCenter) {
-                    controlCenter.classList.add('nav-open');
-                    document.body.classList.add('no-scroll');
-                    themeToggle.classList.remove('move-to-center');
-                }
-            }
-
-            function closeControlCenter() {
-                if (controlCenter) {
-                    controlCenter.classList.remove('nav-open');
-                    document.body.classList.remove('no-scroll');
-                    updateButtonStates();
-                }
-            }
-
-            controlCenterToggles.forEach(btn => btn.addEventListener('click', openControlCenter));
-            document.getElementById('close-control-center')?.addEventListener('click', closeControlCenter);
-
-            if (controlCenter) {
-                controlCenter.addEventListener('click', (e) => {
-                    if (e.target === controlCenter) closeControlCenter();
-                });
-                controlCenter.querySelectorAll('a.nav-link').forEach(link => {
-                    link.addEventListener('click', closeControlCenter);
-                });
-            }
-
-            const clockElement = document.getElementById('cc-clock');
-            const brightnessSlider = document.getElementById('brightness-slider');
-            const brightnessOverlay = document.getElementById('brightness-overlay');
-            
-            function updateClock() {
-                if (!clockElement) return;
-                const now = new Date();
-                const h = String(now.getHours()).padStart(2, '0');
-                const m = String(now.getMinutes()).padStart(2, '0');
-                const s = String(now.getSeconds()).padStart(2, '0');
-                clockElement.textContent = `${h}:${m}:${s}`;
-            }
-
-            setInterval(updateClock, 1000);
-            updateClock();
-
-            if (brightnessSlider && brightnessOverlay) {
-                brightnessSlider.addEventListener('input', () => {
-                    brightnessOverlay.style.opacity = brightnessSlider.value / 100;
-                });
-            }
-
-            const scrollToTopButton = document.querySelector('.scroll-to-top');
-
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-
-                if (profilePic) {
-                    if (scrollY < window.innerHeight) {
-                        profilePic.style.transform = `translateY(${scrollY * 0.4}px)`;
-                        profilePic.style.opacity = Math.max(0, 1 - (scrollY / 400));
-                    }
-                }
-                
-                // Handle button transitions on scroll
-                controlCenterToggles.forEach(btn => {
-                    if (scrollY > 0) {
-                        btn.classList.add('hide-on-scroll');
-                        // Only move theme toggle if control center is closed
-                        if (!controlCenter.classList.contains('nav-open')) {
-                            themeToggle.classList.add('move-to-center');
-                        }
-                    } else {
-                        btn.classList.remove('hide-on-scroll');
-                        themeToggle.classList.remove('move-to-center');
-                    }
-                });
-
-                updateActiveNavLink();
-                if (scrollToTopButton) {
-                    scrollToTopButton.classList.toggle('visible', scrollY > 400);
-                }
-            }, { passive: true });
-
-            const contactForm = document.getElementById('contact-form');
-            if(contactForm) {
-                contactForm.addEventListener("submit", async function(event) {
-                    event.preventDefault();
-                    const form = event.target;
-                    const data = new FormData(form);
-                    const status = document.getElementById('form-status');
-                    status.innerHTML = "Đang gửi...";
-                    try {
-                        const response = await fetch(form.action, { method: form.method, body: data, headers: {'Accept': 'application/json'} });
-                        if (response.ok) {
-                            status.innerHTML = "Cảm ơn! Lời nhắn của bạn đã được gửi.";
-                            status.style.color = 'var(--accent-primary)';
-                            form.reset();
-                        } else {
-                            const responseData = await response.json();
-                            if (Object.hasOwn(responseData, 'errors')) {
-                                status.innerHTML = responseData["errors"].map(error => error["message"]).join(", ");
-                            } else {
-                                status.innerHTML = "Oops! Có lỗi xảy ra khi gửi form.";
-                            }
-                            status.style.color = 'red';
-                        }
-                    } catch (error) {
-                        status.innerHTML = "Oops! Có lỗi xảy ra khi gửi form.";
-                        status.style.color = 'red';
-                    }
-                    setTimeout(() => { status.innerHTML = ''; }, 6000);
-                });
-            }
-
-            document.addEventListener('contextmenu', e => e.preventDefault());
-            updateActiveNavLink();
+        // Track mouse movement for liquid glass effect
+        document.addEventListener("mousemove", (e) => {
+          const liquidGlassElements =
+            document.querySelectorAll(".liquid-glass");
+          liquidGlassElements.forEach((element) => {
+            const rect = element.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            element.style.setProperty("--mouse-x", `${x}px`);
+            element.style.setProperty("--mouse-y", `${y}px`);
+          });
         });
+
+        setTimeout(() => {
+          pageBody.classList.remove("no-scroll");
+          pageBody.classList.add("loaded");
+        }, 100);
+
+        const cards = document.querySelectorAll(".apple-card");
+        cards.forEach((card) => {
+          card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+          });
+        });
+
+        const animatedElements =
+          document.querySelectorAll(".animate-on-scroll");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              } else {
+                entry.target.classList.remove("is-visible");
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        animatedElements.forEach((el) => observer.observe(el));
+
+        const navLinks = document.querySelectorAll("a.nav-link");
+        const sections = document.querySelectorAll("main section[id]");
+        const headerHeight =
+          document.querySelector("header")?.offsetHeight || 72;
+
+        function updateActiveNavLink() {
+          let currentSectionId = "hero";
+          const scrollY = window.pageYOffset;
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop - headerHeight - 150;
+            if (scrollY >= sectionTop) {
+              currentSectionId = section.getAttribute("id");
+            }
+          });
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${currentSectionId}`) {
+              link.classList.add("active");
+            }
+          });
+        }
+
+        const themeToggleDesktop = document.getElementById("theme-toggle");
+        const themeToggleMobile = document.getElementById(
+          "cc-theme-toggle-mobile"
+        );
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        let currentTheme =
+          localStorage.getItem("theme") || (prefersDark ? "dark" : "light");
+
+        function applyTheme(theme) {
+          pageBody.classList.toggle("dark-mode", theme === "dark");
+          localStorage.setItem("theme", theme);
+        }
+
+        function toggleTheme() {
+          currentTheme = pageBody.classList.contains("dark-mode")
+            ? "light"
+            : "dark";
+          applyTheme(currentTheme);
+        }
+
+        if (themeToggleDesktop)
+          themeToggleDesktop.addEventListener("click", toggleTheme);
+        if (themeToggleMobile)
+          themeToggleMobile.addEventListener("click", toggleTheme);
+        applyTheme(currentTheme);
+
+        const controlCenter = document.getElementById("control-center-nav");
+        const controlCenterToggles = document.querySelectorAll(
+          ".control-center-toggle"
+        );
+        const closeCCBtn = document.getElementById("close-control-center");
+
+        function openControlCenter() {
+          if (controlCenter) {
+            controlCenter.classList.add("nav-open");
+            document.body.classList.add("no-scroll");
+            themeToggle.classList.remove("move-to-center");
+          }
+        }
+
+        function closeControlCenter() {
+          if (controlCenter) {
+            controlCenter.classList.remove("nav-open");
+            document.body.classList.remove("no-scroll");
+            updateButtonStates();
+          }
+        }
+
+        controlCenterToggles.forEach((btn) =>
+          btn.addEventListener("click", openControlCenter)
+        );
+        document
+          .getElementById("close-control-center")
+          ?.addEventListener("click", closeControlCenter);
+
+        if (controlCenter) {
+          controlCenter.addEventListener("click", (e) => {
+            if (e.target === controlCenter) closeControlCenter();
+          });
+          controlCenter.querySelectorAll("a.nav-link").forEach((link) => {
+            link.addEventListener("click", closeControlCenter);
+          });
+        }
+
+        const clockElement = document.getElementById("cc-clock");
+        const brightnessSlider = document.getElementById("brightness-slider");
+        const brightnessOverlay = document.getElementById("brightness-overlay");
+
+        function updateClock() {
+          if (!clockElement) return;
+          const now = new Date();
+          const h = String(now.getHours()).padStart(2, "0");
+          const m = String(now.getMinutes()).padStart(2, "0");
+          const s = String(now.getSeconds()).padStart(2, "0");
+          clockElement.textContent = `${h}:${m}:${s}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        if (brightnessSlider && brightnessOverlay) {
+          brightnessSlider.addEventListener("input", () => {
+            brightnessOverlay.style.opacity = brightnessSlider.value / 100;
+          });
+        }
+
+        const scrollToTopButton = document.querySelector(".scroll-to-top");
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            const scrollY = window.scrollY;
+
+            if (profilePic) {
+              if (scrollY < window.innerHeight) {
+                profilePic.style.transform = `translateY(${scrollY * 0.4}px)`;
+                profilePic.style.opacity = Math.max(0, 1 - scrollY / 400);
+              }
+            }
+
+            // Handle button transitions on scroll
+            controlCenterToggles.forEach((btn) => {
+              if (scrollY > 0) {
+                btn.classList.add("hide-on-scroll");
+                // Only move theme toggle if control center is closed
+                if (!controlCenter.classList.contains("nav-open")) {
+                  themeToggle.classList.add("move-to-center");
+                }
+              } else {
+                btn.classList.remove("hide-on-scroll");
+                themeToggle.classList.remove("move-to-center");
+              }
+            });
+
+            updateActiveNavLink();
+            if (scrollToTopButton) {
+              scrollToTopButton.classList.toggle("visible", scrollY > 400);
+            }
+          },
+          { passive: true }
+        );
+
+        const contactForm = document.getElementById("contact-form");
+        if (contactForm) {
+          contactForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+            const status = document.getElementById("form-status");
+            status.innerHTML = "Đang gửi...";
+            try {
+              const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { Accept: "application/json" },
+              });
+              if (response.ok) {
+                status.innerHTML = "Cảm ơn! Lời nhắn của bạn đã được gửi.";
+                status.style.color = "var(--accent-primary)";
+                form.reset();
+              } else {
+                const responseData = await response.json();
+                if (Object.hasOwn(responseData, "errors")) {
+                  status.innerHTML = responseData["errors"]
+                    .map((error) => error["message"])
+                    .join(", ");
+                } else {
+                  status.innerHTML = "Oops! Có lỗi xảy ra khi gửi form.";
+                }
+                status.style.color = "red";
+              }
+            } catch (error) {
+              status.innerHTML = "Oops! Có lỗi xảy ra khi gửi form.";
+              status.style.color = "red";
+            }
+            setTimeout(() => {
+              status.innerHTML = "";
+            }, 6000);
+          });
+        }
+
+        document.addEventListener("contextmenu", (e) => e.preventDefault());
+        updateActiveNavLink();
+      });
     </script>
-</body>
+  </body>
 </html>
