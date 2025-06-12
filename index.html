@@ -222,47 +222,56 @@
 
       header .container {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         width: 100%;
-        gap: 20px; /* Thêm khoảng cách giữa các phần tử */
+        gap: 20px;
       }
 
       header .logo {
         font-size: 1.5rem;
-        font-weight: 900; /* Tăng độ đậm của logo */
+        font-weight: 900;
         color: var(--text-primary);
         transition: all var(--transition-fast);
-        flex-shrink: 0; /* Ngăn logo bị co lại */
+        flex-shrink: 0;
+        text-decoration: none;
       }
 
       @media (min-width: 993px) {
         header nav#main-nav {
-          display: block;
+          flex: 1;
+          display: flex;
+          justify-content: center;
+        }
+        header nav#main-nav ul {
+          list-style: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+          gap: 12px;
         }
       }
+
       @media (max-width: 992px) {
+        header .container {
+          padding: 0 15px;
+        }
         header nav#main-nav {
-          display: none;
+          display: none; /* Ẩn navigation trên mobile */
+        }
+        .header-actions {
+          margin-left: auto; /* Đẩy các nút về bên phải */
+        }
+        header .logo {
+          font-size: 1.3rem; /* Giảm kích thước logo trên mobile */
         }
       }
-      header nav#main-nav {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-      header nav#main-nav ul {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        gap: 12px; /* Khoảng cách giữa các nav items */
-      }
+
       header nav#main-nav ul li {
-        margin-left: 0; /* Reset margin */
+        margin: 0;
       }
+
       header nav#main-nav ul li a {
         color: var(--text-secondary);
         text-decoration: none;
@@ -1016,28 +1025,18 @@
 
       @media (max-width: 768px) {
         .header-container {
+          position: fixed;
           top: 0;
+          left: 0;
+          width: 100vw;
+          z-index: 1000;
         }
         header {
-          width: 100%;
+          width: 100vw;
           border-radius: 0;
         }
-        .hero {
-          padding-top: calc(var(--header-height) + 5px);
-        }
-        #control-center-nav {
-          padding: 0;
-        }
-        #control-center-nav .panel {
-          max-height: 100vh;
-          height: 100%;
-          border-radius: 0;
-        }
-        .section-title {
-          font-size: 2.5rem;
-        }
-        .portfolio-grid {
-          grid-template-columns: 1fr;
+        body {
+          padding-top: var(--header-height);
         }
       }
 
@@ -2005,6 +2004,7 @@
         if (themeToggleMobile)
           themeToggleMobile.addEventListener("click", toggleTheme);
         applyTheme(currentTheme);
+
 
         const controlCenter = document.getElementById("control-center-nav");
         const controlCenterToggles = document.querySelectorAll(
