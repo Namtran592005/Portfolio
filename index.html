@@ -80,6 +80,7 @@
             --accent-primary: var(--accent-primary-light);
             --shadow-color: var(--shadow-color-light);
             --light-effect: var(--light-effect-light);
+            --glass-light-effect: hsla(0, 0%, 100%, 0.4);
         }
 
         body.dark-mode {
@@ -93,6 +94,7 @@
             --accent-primary: var(--accent-primary-dark);
             --shadow-color: var(--shadow-color-dark);
             --light-effect: var(--light-effect-dark);
+            --glass-light: var(--glass-light-effect-dark);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -181,7 +183,7 @@
         #theme-toggle, .control-center-toggle { 
             background: var(--glass-bg); 
             border: 1px solid var(--glass-border);
-            color: var(--text-secondary); 
+            color: var(--text-primary); 
             font-size: 1.1rem; 
             cursor: pointer; 
             width: 44px; 
@@ -190,21 +192,44 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            transition: all var(--transition-fast);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: var(--glass-inset-shadow);
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            box-shadow: var(--glass-inset-shadow),
+                       0 8px 32px 0 var(--shadow-color);
+            position: relative;
+            overflow: hidden;
+        }
+        #theme-toggle::before, .control-center-toggle::before { 
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                350px circle at var(--mouse-x) var(--mouse-y), 
+                hsla(0, 0%, 100%, 0.4),
+                transparent 80%
+            );
+            opacity: 0;
+            transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            z-index: 0;
+            pointer-events: none;
+        }
+        #theme-toggle:hover::before, .control-center-toggle:hover::before { 
+            opacity: 1; 
         }
         #theme-toggle:hover, .control-center-toggle:hover { 
-            color: var(--text-primary); 
             transform: scale(1.1);
-            background: hsla(0, 0%, 100%, 0.2);
+            background: hsla(0, 0%, 100%, 0.25);
+        }
+        #theme-toggle > *, .control-center-toggle > * {
+            position: relative;
+            z-index: 1;
         }
         #theme-toggle .fa-moon { display: none; }
         body.dark-mode #theme-toggle .fa-sun { display: none; }
         body.dark-mode #theme-toggle .fa-moon { display: inline-block; }
 
-        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 160px; padding-bottom: 80px; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 60px; padding-bottom: 80px; }
 
         .apple-card { 
             background: var(--glass-bg); 
@@ -229,9 +254,30 @@
         .skill-category h3 i { margin-right: 12px; color: var(--accent-primary); font-size: 1.1em; width: 20px; text-align: center; }
         .skill-category ul li::before { content: "›"; font-size: 1.3em; top: 0; color: var(--accent-primary); position: absolute; left: 0; }
 
-        .footer-download-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: var(--border-radius-m); font-weight: 600; text-decoration: none; color: #fff; background: linear-gradient(45deg, hsl(var(--hue-accent), 100%, 50%), hsl(var(--hue-accent), 100%, 60%)); border: 1px solid hsl(var(--hue-accent), 100%, 70%); box-shadow: 0 4px 15px hsla(var(--hue-accent), 100%, 50%, 0.3), inset 0 1px 1px hsla(0,0%,100%,0.2); transition: all var(--transition-fast); }
+        .footer-download-btn { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 10px; 
+    padding: 12px 24px; 
+    border-radius: var(--border-radius-m); 
+    font-weight: 600; 
+    text-decoration: none; 
+    color: var(--text-primary); 
+    background: var(--glass-bg); 
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
         .footer-download-btn .icon-download { transition: transform 0.3s ease; }
-        .footer-download-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 25px hsla(var(--hue-accent), 100%, 50%, 0.4), inset 0 1px 1px hsla(0,0%,100%,0.2); }
+        .footer-download-btn:hover { 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: var(--glass-inset-shadow), 0 12px 36px 0 hsla(0, 0%, 100%, 0.3);
+    background: var(--glass-bg);
+}
         .footer-download-btn:hover .icon-download { transform: translateY(3px); }
         .design-credit-footer { padding: 20px; text-align: center; color: var(--text-tertiary); font-size: 0.85rem; }
         .design-credit-footer p { display: inline-flex; align-items: center; gap: 8px; }
@@ -332,8 +378,30 @@
         .portfolio-links a i { margin-right: 8px; }
         .experience-grid { display: grid; gap: 30px; }
         .experience-item .date { color: var(--text-tertiary); font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; display: block; text-transform: uppercase; letter-spacing: 0.08em; }
-        .cta-button, button[type="submit"].contact-button { display: inline-block; background: var(--accent-primary); color: #fff; padding: 14px 32px; text-decoration: none; border: 1px solid hsla(0,0%,100%,0.2); border-radius: var(--border-radius-m); font-weight: 600; font-size: 1.05rem; box-shadow: 0 4px 16px hsla(var(--hue-accent), 100%, 50%, 0.3), inset 0 1px 1px hsla(0,0%,100%,0.3); transition: all var(--transition-fast); cursor: pointer; }
-        .cta-button:hover, button[type="submit"].contact-button:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 24px hsla(var(--hue-accent), 100%, 50%, 0.4), inset 0 1px 1px hsla(0,0%,100%,0.3); filter: brightness(1.1); color: #fff; }
+        .cta-button, button[type="submit"].contact-button { 
+    display: inline-block; 
+    background: var(--glass-bg); 
+    color: var(--text-primary); 
+    padding: 14px 32px; 
+    text-decoration: none; 
+    border: 1px solid var(--glass-border); 
+    border-radius: var(--border-radius-m); 
+    font-weight: 600; 
+    font-size: 1.05rem; 
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
+    transition: all var(--transition-medium); 
+    cursor: pointer; 
+    position: relative;
+    overflow: hidden;
+}
+        .cta-button:hover, button[type="submit"].contact-button:hover { 
+    transform: translateY(-3px) scale(1.03); 
+    box-shadow: var(--glass-inset-shadow), 0 12px 36px 0 hsla(0, 0%, 100%, 0.3);
+    background: var(--glass-bg);
+    color: var(--text-primary);
+}
         #contact .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: flex-start; }
         .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; }
         .form-group input, .form-group textarea { width: 100%; padding: 14px; background-color: hsla(0, 0%, 50%, 0.1); border: 1px solid var(--glass-border); border-radius: var(--border-radius-m); color: var(--text-primary); font-family: var(--font-primary); font-size: 1rem; transition: all var(--transition-fast); box-shadow: var(--glass-inset-shadow); }
@@ -366,7 +434,7 @@
                 width: 100%;
                 border-radius: 0;
             }
-            .hero { padding-top: calc(var(--header-height) + 60px); }
+            .hero { padding-top: calc(var(--header-height) + 5px); }
             #control-center-nav { padding: 0; }
             #control-center-nav .panel { max-height: 100vh; height: 100%; border-radius: 0; }
             .section-title { font-size: 2.5rem; }
@@ -403,6 +471,173 @@
                 width: 100vw;
             }
         }
+
+        /* Updated button styles with liquid glass effect */
+        .cta-button, 
+        button[type="submit"].contact-button,
+        #theme-toggle,
+        .control-center-toggle,
+        .quick-action-btn,
+        .footer-download-btn {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-inset-shadow), 0 8px 32px 0 var(--shadow-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before, 
+        button[type="submit"].contact-button::before,
+        #theme-toggle::before,
+        .control-center-toggle::before,
+        .quick-action-btn::before,
+        .footer-download-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                var(--glass-light) 0%,
+                transparent 50%
+            );
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .cta-button:hover::before, 
+        button[type="submit"].contact-button:hover::before,
+        #theme-toggle:hover::before,
+        .control-center-toggle:hover::before,
+        .quick-action-btn:hover::before,
+        .footer-download-btn:hover::before {
+            opacity: 1;
+        }
+
+        /* Liquid Glass Effect */
+        .liquid-glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-inset-shadow), 
+                       0 8px 32px 0 var(--shadow-color);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s var(--transition-medium),
+                      background-color 0.3s var(--transition-medium),
+                      box-shadow 0.3s var(--transition-medium);
+        }
+
+        .liquid-glass::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                var(--glass-light),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s var(--transition-medium);
+            pointer-events: none;
+        }
+
+        .liquid-glass:hover::before {
+            opacity: 1;
+        }
+
+        .liquid-glass .button-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Header Actions Layout */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
+            position: relative;
+            height: 44px;
+        }
+
+        /* Theme Toggle Button */
+        #theme-toggle {
+            position: absolute;
+            right: 60px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            transform-origin: center;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                      right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                      opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            z-index: 2;
+        }
+
+        #theme-toggle.move-to-center {
+            right: 0;
+            transform: scale(0.95) translateY(0);
+            opacity: 1;
+        }
+
+        /* Control Center Toggle */
+        .control-center-toggle {
+            position: absolute;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            transform-origin: center;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                      opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                      background-color 0.3s var(--transition-medium);
+            z-index: 1;
+        }
+
+        .control-center-toggle.hide-on-scroll {
+            transform: translateY(-20px) scale(0.8);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Button Hover Effects */
+        .liquid-glass:hover {
+            transform: scale(1.05);
+            background-color: var(--glass-bg);
+            box-shadow: var(--glass-inset-shadow),
+                       0 12px 36px 0 var(--shadow-color);
+        }
+
+        /* Ensure smooth transitions for dark mode */
+        html.dark-mode .liquid-glass {
+            transition: transform 0.3s var(--transition-medium),
+                      background-color 0.3s var(--transition-medium),
+                      box-shadow 0.3s var(--transition-medium);
+        }
+
+        @media (max-width: 768px) {
+            .header-actions {
+                gap: 8px;
+            }
+
+            #theme-toggle {
+                right: 52px;
+            }
+
+            #theme-toggle.move-to-center {
+                right: 0;
+            }
+        }
     </style>
 </head>
 <body class="no-scroll">
@@ -422,13 +657,17 @@
                         <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
-                <div style="display: flex; align-items: center; gap: 8px; margin-left: auto;">
-                    <button id="theme-toggle" title="Switch Light/Dark Mode">
-                        <i class="fas fa-sun"></i>
-                        <i class="fas fa-moon"></i>
+                <div class="header-actions">
+                    <button id="theme-toggle" class="button-hover-track liquid-glass" title="Switch Light/Dark Mode">
+                        <div class="button-content">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </div>
                     </button>
-                    <button class="control-center-toggle" title="Control Center">
-                        <i class="fas fa-sliders-h"></i>
+                    <button class="control-center-toggle button-hover-track liquid-glass" title="Control Center">
+                        <div class="button-content">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
                     </button>
                 </div>
             </div>
@@ -565,7 +804,21 @@
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
             const profilePic = document.querySelector('.hero .profile-pic');
+            const themeToggle = document.getElementById('theme-toggle');
+            const controlCenterToggle = document.querySelector('.control-center-toggle');
             
+            // Track mouse movement for liquid glass effect
+            document.addEventListener('mousemove', (e) => {
+                const liquidGlassElements = document.querySelectorAll('.liquid-glass');
+                liquidGlassElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    element.style.setProperty('--mouse-x', `${x}px`);
+                    element.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
             setTimeout(() => {
                 pageBody.classList.remove('no-scroll');
                 pageBody.classList.add('loaded');
@@ -597,6 +850,7 @@
             const navLinks = document.querySelectorAll('a.nav-link');
             const sections = document.querySelectorAll('main section[id]');
             const headerHeight = document.querySelector('header')?.offsetHeight || 72;
+            
             function updateActiveNavLink() {
                 let currentSectionId = 'hero';
                 const scrollY = window.pageYOffset;
@@ -614,14 +868,17 @@
             const themeToggleMobile = document.getElementById('cc-theme-toggle-mobile');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             let currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+            
             function applyTheme(theme) {
                 pageBody.classList.toggle('dark-mode', theme === 'dark');
                 localStorage.setItem('theme', theme);
             }
+
             function toggleTheme() {
                 currentTheme = pageBody.classList.contains('dark-mode') ? 'light' : 'dark';
                 applyTheme(currentTheme);
             }
+
             if (themeToggleDesktop) themeToggleDesktop.addEventListener('click', toggleTheme);
             if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
             applyTheme(currentTheme);
@@ -629,20 +886,26 @@
             const controlCenter = document.getElementById('control-center-nav');
             const controlCenterToggles = document.querySelectorAll('.control-center-toggle');
             const closeCCBtn = document.getElementById('close-control-center');
+
             function openControlCenter() {
                 if (controlCenter) {
                     controlCenter.classList.add('nav-open');
-                    pageBody.classList.add('no-scroll');
+                    document.body.classList.add('no-scroll');
+                    themeToggle.classList.remove('move-to-center');
                 }
             }
+
             function closeControlCenter() {
                 if (controlCenter) {
                     controlCenter.classList.remove('nav-open');
-                    pageBody.classList.remove('no-scroll');
+                    document.body.classList.remove('no-scroll');
+                    updateButtonStates();
                 }
             }
+
             controlCenterToggles.forEach(btn => btn.addEventListener('click', openControlCenter));
-            if (closeCCBtn) closeCCBtn.addEventListener('click', closeControlCenter);
+            document.getElementById('close-control-center')?.addEventListener('click', closeControlCenter);
+
             if (controlCenter) {
                 controlCenter.addEventListener('click', (e) => {
                     if (e.target === controlCenter) closeControlCenter();
@@ -655,6 +918,7 @@
             const clockElement = document.getElementById('cc-clock');
             const brightnessSlider = document.getElementById('brightness-slider');
             const brightnessOverlay = document.getElementById('brightness-overlay');
+            
             function updateClock() {
                 if (!clockElement) return;
                 const now = new Date();
@@ -663,7 +927,10 @@
                 const s = String(now.getSeconds()).padStart(2, '0');
                 clockElement.textContent = `${h}:${m}:${s}`;
             }
-            setInterval(updateClock, 1000); updateClock();
+
+            setInterval(updateClock, 1000);
+            updateClock();
+
             if (brightnessSlider && brightnessOverlay) {
                 brightnessSlider.addEventListener('input', () => {
                     brightnessOverlay.style.opacity = brightnessSlider.value / 100;
@@ -682,12 +949,17 @@
                     }
                 }
                 
-                // Ẩn/hiện nút control center khi cuộn trang
+                // Handle button transitions on scroll
                 controlCenterToggles.forEach(btn => {
                     if (scrollY > 0) {
                         btn.classList.add('hide-on-scroll');
+                        // Only move theme toggle if control center is closed
+                        if (!controlCenter.classList.contains('nav-open')) {
+                            themeToggle.classList.add('move-to-center');
+                        }
                     } else {
                         btn.classList.remove('hide-on-scroll');
+                        themeToggle.classList.remove('move-to-center');
                     }
                 });
 
