@@ -39,6 +39,17 @@
       gtag("config", "G-XXXXXXXXXX");
     </script>
 
+    <!-- Thêm âm thanh khởi động -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const startupSound = new Audio('./src/Audio/startup.mp3');
+        startupSound.volume = 0.5; // Đặt âm lượng ở mức 50%
+        startupSound.play().catch(function(error) {
+          console.log("Không thể phát âm thanh: ", error);
+        });
+      });
+    </script>
+
     <title>Nam Trần | Portfolio</title>
     <link rel="icon" href="./src/Images/portfolio.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="./src/Images/Apple.webp" />
@@ -1264,6 +1275,103 @@
       }
       
     </style>
+    
+    <!-- Audio Elements -->
+    <audio id="hoverSound" preload="auto">
+      <source src="src/Audio/hover.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="clickSound" preload="auto">
+      <source src="src/Audio/click.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+      // Khởi tạo biến cho âm thanh
+      let hoverSound;
+      let clickSound;
+      let isSoundEnabled = true;
+
+      // Hàm khởi tạo âm thanh
+      function initializeSounds() {
+        hoverSound = document.getElementById('hoverSound');
+        clickSound = document.getElementById('clickSound');
+        
+        // Đặt âm lượng
+        hoverSound.volume = 0.01;
+        clickSound.volume = 0.3;
+      }
+
+      // Hàm phát âm thanh hover
+      function playHoverSound() {
+        if (isSoundEnabled && hoverSound) {
+          hoverSound.currentTime = 0;
+          hoverSound.play().catch(error => console.log("Audio play failed:", error));
+        }
+      }
+
+      // Hàm phát âm thanh click
+      function playClickSound() {
+        if (isSoundEnabled && clickSound) {
+          clickSound.currentTime = 0;
+          clickSound.play().catch(error => console.log("Audio play failed:", error));
+        }
+      }
+
+      // Thêm sự kiện cho các phần tử có thể tương tác
+      document.addEventListener('DOMContentLoaded', function() {
+        initializeSounds();
+
+        // Thêm âm thanh cho các phần tử có thể hover
+        const interactiveElements = document.querySelectorAll('a, button, .interactive');
+        
+        interactiveElements.forEach(element => {
+          element.addEventListener('mouseenter', playHoverSound);
+          element.addEventListener('click', playClickSound);
+        });
+
+        // Thêm nút bật/tắt âm thanh
+        const soundToggle = document.createElement('button');
+        soundToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+        soundToggle.className = 'sound-toggle';
+        soundToggle.title = 'Bật/tắt âm thanh';
+        
+        soundToggle.addEventListener('click', function() {
+          isSoundEnabled = !isSoundEnabled;
+          this.innerHTML = isSoundEnabled ? 
+            '<i class="fas fa-volume-up"></i>' : 
+            '<i class="fas fa-volume-mute"></i>';
+        });
+
+        document.body.appendChild(soundToggle);
+      });
+    </script>
+
+    <style>
+      /* Thêm style cho nút bật/tắt âm thanh */
+      .sound-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: all var(--transition-fast);
+        box-shadow: var(--glass-inset-shadow);
+      }
+
+      .sound-toggle:hover {
+        transform: scale(1.1);
+        background: var(--accent-primary-light);
+        color: white;
+      }
+    </style>
   </head>
   <body class="no-scroll">
     <div
@@ -1909,7 +2017,7 @@
       </footer>
     </div>
 
-    <a href="#hero" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+       <a href="#hero" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
 
     <script
       src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
