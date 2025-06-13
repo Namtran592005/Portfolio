@@ -43,10 +43,45 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const startupSound = new Audio("./src/Audio/startup.mp3");
-        startupSound.volume = 0.5; // Đặt âm lượng ở mức 50%
-        startupSound.play().catch(function (error) {
-          console.log("Không thể phát âm thanh: ", error);
-        });
+        startupSound.volume = 0.5; // Đặt âm lượng
+
+        // Tạo một hàm để phát âm thanh và tự hủy các sự kiện lắng nghe
+        function playSoundOnFirstInteraction() {
+          // Thử phát âm thanh
+          startupSound
+            .play()
+            .then(() => {
+              // Nếu phát thành công, không cần làm gì thêm
+              console.log("Âm thanh khởi động đã phát.");
+            })
+            .catch((error) => {
+              // Nếu vẫn lỗi, ghi log ra console
+              console.log("Không thể phát âm thanh khởi động: ", error);
+            });
+
+          // Sau khi chạy lần đầu, gỡ bỏ tất cả các sự kiện lắng nghe
+          // để đảm bảo âm thanh không phát lại khi người dùng tương tác tiếp
+          document.removeEventListener(
+            "mousedown",
+            playSoundOnFirstInteraction
+          );
+          document.removeEventListener(
+            "mousemove",
+            playSoundOnFirstInteraction
+          );
+          document.removeEventListener(
+            "touchstart",
+            playSoundOnFirstInteraction
+          );
+          document.removeEventListener("keydown", playSoundOnFirstInteraction);
+        }
+
+        // Lắng nghe các sự kiện tương tác đầu tiên của người dùng
+        // Bất kỳ hành động nào dưới đây xảy ra trước, nó sẽ kích hoạt âm thanh
+        document.addEventListener("mousedown", playSoundOnFirstInteraction);
+        document.addEventListener("mousemove", playSoundOnFirstInteraction);
+        document.addEventListener("touchstart", playSoundOnFirstInteraction);
+        document.addEventListener("keydown", playSoundOnFirstInteraction);
       });
     </script>
 
@@ -142,7 +177,7 @@
       }
 
       html::before {
-        content: '';
+        content: "";
         position: fixed;
         inset: 0; /* Tương đương top: 0; left: 0; right: 0; bottom: 0; */
         z-index: -10; /* Đặt ở lớp sâu nhất, sau cả lớp overlay màu */
@@ -1290,108 +1325,7 @@
       }
     </style>
 
-    <!-- Audio Elements -->
-    <audio id="hoverSound" preload="auto">
-      <source src="src/Audio/hover.mp3" type="audio/mpeg" />
-    </audio>
-    <audio id="clickSound" preload="auto">
-      <source src="src/Audio/click.mp3" type="audio/mpeg" />
-    </audio>
-
-    <script>
-      // Khởi tạo biến cho âm thanh
-      let hoverSound;
-      let clickSound;
-      let isSoundEnabled = true;
-
-      // Hàm khởi tạo âm thanh
-      function initializeSounds() {
-        hoverSound = document.getElementById("hoverSound");
-        clickSound = document.getElementById("clickSound");
-
-        // Đặt âm lượng
-        hoverSound.volume = 0.01;
-        clickSound.volume = 0.3;
-      }
-
-      // Hàm phát âm thanh hover
-      function playHoverSound() {
-        if (isSoundEnabled && hoverSound) {
-          hoverSound.currentTime = 0;
-          hoverSound
-            .play()
-            .catch((error) => console.log("Audio play failed:", error));
-        }
-      }
-
-      // Hàm phát âm thanh click
-      function playClickSound() {
-        if (isSoundEnabled && clickSound) {
-          clickSound.currentTime = 0;
-          clickSound
-            .play()
-            .catch((error) => console.log("Audio play failed:", error));
-        }
-      }
-
-      // Thêm sự kiện cho các phần tử có thể tương tác
-      document.addEventListener("DOMContentLoaded", function () {
-        initializeSounds();
-
-        // Thêm âm thanh cho các phần tử có thể hover
-        const interactiveElements = document.querySelectorAll(
-          "a, button, .interactive"
-        );
-
-        interactiveElements.forEach((element) => {
-          element.addEventListener("mouseenter", playHoverSound);
-          element.addEventListener("click", playClickSound);
-        });
-
-        // Thêm nút bật/tắt âm thanh
-        const soundToggle = document.createElement("button");
-        soundToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
-        soundToggle.className = "sound-toggle";
-        soundToggle.title = "Bật/tắt âm thanh";
-
-        soundToggle.addEventListener("click", function () {
-          isSoundEnabled = !isSoundEnabled;
-          this.innerHTML = isSoundEnabled
-            ? '<i class="fas fa-volume-up"></i>'
-            : '<i class="fas fa-volume-mute"></i>';
-        });
-
-        document.body.appendChild(soundToggle);
-      });
-    </script>
-
     <style>
-      /* Thêm style cho nút bật/tắt âm thanh */
-      .sound-toggle {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        color: var(--text-primary);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        transition: all var(--transition-fast);
-        box-shadow: var(--glass-inset-shadow);
-      }
-
-      .sound-toggle:hover {
-        transform: scale(1.1);
-        background: var(--accent-primary-light);
-        color: white;
-      }
-
       ::view-transition-old(root),
       ::view-transition-new(root) {
         animation: none;
@@ -1434,6 +1368,80 @@
       }
       html:not(.dark-mode)::view-transition-new(root) {
         z-index: 1;
+      }
+
+      .audio-controls {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column; /* Xếp chồng lên nhau */
+        gap: 10px; /* Khoảng cách giữa các nút */
+        z-index: 1001; /* Đảm bảo nó nổi trên các thành phần khác */
+      }
+
+      /* Style chung cho nút điều khiển âm thanh */
+      .audio-control-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all var(--transition-fast);
+        box-shadow: var(--glass-inset-shadow), 0 4px 12px var(--shadow-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .audio-control-btn:hover {
+        transform: scale(1.1);
+        background: var(--accent-primary);
+        color: white;
+        border-color: transparent;
+      }
+
+      /* Style cho icon gạch chéo khi tắt */
+      .audio-control-btn.off .fa-slash,
+      .audio-control-btn.off .fa-volume-mute {
+        display: inline-block !important;
+      }
+
+      .audio-control-btn.off .fa-music,
+      .audio-control-btn.off .fa-volume-up {
+        display: none;
+      }
+
+      /* Hiệu ứng cho icon gạch chéo */
+      .audio-control-btn .fa-slash {
+        position: absolute;
+        color: var(--text-primary);
+        opacity: 0.7;
+        font-size: 1.5em; /* To hơn một chút để đẹp hơn */
+      }
+
+      .audio-control-btn:hover .fa-slash {
+        color: white;
+      }
+
+      /* 1. Định nghĩa keyframes cho animation xoay tròn */
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* 2. Áp dụng animation cho icon fa-music KHI nút cha có class .spinning */
+      .audio-control-btn.spinning .fa-music {
+        animation: spin 2s linear infinite;
       }
     </style>
   </head>
@@ -1790,43 +1798,6 @@
               năng và khám phá niềm đam mê công nghệ.
             </p>
             <div class="portfolio-grid">
-              <!--
-              <div
-                class="portfolio-item animate-on-scroll"
-                style="transition-delay: 0.1s"
-              >
-                <div class="apple-card">
-                  <img
-                    src="./src/Project/Product1.webp"
-                    alt="Website cá nhân Nam Trần"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="portfolio-content">
-                    <h3>BIO</h3>
-                    <p>
-                      Trang Bio cá nhân, thiết kế và xây dựng bằng ReactJS. Tập
-                      trung vào trải nghiệm người dùng mượt mà và responsive.
-                    </p>
-                    <div class="portfolio-tags">
-                      <span class="tag">Bio</span><span class="tag">ReactJS</span
-                      ><span class="tag">Link</span
-                      ><span class="tag">Responsive</span>
-                    </div>
-                    <div class="portfolio-links">
-                      <a
-                        href="https://github.com/Namtran592005/BioPage"
-                        target="_blank"
-                        ><i class="fab fa-github"></i> Source Code</a
-                      ><a
-                        href="https://namtran592005.github.io/BioPage/"
-                        target="_blank"
-                        ><i class="fas fa-external-link-alt"></i> Live Demo</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>-->
               <div
                 class="portfolio-item animate-on-scroll"
                 style="transition-delay: 0.2s"
@@ -2065,6 +2036,10 @@
         </section>
       </main>
 
+      <audio id="background-music" loop preload="auto">
+        <source src="./src/Audio/background_music.mp3" type="audio/mpeg" />
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+      </audio>
       <footer>
         <div class="footer-content container">
           <p>
@@ -2127,7 +2102,31 @@
     </div>
 
     <a href="#hero" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
-
+    <!-- Các thẻ <audio> nên được đặt ở đây, ngay trên thẻ script chính -->
+    <audio id="background-music" loop preload="auto">
+      <source src="./src/Audio/background_music.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="hoverSound" preload="auto">
+      <source src="src/Audio/hover.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="clickSound" preload="auto">
+      <source src="src/Audio/click.mp3" type="audio/mpeg" />
+    </audio>
+    <!-- Thêm các nút điều khiển âm thanh vào đây, ngay trên thẻ footer -->
+    <div class="audio-controls">
+      <button id="music-toggle" class="audio-control-btn" title="Bật Nhạc Nền">
+        <i class="fas fa-music"></i>
+        <i class="fas fa-slash" style="display: none"></i>
+      </button>
+      <button
+        id="sfx-toggle"
+        class="audio-control-btn"
+        title="Tắt Âm Thanh Hiệu Ứng"
+      >
+        <i class="fas fa-volume-up"></i>
+        <i class="fas fa-volume-mute" style="display: none"></i>
+      </button>
+    </div>
     <script
       src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
       defer
@@ -2156,6 +2155,141 @@
             element.style.setProperty("--mouse-y", `${y}px`);
           });
         });
+
+        const backgroundMusic = document.getElementById("background-music");
+        const musicToggleButton = document.getElementById("music-toggle");
+        const sfxToggleButton = document.getElementById("sfx-toggle");
+        const hoverSound = document.getElementById("hoverSound");
+        const clickSound = document.getElementById("clickSound");
+        const startupSound = new Audio("./src/Audio/startup.mp3");
+
+        // Trạng thái âm thanh
+        let isMusicPlaying = false;
+        let areSfxEnabled = true; // Bật hiệu ứng mặc định
+
+        // Cài đặt âm lượng
+        if (backgroundMusic) backgroundMusic.volume = 0.5;
+        if (hoverSound) hoverSound.volume = 0.04; // Tăng nhẹ âm lượng hover
+        if (clickSound) clickSound.volume = 0.04;
+        if (startupSound) startupSound.volume = 0.5;
+
+        // Hàm cập nhật giao diện nút
+        function updateButtonUI(button, isEnabled, onText, offText) {
+          if (button) {
+            if (isEnabled) {
+              button.classList.remove("off");
+              button.title = offText;
+            } else {
+              button.classList.add("off");
+              button.title = onText;
+            }
+          }
+        }
+
+        // Xử lý nhạc nền
+        if (musicToggleButton && backgroundMusic) {
+          musicToggleButton.addEventListener("click", () => {
+            isMusicPlaying = !isMusicPlaying;
+
+            if (isMusicPlaying) {
+              backgroundMusic.currentTime = 0;
+              backgroundMusic
+                .play()
+                .catch((e) => console.error("Lỗi khi cố gắng phát nhạc:", e));
+              // Thêm class .spinning khi nhạc phát
+              musicToggleButton.classList.add("spinning");
+            } else {
+              backgroundMusic.pause();
+              // Xóa class .spinning khi nhạc dừng
+              musicToggleButton.classList.remove("spinning");
+            }
+
+            updateButtonUI(
+              musicToggleButton,
+              isMusicPlaying,
+              "Bật Nhạc Nền",
+              "Tắt Nhạc Nền"
+            );
+          });
+        }
+
+        // Xử lý âm thanh hiệu ứng (SFX)
+        if (sfxToggleButton) {
+          sfxToggleButton.addEventListener("click", () => {
+            areSfxEnabled = !areSfxEnabled;
+            updateButtonUI(
+              sfxToggleButton,
+              areSfxEnabled,
+              "Bật Âm Thanh Hiệu Ứng",
+              "Tắt Âm Thanh Hiệu Ứng"
+            );
+          });
+        }
+
+        function playSfx(sound) {
+          if (areSfxEnabled && sound) {
+            sound.currentTime = 0;
+            sound.play().catch((e) => {}); // Lặng lẽ bỏ qua lỗi nếu có
+          }
+        }
+
+        // Gắn sự kiện hover và click cho các phần tử tương tác
+        // QuerySelectorAll trả về một NodeList, chúng ta cần lặp qua nó
+        const interactiveElements = document.querySelectorAll(
+          'a, button, [role="button"], .interactive, .liquid-glass, .apple-card, .nav-link, .quick-action-btn, .footer-download-btn'
+        );
+        interactiveElements.forEach((element) => {
+          element.addEventListener("mouseenter", () => playSfx(hoverSound));
+          element.addEventListener("click", () => playSfx(clickSound));
+        });
+
+        // Xử lý âm thanh khởi động
+        function playStartupSoundOnFirstInteraction() {
+          playSfx(startupSound);
+          // Gỡ bỏ sự kiện sau lần chạy đầu tiên
+          document.removeEventListener(
+            "mousedown",
+            playStartupSoundOnFirstInteraction,
+            { once: true }
+          );
+          document.removeEventListener(
+            "mousemove",
+            playStartupSoundOnFirstInteraction,
+            { once: true }
+          );
+          document.removeEventListener(
+            "touchstart",
+            playStartupSoundOnFirstInteraction,
+            { once: true }
+          );
+          document.removeEventListener(
+            "keydown",
+            playStartupSoundOnFirstInteraction,
+            { once: true }
+          );
+        }
+
+        // Lắng nghe tương tác đầu tiên để phát âm thanh khởi động (sử dụng { once: true } cho hiệu quả)
+        document.addEventListener(
+          "mousedown",
+          playStartupSoundOnFirstInteraction,
+          { once: true }
+        );
+        document.addEventListener(
+          "mousemove",
+          playStartupSoundOnFirstInteraction,
+          { once: true }
+        );
+        document.addEventListener(
+          "touchstart",
+          playStartupSoundOnFirstInteraction,
+          { once: true }
+        );
+        document.addEventListener(
+          "keydown",
+          playStartupSoundOnFirstInteraction,
+          { once: true }
+        );
 
         setTimeout(() => {
           pageBody.classList.remove("no-scroll");
