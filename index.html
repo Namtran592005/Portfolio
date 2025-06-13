@@ -41,10 +41,10 @@
 
     <!-- Thêm âm thanh khởi động -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const startupSound = new Audio('./src/Audio/startup.mp3');
+      document.addEventListener("DOMContentLoaded", function () {
+        const startupSound = new Audio("./src/Audio/startup.mp3");
         startupSound.volume = 0.5; // Đặt âm lượng ở mức 50%
-        startupSound.play().catch(function(error) {
+        startupSound.play().catch(function (error) {
           console.log("Không thể phát âm thanh: ", error);
         });
       });
@@ -140,14 +140,24 @@
         font-size: 16px;
         overflow-x: hidden;
       }
+
+      html::before {
+        content: '';
+        position: fixed;
+        inset: 0; /* Tương đương top: 0; left: 0; right: 0; bottom: 0; */
+        z-index: -10; /* Đặt ở lớp sâu nhất, sau cả lớp overlay màu */
+        background: url("./src/Images/Wallpaper.webp") center/cover no-repeat;
+        /* Không cần 'fixed' ở đây vì chính element đã là 'position: fixed' */
+      }
+
       body {
         font-family: var(--font-primary);
         line-height: 1.6;
         background-color: var(--bg);
         color: var(--text-primary);
         -webkit-font-smoothing: antialiased;
-        transition: background-color var(--transition-medium),
-          color var(--transition-medium);
+        /* transition: background-color var(--transition-medium),
+          color var(--transition-medium); */ /* Đã được comment out */
         max-width: 100vw;
       }
       /* --- FIX START: Moved animation styles to a dedicated wrapper --- */
@@ -169,10 +179,10 @@
         overflow: hidden;
       }
 
-      body {
+      /*body {
         background: url("./src/Images/Wallpaper.webp") center/cover no-repeat
           fixed;
-      }
+      }*/
       body::before {
         content: "";
         position: fixed;
@@ -1267,23 +1277,27 @@
         display: none !important;
       }
 
-      html, body {
-        cursor: url('./src/Theme/mac-cursors/src/png/default.png'), auto;
+      html,
+      body {
+        cursor: url("./src/Theme/mac-cursors/src/png/default.png"), auto;
       }
-      a:hover, button:hover, [role="button"]:hover, .pointer, .btn:hover {
-        cursor: url('./src/Theme/mac-cursors/src/png/handpointing.png'), pointer;
+      a:hover,
+      button:hover,
+      [role="button"]:hover,
+      .pointer,
+      .btn:hover {
+        cursor: url("./src/Theme/mac-cursors/src/png/handpointing.png"), pointer;
       }
-      
     </style>
-    
+
     <!-- Audio Elements -->
     <audio id="hoverSound" preload="auto">
-      <source src="src/Audio/hover.mp3" type="audio/mpeg">
+      <source src="src/Audio/hover.mp3" type="audio/mpeg" />
     </audio>
     <audio id="clickSound" preload="auto">
-      <source src="src/Audio/click.mp3" type="audio/mpeg">
+      <source src="src/Audio/click.mp3" type="audio/mpeg" />
     </audio>
-    
+
     <script>
       // Khởi tạo biến cho âm thanh
       let hoverSound;
@@ -1292,9 +1306,9 @@
 
       // Hàm khởi tạo âm thanh
       function initializeSounds() {
-        hoverSound = document.getElementById('hoverSound');
-        clickSound = document.getElementById('clickSound');
-        
+        hoverSound = document.getElementById("hoverSound");
+        clickSound = document.getElementById("clickSound");
+
         // Đặt âm lượng
         hoverSound.volume = 0.01;
         clickSound.volume = 0.3;
@@ -1304,7 +1318,9 @@
       function playHoverSound() {
         if (isSoundEnabled && hoverSound) {
           hoverSound.currentTime = 0;
-          hoverSound.play().catch(error => console.log("Audio play failed:", error));
+          hoverSound
+            .play()
+            .catch((error) => console.log("Audio play failed:", error));
         }
       }
 
@@ -1312,33 +1328,37 @@
       function playClickSound() {
         if (isSoundEnabled && clickSound) {
           clickSound.currentTime = 0;
-          clickSound.play().catch(error => console.log("Audio play failed:", error));
+          clickSound
+            .play()
+            .catch((error) => console.log("Audio play failed:", error));
         }
       }
 
       // Thêm sự kiện cho các phần tử có thể tương tác
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         initializeSounds();
 
         // Thêm âm thanh cho các phần tử có thể hover
-        const interactiveElements = document.querySelectorAll('a, button, .interactive');
-        
-        interactiveElements.forEach(element => {
-          element.addEventListener('mouseenter', playHoverSound);
-          element.addEventListener('click', playClickSound);
+        const interactiveElements = document.querySelectorAll(
+          "a, button, .interactive"
+        );
+
+        interactiveElements.forEach((element) => {
+          element.addEventListener("mouseenter", playHoverSound);
+          element.addEventListener("click", playClickSound);
         });
 
         // Thêm nút bật/tắt âm thanh
-        const soundToggle = document.createElement('button');
+        const soundToggle = document.createElement("button");
         soundToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
-        soundToggle.className = 'sound-toggle';
-        soundToggle.title = 'Bật/tắt âm thanh';
-        
-        soundToggle.addEventListener('click', function() {
+        soundToggle.className = "sound-toggle";
+        soundToggle.title = "Bật/tắt âm thanh";
+
+        soundToggle.addEventListener("click", function () {
           isSoundEnabled = !isSoundEnabled;
-          this.innerHTML = isSoundEnabled ? 
-            '<i class="fas fa-volume-up"></i>' : 
-            '<i class="fas fa-volume-mute"></i>';
+          this.innerHTML = isSoundEnabled
+            ? '<i class="fas fa-volume-up"></i>'
+            : '<i class="fas fa-volume-mute"></i>';
         });
 
         document.body.appendChild(soundToggle);
@@ -1371,6 +1391,50 @@
         background: var(--accent-primary-light);
         color: white;
       }
+
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation: none;
+        mix-blend-mode: normal;
+      }
+
+      /* Áp dụng cho dark mode */
+      .dark-mode::view-transition-old(root) {
+        z-index: 1;
+      }
+      .dark-mode::view-transition-new(root) {
+        z-index: 999;
+      }
+
+      /* Áp dụng cho light mode */
+      ::view-transition-old(root) {
+        z-index: 999;
+      }
+      ::view-transition-new(root) {
+        z-index: 1;
+      }
+
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation: none;
+        mix-blend-mode: normal;
+      }
+
+      /* Khi chuyển sang Dark Mode, lớp mới (tối) sẽ ở trên */
+      .dark-mode::view-transition-old(root) {
+        z-index: 1;
+      }
+      .dark-mode::view-transition-new(root) {
+        z-index: 999;
+      }
+
+      /* Khi chuyển sang Light Mode, lớp cũ (tối) sẽ ở trên để bị che đi */
+      html:not(.dark-mode)::view-transition-old(root) {
+        z-index: 999;
+      }
+      html:not(.dark-mode)::view-transition-new(root) {
+        z-index: 1;
+      }
     </style>
   </head>
   <body class="no-scroll">
@@ -1390,8 +1454,25 @@
     <div class="header-container">
       <header>
         <div class="container">
-          <a href="#hero" class="logo" style="font-family: var(--font-primary); font-weight: bold; font-size: 1.5rem; background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease;">
-            <span style="letter-spacing: -0.5px;">Portfolio</span>
+          <a
+            href="#hero"
+            class="logo"
+            style="
+              font-family: var(--font-primary);
+              font-weight: bold;
+              font-size: 1.5rem;
+              background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%);
+              -webkit-background-clip: text;
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              transition: all 0.3s ease;
+            "
+          >
+            <span style="letter-spacing: -0.5px">Portfolio</span>
           </a>
           <nav id="main-nav">
             <ul>
@@ -1505,7 +1586,7 @@
         </div>
       </div>
     </nav>
-    
+
     <!-- FIX: Added a wrapper for page content to isolate animations -->
     <div id="page-content">
       <main>
@@ -1579,14 +1660,14 @@
                     khả năng thích ứng nhanh và một thái độ làm việc tích
                     cực.</strong
                   >
-                  Các công việc bán thời gian và hoạt động ngoại khóa đã giúp tôi
-                  rèn luyện nhiều kỹ năng mềm quan trọng.
+                  Các công việc bán thời gian và hoạt động ngoại khóa đã giúp
+                  tôi rèn luyện nhiều kỹ năng mềm quan trọng.
                 </p>
                 <p>
-                  Mục tiêu của Mình là được cống hiến và phát triển trong một môi
-                  trường công nghệ sáng tạo, nơi Mình có thể áp dụng kiến thức,
-                  đối mặt với thử thách và đóng góp vào sự thành công của các dự
-                  án và sẵn sàng khám phá các cơ hội mới.
+                  Mục tiêu của Mình là được cống hiến và phát triển trong một
+                  môi trường công nghệ sáng tạo, nơi Mình có thể áp dụng kiến
+                  thức, đối mặt với thử thách và đóng góp vào sự thành công của
+                  các dự án và sẵn sàng khám phá các cơ hội mới.
                 </p>
               </div>
               <div
@@ -1676,8 +1757,8 @@
                     Đối tác ShopeeFood
                   </p>
                   <p>
-                    Công việc bán thời gian nhằm tăng cường kinh nghiệm thực tế và
-                    kỹ năng mềm.
+                    Công việc bán thời gian nhằm tăng cường kinh nghiệm thực tế
+                    và kỹ năng mềm.
                   </p>
                   <ul>
                     <li>
@@ -1685,7 +1766,8 @@
                       lòng của khách hàng.
                     </li>
                     <li>
-                      Tương tác, giải quyết các yêu cầu và phản hồi từ khách hàng.
+                      Tương tác, giải quyết các yêu cầu và phản hồi từ khách
+                      hàng.
                     </li>
                     <li>
                       Rèn luyện kỹ năng quản lý thời gian, làm việc độc lập và
@@ -1764,8 +1846,9 @@
                       giọng nói và lưu trữ hội thoại.
                     </p>
                     <div class="portfolio-tags">
-                      <span class="tag">ReactJS</span><span class="tag">API</span
-                      ><span class="tag">AI</span><span class="tag">Gemini</span>
+                      <span class="tag">ReactJS</span
+                      ><span class="tag">API</span><span class="tag">AI</span
+                      ><span class="tag">Gemini</span>
                     </div>
                     <div class="portfolio-links">
                       <a
@@ -1948,7 +2031,9 @@
                   </div>
                   <div class="contact-info-item">
                     <i class="fas fa-phone-alt"></i
-                    ><span><a href="tel:+84YOURPHONENUMBER">096****439</a></span>
+                    ><span
+                      ><a href="tel:+84YOURPHONENUMBER">096****439</a></span
+                    >
                   </div>
                   <div class="contact-info-item">
                     <i class="fas fa-map-marker-alt"></i
@@ -1986,23 +2071,47 @@
             <span id="currentYear"></span> © Made with
             <i class="fas fa-heart" style="color: red"></i> by Nam Trần
           </p>
-          <a href="./src/File/Porfolio.pdf" download class="footer-download-btn">
+          <a
+            href="./src/File/Porfolio.pdf"
+            download
+            class="footer-download-btn"
+          >
             <span>Tải CV</span>
             <i class="fas fa-download icon-download"></i>
           </a>
         </div>
         <div class="eco-section">
-          <div class="container" style="text-align: center; max-width: 100%; padding: 0 20px; margin: 0 auto; word-wrap: break-word;">
-            <p style="font-size: 14px; line-height: 1.5; margin-bottom: 8px;">
-              🌱 Trang web này đã được tối ưu hóa để tải nhanh, tiết kiệm năng lượng và giảm phát thải carbon.
+          <div
+            class="container"
+            style="
+              text-align: center;
+              max-width: 100%;
+              padding: 0 20px;
+              margin: 0 auto;
+              word-wrap: break-word;
+            "
+          >
+            <p style="font-size: 14px; line-height: 1.5; margin-bottom: 8px">
+              🌱 Trang web này đã được tối ưu hóa để tải nhanh, tiết kiệm năng
+              lượng và giảm phát thải carbon.
             </p>
-            <p style="font-size: 14px; line-height: 1.5; margin-bottom: 8px;">
-              🔒 An toàn & bảo mật, không thu thập dữ liệu cá nhân, không chứa mã độc hại.
+            <p style="font-size: 14px; line-height: 1.5; margin-bottom: 8px">
+              🔒 An toàn & bảo mật, không thu thập dữ liệu cá nhân, không chứa
+              mã độc hại.
             </p>
-            <p style="font-size: 14px; line-height: 1.5; margin-bottom: 12px;">
-              💚 Hãy cùng bảo vệ môi trường và sử dụng công nghệ một cách có trách nhiệm!
+            <p style="font-size: 14px; line-height: 1.5; margin-bottom: 12px">
+              💚 Hãy cùng bảo vệ môi trường và sử dụng công nghệ một cách có
+              trách nhiệm!
             </p>
-            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 10px;
+                flex-wrap: wrap;
+              "
+            >
               <div id="wcb" class="carbonbadge"></div>
               <div id="wcb" class="carbonbadge wcb-d"></div>
             </div>
@@ -2017,7 +2126,7 @@
       </footer>
     </div>
 
-       <a href="#hero" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+    <a href="#hero" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
 
     <script
       src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
@@ -2117,19 +2226,66 @@
           localStorage.setItem("theme", theme);
         }
 
-        function toggleTheme() {
+        // --- START: NÂNG CẤP HIỆU ỨNG CHUYỂN ĐỔI THEME ---
+        function toggleTheme(event) {
           currentTheme = pageBody.classList.contains("dark-mode")
             ? "light"
             : "dark";
-          applyTheme(currentTheme);
+
+          // Kiểm tra trình duyệt có hỗ trợ View Transitions API không
+          if (!document.startViewTransition) {
+            // Nếu không, chuyển đổi như cũ
+            applyTheme(currentTheme);
+            return;
+          }
+
+          // Lấy tọa độ của cú nhấp chuột
+          const x = event.clientX;
+          const y = event.clientY;
+
+          // Tính bán kính lớn nhất để vòng tròn bao phủ toàn màn hình
+          const endRadius = Math.hypot(
+            Math.max(x, window.innerWidth - x),
+            Math.max(y, window.innerHeight - y)
+          );
+
+          // Bắt đầu quá trình chuyển đổi
+          const transition = document.startViewTransition(() => {
+            applyTheme(currentTheme);
+          });
+
+          // Chờ quá trình chuyển đổi sẵn sàng và chạy animation
+          transition.ready.then(() => {
+            // Tạo animation lan tỏa từ vị trí click
+            document.documentElement.animate(
+              {
+                clipPath: [
+                  `circle(0px at ${x}px ${y}px)`,
+                  `circle(${endRadius}px at ${x}px ${y}px)`,
+                ],
+              },
+              {
+                duration: 500, // Thời gian animation (0.5 giây)
+                easing: "ease-in-out",
+                // Chỉ định animation này áp dụng cho pseudo-element của View Transition
+                pseudoElement: "::view-transition-new(root)",
+              }
+            );
+          });
         }
+        // --- END: NÂNG CẤP HIỆU ỨNG CHUYỂN ĐỔI THEME ---
 
+        // Cập nhật event listener để truyền vào 'event' object
         if (themeToggleDesktop)
-          themeToggleDesktop.addEventListener("click", toggleTheme);
+          themeToggleDesktop.addEventListener("click", (event) =>
+            toggleTheme(event)
+          );
         if (themeToggleMobile)
-          themeToggleMobile.addEventListener("click", toggleTheme);
-        applyTheme(currentTheme);
+          themeToggleMobile.addEventListener("click", (event) =>
+            toggleTheme(event)
+          );
 
+        applyTheme(currentTheme);
 
         const controlCenter = document.getElementById("control-center-nav");
         const controlCenterToggles = document.querySelectorAll(
@@ -2269,9 +2425,5 @@
         updateActiveNavLink();
       });
     </script>
-    <script
-      src="https://kit.fontawesome.com/your-kit-id.js"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
