@@ -26,6 +26,9 @@
     />
     <link rel="canonical" href="https://tranvohoangnam.id.vn" />
     
+    <!-- ADDED: Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <!-- Thêm âm thanh khởi động -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -223,6 +226,17 @@
       }
       body.loaded::before {
         opacity: 1;
+      }
+
+      /* ADDED: CSS for Starfield Canvas */
+      #starfield-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Behind content, in front of wallpaper overlay */
+        pointer-events: none; /* Make it unclickable */
       }
 
       .container {
@@ -1433,6 +1447,9 @@
     </style>
   </head>
   <body class="no-scroll">
+    <!-- ADDED: Canvas for Three.js Starfield -->
+    <canvas id="starfield-canvas"></canvas>
+
     <div
       id="brightness-overlay"
       style="
@@ -2130,6 +2147,107 @@
           ".control-center-toggle"
         );
 
+        // --- START: Three.js Starfield Effect ---
+        let scene, camera, renderer, stars, starMaterial;
+        const lightModeColor = new THREE.Color(0x005bea); // Blue for light mode
+        const darkModeColor = new THREE.Color(0xffffff); // White for dark mode
+        let mouseX = 0,
+          mouseY = 0;
+
+        function initStarfield() {
+          const canvas = document.getElementById("starfield-canvas");
+          if (!canvas || typeof THREE === "undefined") {
+            console.error(
+              "Three.js or canvas not found. Starfield effect disabled."
+            );
+            return;
+          }
+
+          scene = new THREE.Scene();
+          camera = new THREE.PerspectiveCamera(
+            60,
+            window.innerWidth / window.innerHeight,
+            1,
+            1000
+          );
+          camera.position.z = 1;
+
+          renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            alpha: true, // Transparent background
+          });
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+          const starVertices = [];
+          for (let i = 0; i < 10000; i++) {
+            const x = (Math.random() - 0.5) * 2000;
+            const y = (Math.random() - 0.5) * 2000;
+            const z = (Math.random() - 0.5) * 2000;
+            starVertices.push(x, y, z);
+          }
+
+          const starGeometry = new THREE.BufferGeometry();
+          starGeometry.setAttribute(
+            "position",
+            new THREE.Float32BufferAttribute(starVertices, 3)
+          );
+
+          starMaterial = new THREE.PointsMaterial({
+            size: 0.7,
+            sizeAttenuation: true,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending,
+          });
+
+          stars = new THREE.Points(starGeometry, starMaterial);
+          scene.add(stars);
+
+          window.addEventListener("resize", onWindowResize, false);
+          document.addEventListener("mousemove", onMouseMove, false);
+
+          animateStarfield();
+        }
+
+        function onWindowResize() {
+          if (!camera || !renderer) return;
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function onMouseMove(event) {
+          // Store mouse position relative to center
+          mouseX = event.clientX - window.innerWidth / 2;
+          mouseY = event.clientY - window.innerHeight / 2;
+        }
+
+        function animateStarfield() {
+          if (!stars || !renderer) return;
+          requestAnimationFrame(animateStarfield);
+
+          // Subtle base rotation
+          stars.rotation.y += 0.0001;
+
+          // Make camera gently follow mouse for a parallax effect
+          camera.position.x += (mouseX / 5 - camera.position.x) * 0.05;
+          camera.position.y += (-mouseY / 5 - camera.position.y) * 0.05;
+          camera.lookAt(scene.position);
+
+          renderer.render(scene, camera);
+        }
+
+        function updateStarColor(theme) {
+          if (starMaterial) {
+            const targetColor =
+              theme === "dark" ? darkModeColor : lightModeColor;
+            starMaterial.color.set(targetColor);
+          }
+        }
+        // --- END: Three.js Starfield Effect ---
+
+        initStarfield(); // Initialize the effect
+
         // Track mouse movement for liquid glass effect
         document.addEventListener("mousemove", (e) => {
           const liquidGlassElements =
@@ -2345,6 +2463,7 @@
         function applyTheme(theme) {
           pageBody.classList.toggle("dark-mode", theme === "dark");
           localStorage.setItem("theme", theme);
+          updateStarColor(theme); // MODIFIED: Update star colors on theme change
         }
 
         // --- START: NÂNG CẤP HIỆU ỨNG CHUYỂN ĐỔI THEME ---
