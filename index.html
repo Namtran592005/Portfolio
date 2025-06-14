@@ -26,7 +26,6 @@
     />
     <link rel="canonical" href="https://tranvohoangnam.id.vn" />
     
-    <!-- ADDED: Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <!-- Thêm âm thanh khởi động -->
@@ -169,10 +168,9 @@
       html::before {
         content: "";
         position: fixed;
-        inset: 0; /* Tương đương top: 0; left: 0; right: 0; bottom: 0; */
-        z-index: -10; /* Đặt ở lớp sâu nhất, sau cả lớp overlay màu */
+        inset: 0; 
+        z-index: -10; 
         background: url("./src/Images/Wallpaper.webp") center/cover no-repeat;
-        /* Không cần 'fixed' ở đây vì chính element đã là 'position: fixed' */
       }
 
       body {
@@ -181,11 +179,9 @@
         background-color: var(--bg);
         color: var(--text-primary);
         -webkit-font-smoothing: antialiased;
-        /* transition: background-color var(--transition-medium),
-          color var(--transition-medium); */ /* Đã được comment out */
         max-width: 100vw;
       }
-      /* --- FIX START: Moved animation styles to a dedicated wrapper --- */
+
       #page-content {
         opacity: 0;
         filter: blur(8px);
@@ -199,15 +195,11 @@
         filter: blur(0);
         transform: scale(1);
       }
-      /* --- FIX END --- */
+      
       body.no-scroll {
         overflow: hidden;
       }
 
-      /*body {
-        background: url("./src/Images/Wallpaper.webp") center/cover no-repeat
-          fixed;
-      }*/
       body::before {
         content: "";
         position: fixed;
@@ -228,15 +220,14 @@
         opacity: 1;
       }
 
-      /* ADDED: CSS for Starfield Canvas */
       #starfield-canvas {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1; /* Behind content, in front of wallpaper overlay */
-        pointer-events: none; /* Make it unclickable */
+        z-index: -1; 
+        pointer-events: none;
       }
 
       .container {
@@ -255,7 +246,6 @@
         text-decoration: none;
       }
 
-      /* --- STICKY HEADER IMPLEMENTATION --- */
       .header-container {
         position: sticky;
         top: 12px;
@@ -319,13 +309,13 @@
           padding: 0 15px;
         }
         header nav#main-nav {
-          display: none; /* Ẩn navigation trên mobile */
+          display: none; 
         }
         .header-actions {
-          margin-left: auto; /* Đẩy các nút về bên phải */
+          margin-left: auto; 
         }
         header .logo {
-          font-size: 1.3rem; /* Giảm kích thước logo trên mobile */
+          font-size: 1.3rem; 
         }
       }
 
@@ -865,14 +855,20 @@
         gap: 60px;
         align-items: center;
       }
-      #about .about-image-container img {
-        width: 100%;
+
+      /* === CSS CHANGE START: Cập nhật kích thước video === */
+      #about .about-image-container video {
+        width: 330px;
+        height: 350px; /* THÊM VÀO: Cố định chiều cao, bạn có thể thay đổi giá trị này */
         border-radius: var(--border-radius);
         transition: all var(--transition-medium);
+        object-fit: cover; /* Đảm bảo video lấp đầy khung và không bị méo */
       }
-      #about .about-image-container:hover img {
+      #about .about-image-container:hover video {
         transform: scale(1.08) rotate(3deg);
       }
+      /* === CSS CHANGE END === */
+
       .portfolio-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1113,7 +1109,6 @@
         display: block;
       }
 
-      /* Control center button animation */
       .control-center-toggle {
         transition: opacity 0.4s, transform 0.4s;
         opacity: 1;
@@ -1125,7 +1120,6 @@
         pointer-events: none;
       }
 
-      /* Ngăn các phần tử vượt quá chiều rộng màn hình trên mobile */
       * {
         box-sizing: border-box;
       }
@@ -1144,7 +1138,6 @@
         }
       }
 
-      /* Updated button styles with liquid glass effect */
       .cta-button,
       button[type="submit"].contact-button,
       #theme-toggle,
@@ -1189,7 +1182,6 @@
         opacity: 1;
       }
 
-      /* Liquid Glass Effect */
       .liquid-glass {
         background: var(--glass-bg);
         backdrop-filter: blur(10px) saturate(180%);
@@ -1231,7 +1223,6 @@
         height: 100%;
       }
 
-      /* Header Actions Layout */
       .header-actions {
         display: flex;
         align-items: center;
@@ -1241,7 +1232,6 @@
         height: 44px;
       }
 
-      /* Theme Toggle Button */
       #theme-toggle {
         position: absolute;
         right: 60px;
@@ -1261,7 +1251,6 @@
         opacity: 1;
       }
 
-      /* Control Center Toggle */
       .control-center-toggle {
         position: absolute;
         right: 0;
@@ -1281,14 +1270,12 @@
         pointer-events: none;
       }
 
-      /* Button Hover Effects */
       .liquid-glass:hover {
         transform: scale(1.05);
         background-color: var(--glass-bg);
         box-shadow: var(--glass-inset-shadow), 0 12px 36px 0 var(--shadow-color);
       }
 
-      /* Ensure smooth transitions for dark mode */
       html.dark-mode .liquid-glass {
         transition: transform 0.3s var(--transition-medium),
           background-color 0.3s var(--transition-medium),
@@ -1333,7 +1320,6 @@
         mix-blend-mode: normal;
       }
 
-      /* Áp dụng cho dark mode */
       .dark-mode::view-transition-old(root) {
         z-index: 1;
       }
@@ -1341,7 +1327,6 @@
         z-index: 999;
       }
 
-      /* Áp dụng cho light mode */
       ::view-transition-old(root) {
         z-index: 999;
       }
@@ -1355,7 +1340,6 @@
         mix-blend-mode: normal;
       }
 
-      /* Khi chuyển sang Dark Mode, lớp mới (tối) sẽ ở trên */
       .dark-mode::view-transition-old(root) {
         z-index: 1;
       }
@@ -1363,7 +1347,6 @@
         z-index: 999;
       }
 
-      /* Khi chuyển sang Light Mode, lớp cũ (tối) sẽ ở trên để bị che đi */
       html:not(.dark-mode)::view-transition-old(root) {
         z-index: 999;
       }
@@ -1376,12 +1359,11 @@
         bottom: 20px;
         right: 20px;
         display: flex;
-        flex-direction: column; /* Xếp chồng lên nhau */
-        gap: 10px; /* Khoảng cách giữa các nút */
-        z-index: 1001; /* Đảm bảo nó nổi trên các thành phần khác */
+        flex-direction: column; 
+        gap: 10px; 
+        z-index: 1001; 
       }
 
-      /* Style chung cho nút điều khiển âm thanh */
       .audio-control-btn {
         width: 44px;
         height: 44px;
@@ -1407,7 +1389,6 @@
         border-color: transparent;
       }
 
-      /* Style cho icon gạch chéo khi tắt */
       .audio-control-btn.off .fa-slash,
       .audio-control-btn.off .fa-volume-mute {
         display: inline-block !important;
@@ -1418,19 +1399,17 @@
         display: none;
       }
 
-      /* Hiệu ứng cho icon gạch chéo */
       .audio-control-btn .fa-slash {
         position: absolute;
         color: var(--text-primary);
         opacity: 0.7;
-        font-size: 1.5em; /* To hơn một chút để đẹp hơn */
+        font-size: 1.5em; 
       }
 
       .audio-control-btn:hover .fa-slash {
         color: white;
       }
 
-      /* 1. Định nghĩa keyframes cho animation xoay tròn */
       @keyframes spin {
         from {
           transform: rotate(0deg);
@@ -1440,14 +1419,12 @@
         }
       }
 
-      /* 2. Áp dụng animation cho icon fa-music KHI nút cha có class .spinning */
       .audio-control-btn.spinning .fa-music {
         animation: spin 2s linear infinite;
       }
     </style>
   </head>
   <body class="no-scroll">
-    <!-- ADDED: Canvas for Three.js Starfield -->
     <canvas id="starfield-canvas"></canvas>
 
     <div
@@ -1599,7 +1576,6 @@
       </div>
     </nav>
 
-    <!-- FIX: Added a wrapper for page content to isolate animations -->
     <div id="page-content">
       <main>
         <section class="hero" id="hero">
@@ -1686,12 +1662,14 @@
                 class="about-image-container animate-on-scroll"
                 style="transition-delay: 0.2s"
               >
-                <img
-                  src="./src/Images/image.webp"
-                  alt="Nam Trần - Đam mê công nghệ"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <video 
+                  src="./src/Videos/about_video.mp4"
+                  autoplay 
+                  loop 
+                  muted 
+                  playsinline
+                  preload="metadata"
+                ></video>
               </div>
             </div>
           </div>
@@ -2248,6 +2226,32 @@
 
         initStarfield(); // Initialize the effect
 
+        // === JAVASCRIPT CHANGE START: Xử lý video tự động phát ===
+        const aboutVideo = document.querySelector('#about video');
+        if (aboutVideo) {
+          // Cố gắng phát video
+          const playPromise = aboutVideo.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(error => {
+              // Tự động phát bị chặn.
+              console.warn("Video autoplay was prevented. Waiting for user interaction to play.");
+              // Thêm một trình lắng nghe sự kiện để phát video khi người dùng tương tác lần đầu.
+              // { once: true } đảm bảo trình lắng nghe này chỉ chạy một lần rồi tự xóa.
+              const playOnFirstInteraction = () => {
+                aboutVideo.play().catch(err => {
+                   console.error("Could not play video on interaction:", err);
+                });
+                document.body.removeEventListener('click', playOnFirstInteraction);
+                document.body.removeEventListener('touchstart', playOnFirstInteraction);
+              };
+              document.body.addEventListener('click', playOnFirstInteraction);
+              document.body.addEventListener('touchstart', playOnFirstInteraction);
+            });
+          }
+        }
+        // === JAVASCRIPT CHANGE END ===
+
+
         // Track mouse movement for liquid glass effect
         document.addEventListener("mousemove", (e) => {
           const liquidGlassElements =
@@ -2463,40 +2467,33 @@
         function applyTheme(theme) {
           pageBody.classList.toggle("dark-mode", theme === "dark");
           localStorage.setItem("theme", theme);
-          updateStarColor(theme); // MODIFIED: Update star colors on theme change
+          updateStarColor(theme); 
         }
 
-        // --- START: NÂNG CẤP HIỆU ỨNG CHUYỂN ĐỔI THEME ---
+        
         function toggleTheme(event) {
           currentTheme = pageBody.classList.contains("dark-mode")
             ? "light"
             : "dark";
 
-          // Kiểm tra trình duyệt có hỗ trợ View Transitions API không
           if (!document.startViewTransition) {
-            // Nếu không, chuyển đổi như cũ
             applyTheme(currentTheme);
             return;
           }
 
-          // Lấy tọa độ của cú nhấp chuột
           const x = event.clientX;
           const y = event.clientY;
 
-          // Tính bán kính lớn nhất để vòng tròn bao phủ toàn màn hình
           const endRadius = Math.hypot(
             Math.max(x, window.innerWidth - x),
             Math.max(y, window.innerHeight - y)
           );
 
-          // Bắt đầu quá trình chuyển đổi
           const transition = document.startViewTransition(() => {
             applyTheme(currentTheme);
           });
 
-          // Chờ quá trình chuyển đổi sẵn sàng và chạy animation
           transition.ready.then(() => {
-            // Tạo animation lan tỏa từ vị trí click
             document.documentElement.animate(
               {
                 clipPath: [
@@ -2505,17 +2502,14 @@
                 ],
               },
               {
-                duration: 500, // Thời gian animation (0.5 giây)
+                duration: 500, 
                 easing: "ease-in-out",
-                // Chỉ định animation này áp dụng cho pseudo-element của View Transition
                 pseudoElement: "::view-transition-new(root)",
               }
             );
           });
         }
-        // --- END: NÂNG CẤP HIỆU ỨNG CHUYỂN ĐỔI THEME ---
-
-        // Cập nhật event listener để truyền vào 'event' object
+       
         if (themeToggleDesktop)
           themeToggleDesktop.addEventListener("click", (event) =>
             toggleTheme(event)
@@ -2601,11 +2595,9 @@
               }
             }
 
-            // Handle button transitions on scroll
             controlCenterToggles.forEach((btn) => {
               if (scrollY > 0) {
                 btn.classList.add("hide-on-scroll");
-                // Only move theme toggle if control center is closed
                 if (!controlCenter.classList.contains("nav-open")) {
                   themeToggle.classList.add("move-to-center");
                 }
