@@ -27,11 +27,6 @@
     <link rel="canonical" href="https://tranvohoangnam.id.vn" />
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
-    <!-- === GSAP & SCROLLTRIGGER LIBRARY START === -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- === GSAP & SCROLLTRIGGER LIBRARY END === -->
 
     <!-- Thêm âm thanh khởi động -->
     <script>
@@ -39,14 +34,39 @@
         const startupSound = new Audio("./src/Audio/startup.mp3");
         startupSound.volume = 0.5; // Đặt âm lượng
 
+        // Tạo một hàm để phát âm thanh và tự hủy các sự kiện lắng nghe
         function playSoundOnFirstInteraction() {
-          startupSound.play().catch(error => console.log("Không thể phát âm thanh khởi động: ", error));
-          document.removeEventListener("mousedown", playSoundOnFirstInteraction);
-          document.removeEventListener("mousemove", playSoundOnFirstInteraction);
-          document.removeEventListener("touchstart", playSoundOnFirstInteraction);
+          // Thử phát âm thanh
+          startupSound
+            .play()
+            .then(() => {
+              // Nếu phát thành công, không cần làm gì thêm
+              console.log("Âm thanh khởi động đã phát.");
+            })
+            .catch((error) => {
+              // Nếu vẫn lỗi, ghi log ra console
+              console.log("Không thể phát âm thanh khởi động: ", error);
+            });
+
+          // Sau khi chạy lần đầu, gỡ bỏ tất cả các sự kiện lắng nghe
+          // để đảm bảo âm thanh không phát lại khi người dùng tương tác tiếp
+          document.removeEventListener(
+            "mousedown",
+            playSoundOnFirstInteraction
+          );
+          document.removeEventListener(
+            "mousemove",
+            playSoundOnFirstInteraction
+          );
+          document.removeEventListener(
+            "touchstart",
+            playSoundOnFirstInteraction
+          );
           document.removeEventListener("keydown", playSoundOnFirstInteraction);
         }
 
+        // Lắng nghe các sự kiện tương tác đầu tiên của người dùng
+        // Bất kỳ hành động nào dưới đây xảy ra trước, nó sẽ kích hoạt âm thanh
         document.addEventListener("mousedown", playSoundOnFirstInteraction);
         document.addEventListener("mousemove", playSoundOnFirstInteraction);
         document.addEventListener("touchstart", playSoundOnFirstInteraction);
@@ -161,20 +181,25 @@
         -webkit-font-smoothing: antialiased;
         max-width: 100vw;
       }
-      
-      /* === GSAP CHANGE START: CSS for page load is no longer needed, GSAP handles everything === */
-      #page-content {
-        /* Elements inside will be animated by GSAP, so we can make the container visible */
-        opacity: 1; 
-        filter: none;
-        transform: none;
-      }
-      /* === GSAP CHANGE END === */
 
+      #page-content {
+        opacity: 0;
+        filter: blur(8px);
+        transform: scale(1.02);
+        transition: opacity 0.8s var(--transition-medium),
+          filter 0.8s var(--transition-medium),
+          transform 0.8s var(--transition-medium);
+      }
+      body.loaded #page-content {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+      }
+      
       body.no-scroll {
         overflow: hidden;
       }
-      
+
       body::before {
         content: "";
         position: fixed;
@@ -404,7 +429,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding-bottom: 150px;
+        padding-bottom: 125px;
       }
 
       .apple-card {
@@ -722,7 +747,7 @@
         cursor: pointer !important;
       }
       section {
-        padding: 50px 0;
+        padding: 15px 0;
         position: relative;
       }
       .section-title {
@@ -741,9 +766,6 @@
         font-size: 1.125rem;
         line-height: 1.7;
       }
-      
-      /* === GSAP CHANGE START: CSS for .animate-on-scroll is now handled by GSAP. These rules are no longer needed. === */
-      /*
       .animate-on-scroll {
         opacity: 0;
         transform: translateY(50px) scale(0.9);
@@ -758,9 +780,6 @@
         transform: translateY(0) scale(1);
         filter: blur(0);
       }
-      */
-      /* === GSAP CHANGE END === */
-
       .hero img.profile-pic {
         width: 160px;
         height: 160px;
@@ -769,7 +788,8 @@
         margin-bottom: 10px;
         border: 4px solid var(--glass-border);
         box-shadow: 0 10px 40px var(--shadow-color);
-        /* Transition is now controlled by GSAP */
+        transition: transform 0.1s linear, opacity 0.1s linear;
+        will-change: transform, opacity;
       }
       .hero img.profile-pic:hover {
         transform: scale(1.05) rotate(-3deg);
@@ -836,16 +856,18 @@
         align-items: center;
       }
 
+      /* === CSS CHANGE START: Cập nhật kích thước video === */
       #about .about-image-container video {
         width: 330px;
-        height: 350px; 
+        height: 350px; /* THÊM VÀO: Cố định chiều cao, bạn có thể thay đổi giá trị này */
         border-radius: var(--border-radius);
         transition: all var(--transition-medium);
-        object-fit: cover; 
+        object-fit: cover; /* Đảm bảo video lấp đầy khung và không bị méo */
       }
       #about .about-image-container:hover video {
         transform: scale(1.08) rotate(3deg);
       }
+      /* === CSS CHANGE END === */
 
       .portfolio-grid {
         display: grid;
@@ -1402,7 +1424,7 @@
       }
     </style>
   </head>
-  <body> 
+  <body class="no-scroll">
     <canvas id="starfield-canvas"></canvas>
 
     <div
@@ -1558,7 +1580,6 @@
       <main>
         <section class="hero" id="hero">
           <div class="container hero-content">
-            <!-- GSAP CHANGE: Elements below are now animated by GSAP on page load -->
             <img
               src="./src/Images/Avatar.webp"
               alt="Ảnh đại diện của Nam Trần"
@@ -1566,12 +1587,25 @@
               loading="lazy"
               decoding="async"
             />
-            <h1>Welcome to my Portfolio</h1>
-            <p class="intro-paragraph">
+            <h1 class="animate-on-scroll" style="transition-delay: 0.1s">
+              Welcome to my Portfolio
+            </h1>
+            <p
+              class="intro-paragraph animate-on-scroll"
+              style="transition-delay: 0.3s"
+            >
               Khám phá xây dựng giải pháp để tạo ra những sản phẩm ý nghĩa.
             </p>
-            <a href="#projects" class="cta-button">Xem Dự Án Của Mình</a>
-            <div class="social-links-hero">
+            <a
+              href="#projects"
+              class="cta-button animate-on-scroll"
+              style="transition-delay: 0.4s"
+              >Xem Dự Án Của Mình</a
+            >
+            <div
+              class="social-links-hero animate-on-scroll"
+              style="transition-delay: 0.5s"
+            >
               <a
                 href="https://facebook.com/Namtran5905"
                 target="_blank"
@@ -1598,7 +1632,10 @@
           <div class="container">
             <h2 class="section-title animate-on-scroll">Về Bản Thân</h2>
             <div class="about-content">
-              <div class="about-text animate-on-scroll">
+              <div
+                class="about-text animate-on-scroll"
+                style="transition-delay: 0.1s"
+              >
                 <p>
                   Xin chào! Mình là Nam Trần một sinh viên và là người làm bán
                   thời gian.
@@ -1621,7 +1658,10 @@
                   các dự án và sẵn sàng khám phá các cơ hội mới.
                 </p>
               </div>
-              <div class="about-image-container animate-on-scroll">
+              <div
+                class="about-image-container animate-on-scroll"
+                style="transition-delay: 0.2s"
+              >
                 <video 
                   src="./src/Videos/about_video.mp4"
                   autoplay 
@@ -1652,7 +1692,10 @@
                   </ul>
                 </div>
               </div>
-              <div class="skill-category animate-on-scroll">
+              <div
+                class="skill-category animate-on-scroll"
+                style="transition-delay: 0.1s"
+              >
                 <div class="apple-card">
                   <h3><i class="fas fa-tools"></i>Công Cụ & Tin Học</h3>
                   <ul>
@@ -1665,7 +1708,10 @@
                   </ul>
                 </div>
               </div>
-              <div class="skill-category animate-on-scroll">
+              <div
+                class="skill-category animate-on-scroll"
+                style="transition-delay: 0.2s"
+              >
                 <div class="apple-card">
                   <h3><i class="fas fa-laptop-code"></i>Kiến Thức Kỹ Thuật</h3>
                   <ul>
@@ -1726,12 +1772,18 @@
         <section id="projects">
           <div class="container">
             <h2 class="section-title animate-on-scroll">Dự Án Nổi Bật</h2>
-            <p class="section-subtitle animate-on-scroll">
+            <p
+              class="section-subtitle animate-on-scroll"
+              style="transition-delay: 0.05s"
+            >
               Một số dự án cá nhân và bài tập Mình đã thực hiện để rèn luyện kỹ
               năng và khám phá niềm đam mê công nghệ.
             </p>
             <div class="portfolio-grid">
-              <div class="portfolio-item animate-on-scroll">
+              <div
+                class="portfolio-item animate-on-scroll"
+                style="transition-delay: 0.2s"
+              >
                 <div class="apple-card">
                   <img
                     src="./src/Project/Product1.webp"
@@ -1765,7 +1817,10 @@
                   </div>
                 </div>
               </div>
-              <div class="portfolio-item animate-on-scroll">
+              <div
+                class="portfolio-item animate-on-scroll"
+                style="transition-delay: 0.1s"
+              >
                 <div class="apple-card">
                   <img
                     src="./src/Project/Product2.webp"
@@ -1821,7 +1876,10 @@
                   </p>
                 </div>
               </div>
-              <div class="experience-item animate-on-scroll">
+              <div
+                class="experience-item animate-on-scroll"
+                style="transition-delay: 0.1s"
+              >
                 <div class="apple-card">
                   <span class="date">2020 – 2022</span>
                   <h3>Trường Trung Cấp Kinh tế - Kỹ thuật Nguyễn Hữu Cảnh</h3>
@@ -1836,7 +1894,10 @@
                   </p>
                 </div>
               </div>
-              <div class="experience-item animate-on-scroll">
+              <div
+                class="experience-item animate-on-scroll"
+                style="transition-delay: 0.2s"
+              >
                 <div class="apple-card">
                   <span class="date">TỐT NGHIỆP 2023</span>
                   <h3>Trung Tâm GDTX - HNDN Thành Phố Trà Vinh</h3>
@@ -1857,12 +1918,18 @@
         <section id="contact">
           <div class="container">
             <h2 class="section-title animate-on-scroll">Kết Nối Với Mình</h2>
-            <p class="section-subtitle animate-on-scroll">
+            <p
+              class="section-subtitle animate-on-scroll"
+              style="transition-delay: 0.05s"
+            >
               Mình luôn sẵn sàng lắng nghe các cơ hội hợp tác, dự án thú vị hoặc
               đơn giản là một lời chào. Đừng ngần ngại liên hệ!
             </p>
             <div class="contact-container">
-              <div class="contact-form-wrapper animate-on-scroll">
+              <div
+                class="contact-form-wrapper animate-on-scroll"
+                style="transition-delay: 0.1s"
+              >
                 <div class="apple-card">
                   <h3>Gửi Lời Nhắn</h3>
                   <form
@@ -1901,7 +1968,10 @@
                   </form>
                 </div>
               </div>
-              <div class="contact-info-wrapper animate-on-scroll">
+              <div
+                class="contact-info-wrapper animate-on-scroll"
+                style="transition-delay: 0.2s"
+              >
                 <div class="apple-card">
                   <h3>Thông Tin Liên Hệ</h3>
                   <div class="contact-info-item">
@@ -2045,15 +2115,11 @@
     ></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-
-        // === GSAP CHANGE START: Khởi tạo và đăng ký plugin ScrollTrigger ===
-        gsap.registerPlugin(ScrollTrigger);
-        // === GSAP CHANGE END ===
-
         const pageBody = document.body;
         document.getElementById("currentYear").textContent =
           new Date().getFullYear();
 
+        const profilePic = document.querySelector(".hero .profile-pic");
         const themeToggle = document.getElementById("theme-toggle");
         const controlCenterToggle = document.querySelector(
           ".control-center-toggle"
@@ -2061,20 +2127,36 @@
 
         // --- START: Three.js Starfield Effect ---
         let scene, camera, renderer, stars, starMaterial;
-        const lightModeColor = new THREE.Color(0x005bea);
-        const darkModeColor = new THREE.Color(0xffffff);
+        const lightModeColor = new THREE.Color(0x005bea); // Blue for light mode
+        const darkModeColor = new THREE.Color(0xffffff); // White for dark mode
         let mouseX = 0,
           mouseY = 0;
 
         function initStarfield() {
           const canvas = document.getElementById("starfield-canvas");
-          if (!canvas || typeof THREE === "undefined") { return; }
+          if (!canvas || typeof THREE === "undefined") {
+            console.error(
+              "Three.js or canvas not found. Starfield effect disabled."
+            );
+            return;
+          }
+
           scene = new THREE.Scene();
-          camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+          camera = new THREE.PerspectiveCamera(
+            60,
+            window.innerWidth / window.innerHeight,
+            1,
+            1000
+          );
           camera.position.z = 1;
-          renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+
+          renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            alpha: true, // Transparent background
+          });
           renderer.setSize(window.innerWidth, window.innerHeight);
           renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
           const starVertices = [];
           for (let i = 0; i < 10000; i++) {
             const x = (Math.random() - 0.5) * 2000;
@@ -2082,18 +2164,26 @@
             const z = (Math.random() - 0.5) * 2000;
             starVertices.push(x, y, z);
           }
+
           const starGeometry = new THREE.BufferGeometry();
-          starGeometry.setAttribute("position", new THREE.Float32BufferAttribute(starVertices, 3));
+          starGeometry.setAttribute(
+            "position",
+            new THREE.Float32BufferAttribute(starVertices, 3)
+          );
+
           starMaterial = new THREE.PointsMaterial({
             size: 0.7,
             sizeAttenuation: true,
             depthWrite: false,
             blending: THREE.AdditiveBlending,
           });
+
           stars = new THREE.Points(starGeometry, starMaterial);
           scene.add(stars);
+
           window.addEventListener("resize", onWindowResize, false);
           document.addEventListener("mousemove", onMouseMove, false);
+
           animateStarfield();
         }
 
@@ -2105,6 +2195,7 @@
         }
 
         function onMouseMove(event) {
+          // Store mouse position relative to center
           mouseX = event.clientX - window.innerWidth / 2;
           mouseY = event.clientY - window.innerHeight / 2;
         }
@@ -2112,43 +2203,59 @@
         function animateStarfield() {
           if (!stars || !renderer) return;
           requestAnimationFrame(animateStarfield);
+
+          // Subtle base rotation
           stars.rotation.y += 0.0001;
+
+          // Make camera gently follow mouse for a parallax effect
           camera.position.x += (mouseX / 5 - camera.position.x) * 0.05;
           camera.position.y += (-mouseY / 5 - camera.position.y) * 0.05;
           camera.lookAt(scene.position);
+
           renderer.render(scene, camera);
         }
 
         function updateStarColor(theme) {
           if (starMaterial) {
-            const targetColor = theme === "dark" ? darkModeColor : lightModeColor;
+            const targetColor =
+              theme === "dark" ? darkModeColor : lightModeColor;
             starMaterial.color.set(targetColor);
           }
         }
-        
-        initStarfield();
         // --- END: Three.js Starfield Effect ---
 
-        // Xử lý video tự động phát
+        initStarfield(); // Initialize the effect
+
+        // === JAVASCRIPT CHANGE START: Xử lý video tự động phát ===
         const aboutVideo = document.querySelector('#about video');
         if (aboutVideo) {
+          // Cố gắng phát video
           const playPromise = aboutVideo.play();
           if (playPromise !== undefined) {
             playPromise.catch(error => {
-              console.warn("Video autoplay was prevented. Waiting for user interaction.");
+              // Tự động phát bị chặn.
+              console.warn("Video autoplay was prevented. Waiting for user interaction to play.");
+              // Thêm một trình lắng nghe sự kiện để phát video khi người dùng tương tác lần đầu.
+              // { once: true } đảm bảo trình lắng nghe này chỉ chạy một lần rồi tự xóa.
               const playOnFirstInteraction = () => {
-                aboutVideo.play().catch(err => console.error("Could not play video on interaction:", err));
+                aboutVideo.play().catch(err => {
+                   console.error("Could not play video on interaction:", err);
+                });
                 document.body.removeEventListener('click', playOnFirstInteraction);
                 document.body.removeEventListener('touchstart', playOnFirstInteraction);
               };
-              document.body.addEventListener('click', playOnFirstInteraction, { once: true });
-              document.body.addEventListener('touchstart', playOnFirstInteraction, { once: true });
+              document.body.addEventListener('click', playOnFirstInteraction);
+              document.body.addEventListener('touchstart', playOnFirstInteraction);
             });
           }
         }
-       
+        // === JAVASCRIPT CHANGE END ===
+
+
+        // Track mouse movement for liquid glass effect
         document.addEventListener("mousemove", (e) => {
-          const liquidGlassElements = document.querySelectorAll(".liquid-glass");
+          const liquidGlassElements =
+            document.querySelectorAll(".liquid-glass");
           liquidGlassElements.forEach((element) => {
             const rect = element.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -2165,50 +2272,78 @@
         const clickSound = document.getElementById("clickSound");
         const startupSound = new Audio("./src/Audio/startup.mp3");
 
+        // Trạng thái âm thanh
         let isMusicPlaying = false;
-        let areSfxEnabled = true;
+        let areSfxEnabled = true; // Bật hiệu ứng mặc định
 
+        // Cài đặt âm lượng
         if (backgroundMusic) backgroundMusic.volume = 0.5;
-        if (hoverSound) hoverSound.volume = 0.04;
+        if (hoverSound) hoverSound.volume = 0.04; // Tăng nhẹ âm lượng hover
         if (clickSound) clickSound.volume = 0.04;
         if (startupSound) startupSound.volume = 0.5;
 
+        // Hàm cập nhật giao diện nút
         function updateButtonUI(button, isEnabled, onText, offText) {
           if (button) {
-            button.classList.toggle("off", !isEnabled);
-            button.title = isEnabled ? offText : onText;
+            if (isEnabled) {
+              button.classList.remove("off");
+              button.title = offText;
+            } else {
+              button.classList.add("off");
+              button.title = onText;
+            }
           }
         }
 
+        // Xử lý nhạc nền
         if (musicToggleButton && backgroundMusic) {
           musicToggleButton.addEventListener("click", () => {
             isMusicPlaying = !isMusicPlaying;
+
             if (isMusicPlaying) {
               backgroundMusic.currentTime = 0;
-              backgroundMusic.play().catch(e => console.error("Lỗi khi cố gắng phát nhạc:", e));
+              backgroundMusic
+                .play()
+                .catch((e) => console.error("Lỗi khi cố gắng phát nhạc:", e));
+              // Thêm class .spinning khi nhạc phát
               musicToggleButton.classList.add("spinning");
             } else {
               backgroundMusic.pause();
+              // Xóa class .spinning khi nhạc dừng
               musicToggleButton.classList.remove("spinning");
             }
-            updateButtonUI(musicToggleButton, isMusicPlaying, "Bật Nhạc Nền", "Tắt Nhạc Nền");
+
+            updateButtonUI(
+              musicToggleButton,
+              isMusicPlaying,
+              "Bật Nhạc Nền",
+              "Tắt Nhạc Nền"
+            );
           });
         }
-        
+
+        // Xử lý âm thanh hiệu ứng (SFX)
         if (sfxToggleButton) {
           sfxToggleButton.addEventListener("click", () => {
             areSfxEnabled = !areSfxEnabled;
-            updateButtonUI(sfxToggleButton, areSfxEnabled, "Bật Âm Thanh Hiệu Ứng", "Tắt Âm Thanh Hiệu Ứng");
+            updateButtonUI(
+              sfxToggleButton,
+              areSfxEnabled,
+              "Bật Âm Thanh Hiệu Ứng",
+              "Tắt Âm Thanh Hiệu Ứng"
+            );
           });
         }
 
         function playSfx(sound) {
           if (areSfxEnabled && sound) {
             sound.currentTime = 0;
-            sound.play().catch((e) => {});
+            sound.play().catch((e) => {}); // Lặng lẽ bỏ qua lỗi nếu có
           }
         }
 
+        // Gắn sự kiện hover và click cho các phần tử tương tác
+        // QuerySelectorAll trả về một NodeList, chúng ta cần lặp qua nó
         const interactiveElements = document.querySelectorAll(
           'a, button, [role="button"], .interactive, .liquid-glass, .apple-card, .nav-link, .quick-action-btn, .footer-download-btn'
         );
@@ -2217,16 +2352,56 @@
           element.addEventListener("click", () => playSfx(clickSound));
         });
 
+        // Xử lý âm thanh khởi động
         function playStartupSoundOnFirstInteraction() {
           playSfx(startupSound);
+          // Gỡ bỏ sự kiện sau lần chạy đầu tiên
+          document.removeEventListener(
+            "mousedown",
+            playStartupSoundOnFirstInteraction,
+            { once: true }
+          );
+          document.removeEventListener(
+            "mousemove",
+            playStartupSoundOnFirstInteraction,
+            { once: true }
+          );
+          document.removeEventListener(
+            "touchstart",
+            playStartupSoundOnFirstInteraction,
+            { once: true }
+          );
+          document.removeEventListener(
+            "keydown",
+            playStartupSoundOnFirstInteraction,
+            { once: true }
+          );
         }
-        
-        document.addEventListener("mousedown", playStartupSoundOnFirstInteraction, { once: true });
-        document.addEventListener("mousemove", playStartupSoundOnFirstInteraction, { once: true });
-        document.addEventListener("touchstart", playStartupSoundOnFirstInteraction, { once: true });
-        document.addEventListener("keydown", playStartupSoundOnFirstInteraction, { once: true });
-        
+
+        // Lắng nghe tương tác đầu tiên để phát âm thanh khởi động (sử dụng { once: true } cho hiệu quả)
+        document.addEventListener(
+          "mousedown",
+          playStartupSoundOnFirstInteraction,
+          { once: true }
+        );
+        document.addEventListener(
+          "mousemove",
+          playStartupSoundOnFirstInteraction,
+          { once: true }
+        );
+        document.addEventListener(
+          "touchstart",
+          playStartupSoundOnFirstInteraction,
+          { once: true }
+        );
+        document.addEventListener(
+          "keydown",
+          playStartupSoundOnFirstInteraction,
+          { once: true }
+        );
+
         setTimeout(() => {
+          pageBody.classList.remove("no-scroll");
           pageBody.classList.add("loaded");
         }, 100);
 
@@ -2241,42 +2416,26 @@
           });
         });
 
-        // === GSAP CHANGE START: Replace IntersectionObserver with GSAP ScrollTrigger ===
-        
-        // 1. "Storytelling" Animation for the Hero Section on Page Load
-        const heroTl = gsap.timeline({ defaults: { duration: 0.8, ease: "power2.out" }, delay: 0.2 });
-        heroTl
-          .fromTo('.hero .profile-pic', { y: 40, autoAlpha: 0, scale: 0.9 }, { y: 0, autoAlpha: 1, scale: 1 })
-          .fromTo('.hero h1', { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1 }, "-=0.6")
-          .fromTo('.hero .intro-paragraph', { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1 }, "-=0.7")
-          .fromTo('.hero .cta-button', { y: 20, autoAlpha: 0, scale: 0.9 }, { y: 0, autoAlpha: 1, scale: 1 }, "-=0.8")
-          .fromTo('.hero .social-links-hero a', { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.1 }, "-=0.7");
-
-        // 2. Animate all elements with the .animate-on-scroll class as they enter the viewport
-        gsap.utils.toArray('.animate-on-scroll').forEach(element => {
-          gsap.from(element, {
-            y: 50,
-            autoAlpha: 0, // A GSAP utility that handles both opacity and visibility
-            filter: 'blur(5px)',
-            scale: 0.95,
-            duration: 1.0, 
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: element,
-              start: 'top 85%', // Starts animation when the top of the element is 85% down the viewport
-              end: 'bottom 15%',
-              toggleActions: 'play reverse play reverse', // Animates in on entering, reverses on leaving
-              // markers: true // Uncomment for debugging trigger positions
-            }
-          });
-        });
-
-        // The old IntersectionObserver code has been completely removed.
-        // === GSAP CHANGE END ===
+        const animatedElements =
+          document.querySelectorAll(".animate-on-scroll");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              } else {
+                entry.target.classList.remove("is-visible");
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        animatedElements.forEach((el) => observer.observe(el));
 
         const navLinks = document.querySelectorAll("a.nav-link");
         const sections = document.querySelectorAll("main section[id]");
-        const headerHeight = document.querySelector("header")?.offsetHeight || 72;
+        const headerHeight =
+          document.querySelector("header")?.offsetHeight || 72;
 
         function updateActiveNavLink() {
           let currentSectionId = "hero";
@@ -2296,9 +2455,14 @@
         }
 
         const themeToggleDesktop = document.getElementById("theme-toggle");
-        const themeToggleMobile = document.getElementById("cc-theme-toggle-mobile");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        let currentTheme = localStorage.getItem("theme") || (prefersDark ? "dark" : "light");
+        const themeToggleMobile = document.getElementById(
+          "cc-theme-toggle-mobile"
+        );
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        let currentTheme =
+          localStorage.getItem("theme") || (prefersDark ? "dark" : "light");
 
         function applyTheme(theme) {
           pageBody.classList.toggle("dark-mode", theme === "dark");
@@ -2306,8 +2470,11 @@
           updateStarColor(theme); 
         }
 
+        
         function toggleTheme(event) {
-          currentTheme = pageBody.classList.contains("dark-mode") ? "light" : "dark";
+          currentTheme = pageBody.classList.contains("dark-mode")
+            ? "light"
+            : "dark";
 
           if (!document.startViewTransition) {
             applyTheme(currentTheme);
@@ -2316,44 +2483,72 @@
 
           const x = event.clientX;
           const y = event.clientY;
-          const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
-          
+
+          const endRadius = Math.hypot(
+            Math.max(x, window.innerWidth - x),
+            Math.max(y, window.innerHeight - y)
+          );
+
           const transition = document.startViewTransition(() => {
             applyTheme(currentTheme);
           });
 
           transition.ready.then(() => {
             document.documentElement.animate(
-              { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`] },
-              { duration: 500, easing: "ease-in-out", pseudoElement: "::view-transition-new(root)" }
+              {
+                clipPath: [
+                  `circle(0px at ${x}px ${y}px)`,
+                  `circle(${endRadius}px at ${x}px ${y}px)`,
+                ],
+              },
+              {
+                duration: 500, 
+                easing: "ease-in-out",
+                pseudoElement: "::view-transition-new(root)",
+              }
             );
           });
         }
        
-        if (themeToggleDesktop) themeToggleDesktop.addEventListener("click", (event) => toggleTheme(event));
-        if (themeToggleMobile) themeToggleMobile.addEventListener("click", (event) => toggleTheme(event));
-        
+        if (themeToggleDesktop)
+          themeToggleDesktop.addEventListener("click", (event) =>
+            toggleTheme(event)
+          );
+        if (themeToggleMobile)
+          themeToggleMobile.addEventListener("click", (event) =>
+            toggleTheme(event)
+          );
+
         applyTheme(currentTheme);
 
         const controlCenter = document.getElementById("control-center-nav");
-        const controlCenterToggles = document.querySelectorAll(".control-center-toggle");
-        
+        const controlCenterToggles = document.querySelectorAll(
+          ".control-center-toggle"
+        );
+        const closeCCBtn = document.getElementById("close-control-center");
+
         function openControlCenter() {
           if (controlCenter) {
             controlCenter.classList.add("nav-open");
             document.body.classList.add("no-scroll");
+            themeToggle.classList.remove("move-to-center");
           }
         }
-        
+
         function closeControlCenter() {
           if (controlCenter) {
             controlCenter.classList.remove("nav-open");
             document.body.classList.remove("no-scroll");
+            updateButtonStates();
           }
         }
 
-        controlCenterToggles.forEach((btn) => btn.addEventListener("click", openControlCenter));
-        document.getElementById("close-control-center")?.addEventListener("click", closeControlCenter);
+        controlCenterToggles.forEach((btn) =>
+          btn.addEventListener("click", openControlCenter)
+        );
+        document
+          .getElementById("close-control-center")
+          ?.addEventListener("click", closeControlCenter);
 
         if (controlCenter) {
           controlCenter.addEventListener("click", (e) => {
@@ -2376,6 +2571,7 @@
           const s = String(now.getSeconds()).padStart(2, "0");
           clockElement.textContent = `${h}:${m}:${s}`;
         }
+
         setInterval(updateClock, 1000);
         updateClock();
 
@@ -2384,15 +2580,21 @@
             brightnessOverlay.style.opacity = brightnessSlider.value / 100;
           });
         }
-        
+
+        const scrollToTopButton = document.querySelector(".scroll-to-top");
+
         window.addEventListener(
           "scroll",
           () => {
             const scrollY = window.scrollY;
 
-            // === GSAP CHANGE: Removed the manual parallax effect on the profile picture.
-            // GSAP now handles its entrance animation, and this code would conflict with it.
-            
+            if (profilePic) {
+              if (scrollY < window.innerHeight) {
+                profilePic.style.transform = `translateY(${scrollY * 0.4}px)`;
+                profilePic.style.opacity = Math.max(0, 1 - scrollY / 400);
+              }
+            }
+
             controlCenterToggles.forEach((btn) => {
               if (scrollY > 0) {
                 btn.classList.add("hide-on-scroll");
@@ -2406,6 +2608,9 @@
             });
 
             updateActiveNavLink();
+            if (scrollToTopButton) {
+              scrollToTopButton.classList.toggle("visible", scrollY > 400);
+            }
           },
           { passive: true }
         );
@@ -2419,21 +2624,33 @@
             const status = document.getElementById("form-status");
             status.innerHTML = "Đang gửi...";
             try {
-              const response = await fetch(form.action, { method: form.method, body: data, headers: { Accept: "application/json" } });
+              const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { Accept: "application/json" },
+              });
               if (response.ok) {
                 status.innerHTML = "Cảm ơn! Lời nhắn của bạn đã được gửi.";
                 status.style.color = "var(--accent-primary)";
                 form.reset();
               } else {
                 const responseData = await response.json();
-                status.innerHTML = responseData.errors ? responseData.errors.map((error) => error.message).join(", ") : "Oops! Có lỗi xảy ra.";
+                if (Object.hasOwn(responseData, "errors")) {
+                  status.innerHTML = responseData["errors"]
+                    .map((error) => error["message"])
+                    .join(", ");
+                } else {
+                  status.innerHTML = "Oops! Có lỗi xảy ra khi gửi form.";
+                }
                 status.style.color = "red";
               }
             } catch (error) {
-              status.innerHTML = "Oops! Có lỗi xảy ra.";
+              status.innerHTML = "Oops! Có lỗi xảy ra khi gửi form.";
               status.style.color = "red";
             }
-            setTimeout(() => { status.innerHTML = ""; }, 6000);
+            setTimeout(() => {
+              status.innerHTML = "";
+            }, 6000);
           });
         }
         document.addEventListener("contextmenu", (e) => e.preventDefault());
