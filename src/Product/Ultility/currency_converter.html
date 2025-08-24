@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi Tiền tệ - Công cụ Tiện ích</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root {
+            --primary-bg: #f8f9fa;
+            --secondary-bg: #ffffff;
+            --text-color: #212529;
+            --light-text-color: #6c757d;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --primary-color: #007bff;
+        }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; margin: 0; background-color: #f0f2f5; color: var(--text-color); }
+        .container { max-width: 800px; margin: 20px auto; padding: 30px; background-color: var(--secondary-bg); border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color); }
+        h1 { text-align: center; margin-bottom: 20px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+
+        .converter-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .form-group { display: flex; flex-direction: column; }
+        label { font-weight: 500; margin-bottom: 8px; }
+        input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1.1em;
+            background-color: #f8f9fa;
+        }
+        #swap-btn {
+            background: none;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        #swap-btn:hover {
+            transform: rotate(180deg);
+            background-color: #e9ecef;
+        }
+        .result-area {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e2f0ff;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 6px;
+        }
+        #result-text { font-size: 1.8em; font-weight: bold; word-break: break-all; }
+        #rate-info { font-size: 1em; color: var(--light-text-color); margin-top: 8px; }
+        .disclaimer {
+            text-align: center;
+            color: var(--light-text-color);
+            font-style: italic;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Quay lại trang chủ</a>
+        <h1>Chuyển đổi Tiền tệ (Tỷ giá tham khảo)</h1>
+        
+        <div class="converter-row">
+            <div class="form-group">
+                <label for="from-currency">Từ</label>
+                <select id="from-currency"></select>
+                <input type="number" id="from-amount" value="100" min="0" style="margin-top: 10px;">
+            </div>
+
+            <div class="swap-container">
+                 <button id="swap-btn" title="Hoán đổi tiền tệ">
+                    <span class="material-symbols-outlined">swap_horiz</span>
+                </button>
+            </div>
+            
+            <div class="form-group">
+                <label for="to-currency">Sang</label>
+                <select id="to-currency"></select>
+                <input type="number" id="to-amount" readonly style="margin-top: 10px; background-color: #e9ecef; color: #495057;">
+            </div>
+        </div>
+
+        <div class="result-area">
+            <div id="rate-info"></div>
+        </div>
+        
+        <p class="disclaimer">Lưu ý: Tỷ giá trong công cụ này là cố định và chỉ mang tính chất tham khảo, không được cập nhật theo thời gian thực.</p>
+    </div>
+
+    <script>
+        // Dữ liệu tỷ giá cố định so với 1 USD
+        const currencies = {
+            'USD': { name: 'Đô la Mỹ', rate: 1 },
+            'VND': { name: 'Việt Nam Đồng', rate: 26000 },
+            'EUR': { name: 'Euro', rate: 0.92 },
+            'JPY': { name: 'Yên Nhật', rate: 155 },
+            'GBP': { name: 'Bảng Anh', rate: 0.80 },
+            'AUD': { name: 'Đô la Úc', rate: 1.51 },
+            'CAD': { name: 'Đô la Canada', rate: 1.37 },
+            'CHF': { name: 'Franc Thụy Sĩ', rate: 0.90 },
+            'CNY': { name: 'Nhân dân tệ', rate: 7.25 },
+            'KRW': { name: 'Won Hàn Quốc', rate: 1378 }
+        };
+        
+        const fromAmountEl = document.getElementById('from-amount');
+        const toAmountEl = document.getElementById('to-amount');
+        const fromCurrencyEl = document.getElementById('from-currency');
+        const toCurrencyEl = document.getElementById('to-currency');
+        const swapBtn = document.getElementById('swap-btn');
+        const rateInfoEl = document.getElementById('rate-info');
+        
+        // Đưa danh sách tiền tệ vào các dropdown
+        function populateCurrencies() {
+            let optionsHtml = '';
+            for (const code in currencies) {
+                optionsHtml += `<option value="${code}">${code} - ${currencies[code].name}</option>`;
+            }
+            fromCurrencyEl.innerHTML = optionsHtml;
+            toCurrencyEl.innerHTML = optionsHtml;
+            
+            // Đặt giá trị mặc định
+            fromCurrencyEl.value = 'USD';
+            toCurrencyEl.value = 'VND';
+        }
+
+        // Thực hiện chuyển đổi
+        function convertCurrency() {
+            const fromAmount = parseFloat(fromAmountEl.value);
+            const fromCode = fromCurrencyEl.value;
+            const toCode = toCurrencyEl.value;
+            
+            if (isNaN(fromAmount)) {
+                toAmountEl.value = '';
+                return;
+            }
+
+            const fromRate = currencies[fromCode].rate;
+            const toRate = currencies[toCode].rate;
+            
+            // Chuyển giá trị "từ" về USD, sau đó chuyển sang giá trị "đến"
+            const amountInUSD = fromAmount / fromRate;
+            const convertedAmount = amountInUSD * toRate;
+            
+            toAmountEl.value = convertedAmount.toLocaleString('en-US', { maximumFractionDigits: 2 }).replace(/,/g, '');
+
+            // Cập nhật thông tin tỷ giá
+            const singleUnitRate = (1 / fromRate) * toRate;
+            rateInfoEl.textContent = `1 ${fromCode} = ${singleUnitRate.toLocaleString('en-US', { maximumFractionDigits: 4 })} ${toCode}`;
+        }
+        
+        // Hoán đổi tiền tệ
+        function swapCurrencies() {
+            const tempCode = fromCurrencyEl.value;
+            fromCurrencyEl.value = toCurrencyEl.value;
+            toCurrencyEl.value = tempCode;
+            
+            // Swap amount values
+            const tempAmount = fromAmountEl.value;
+            fromAmountEl.value = toAmountEl.value;
+            toAmountEl.value = tempAmount;
+
+            convertCurrency();
+        }
+
+        // Gắn sự kiện
+        fromAmountEl.addEventListener('input', convertCurrency);
+        fromCurrencyEl.addEventListener('change', convertCurrency);
+        toCurrencyEl.addEventListener('change', convertCurrency);
+        swapBtn.addEventListener('click', swapCurrencies);
+
+        // Chạy khi trang tải xong
+        document.addEventListener('DOMContentLoaded', () => {
+            populateCurrencies();
+            convertCurrency();
+        });
+    </script>
+</body>
+</html>

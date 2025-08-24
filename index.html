@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: http://ogp.me/ns# profile: http://ogp.me/ns/profile#">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- START: SEO and Meta Tags (Dynamically updated by JS) -->
+    <title>Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo</title><!-- Meta Description (Cập nhật động bởi JS) -->
+    <meta id="meta-description" name="description" content="Portfolio độc quyền của Nam Trần: sinh viên IT, lập trình viên Front-end với các dự án đẳng cấp, hiệu ứng chuyển động tương lai, và công nghệ web tiên tiến. Khám phá ngay!" /><!-- Meta Keywords (Cập nhật động bởi JS) - Tối ưu cho Google RankBrain -->
+    <meta id="meta-keywords" name="keywords" content="Nam Trần, Portfolio, Front-end Developer, Lập trình viên, Sinh viên IT, Web Development, ReactJS, JavaScript, HTML, CSS, UI/UX Design, Animation, Web Audio API, Three.js, Service Worker, PWA, Đa ngôn ngữ, Trà Vinh, TVC, Tuyển dụng IT, Junior Developer, Software Engineer, CV, Github, Portfolio Đẳng cấp, Hiệu ứng tương lai, Công nghệ Web tiên tiến" /><!-- Canonical URL - Quan trọng cho SEO -->
+    <link rel="canonical" href="https://tranvohoangnam.id.vn" /><!-- Favicons & Apple Touch Icons - Trải nghiệm hình ảnh cao cấp -->
+    <link rel="icon" href="./src/Images/portfolio.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="./src/Images/Apple.webp" />
+    <link rel="manifest" href="./manifest.json"><!-- Sẽ tạo ở bước sau --><!-- Open Graph / Facebook (Tối ưu cho chia sẻ trên mạng xã hội) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tranvohoangnam.id.vn" />
+    <meta property="og:title" content="Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo" />
+    <meta id="og-description" property="og:description" content="Khám phá portfolio độc quyền của Nam Trần: lập trình viên Front-end với các dự án đẳng cấp, hiệu ứng chuyển động tương lai, và công nghệ web tiên tiến. Trải nghiệm ngay để thấy sự khác biệt!" />
+    <meta property="og:image" content="https://tranvohoangnam.id.vn/src/Images/portfolio-banner.webp" /><!-- Tạo một banner đẹp cho chia sẻ -->
+    <meta property="og:image:alt" content="Ảnh bìa Portfolio của Nam Trần, minh họa giao diện hiện đại và công nghệ." />
+    <meta id="og-locale" property="og:locale" content="vi_VN" /><!-- Thêm các locale khác nếu muốn, ví dụ: <meta property="og:locale:alternate" content="en_US" /> --><!-- Twitter Cards (Tối ưu cho chia sẻ trên Twitter) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://tranvohoangnam.id.vn" />
+    <meta name="twitter:title" content="Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo" />
+    <meta id="twitter-description" name="twitter:description" content="Khám phá portfolio độc quyền của Nam Trần: lập trình viên Front-end với các dự án đẳng cấp, hiệu ứng chuyển động tương lai, và công nghệ web tiên tiến. Trải nghiệm ngay để thấy sự khác biệt!" />
+    <meta name="twitter:image" content="https://tranvohoangnam.id.vn/src/Images/portfolio-banner.webp" />
+    <meta name="twitter:creator" content="@Namtran5905" /><!-- Nếu bạn có tài khoản Twitter --><!-- Thẻ Meta cho PWA (Progressive Web App) - Trải nghiệm di động vượt trội -->
+    <meta name="theme-color" content="#005bea" /><!-- Màu chủ đạo của trình duyệt -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Nam Trần Portfolio" /><!-- END: SEO and Meta Tags --><!-- START: Resource Preloading - Tải nhanh nhất có thể -->
+    <link rel="preload" href="./src/Images/Avatar.webp" as="image" />
+    <link rel="preload" href="./src/Images/Avatar2.webp" as="image" />
+    <link rel="preload" href="./src/Fonts/fonts.css" as="style" />
+    <link rel="preload" href="./css/style.css" as="style" />
+    <link rel="preload" href="./src/Theme/FontAwesome/css/all.min.css" as="style" />
+    <link rel="preload" href="./js/main.js" as="script" crossorigin="anonymous" /><!-- Preload các file JSON dịch thuật để chuyển đổi ngôn ngữ nhanh chóng -->
+    <link rel="preload" href="./data/en.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="./data/vi.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="./data/ja.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="./data/ko.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="./data/playlist.json" as="fetch" crossorigin="anonymous" /><!-- END: Resource Preloading --><!-- START: Schema.org JSON-LD - Cấu trúc dữ liệu độc quyền cho Google -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [{
+                "@type": "Person",
+                "@id": "https://tranvohoangnam.id.vn/#person",
+                "name": "Nam Trần",
+                "url": "https://tranvohoangnam.id.vn",
+                "image": "https://tranvohoangnam.id.vn/src/Images/Avatar.webp",
+                "sameAs": ["https://facebook.com/Namtran5905", "https://instagram.com/Namtran5905", "https://threads.com/Namtran5905", "https://tiktok.com/@namtran5905", "https://github.com/Namtran5905" /* Thêm các link LinkedIn, Twitter, v.v. nếu có */ ],
+                "jobTitle": "IT Student & Aspiring Front-end Developer",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "ShopeeFood",
+                    "url": "https://shopeefood.vn/"
+                },
+                "alumniOf": [{
+                    "@type": "CollegeOrUniversity",
+                    "name": "Trường Cao đẳng Nghề Trà Vinh",
+                    "url": "https://tvtc.edu.vn/"
+                }, {
+                    "@type": "EducationalOrganization",
+                    "name": "Trung Cấp Kinh tế - Kỹ thuật Nguyễn Hữu Cảnh"
+                }],
+                "knowsAbout": ["Web Development", "Frontend Development", "JavaScript", "ReactJS", "HTML", "CSS", "UI/UX Design", "Web Animation", "Service Workers", "Progressive Web Apps (PWA)", "Web Audio API", "Three.js", "Software Engineering", "Problem Solving", "Multilingual Web"],
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Trà Vinh",
+                    "addressRegion": "Trà Vinh",
+                    "addressCountry": "VN"
+                },
+                "description": "Nam Trần là một sinh viên IT đầy nhiệt huyết và một lập trình viên Front-end đang lên, chuyên tạo ra các trải nghiệm web độc đáo với kỹ thuật tiên tiến và thiết kế sáng tạo. Khám phá các dự án sử dụng hiệu ứng chuyển động tương lai, công nghệ Web Audio API và Progressive Web Apps."
+            }, {
+                "@type": "WebSite",
+                "@id": "https://tranvohoangnam.id.vn/#website",
+                "url": "https://tranvohoangnam.id.vn",
+                "name": "Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo",
+                "description": "Portfolio chuyên nghiệp của Nam Trần, một sinh viên IT đầy nhiệt huyết, khám phá các dự án độc quyền, kỹ năng tiên tiến và kinh nghiệm thực tế.",
+                "publisher": {
+                    "@id": "https://tranvohoangnam.id.vn/#person"
+                },
+                "creator": {
+                    "@id": "https://tranvohoangnam.id.vn/#person"
+                },
+                "inLanguage": ["vi-VN", "en-US", "ja-JP", "ko-KR"],
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://www.google.com/search?q=Nam%20Trần%20portfolio",
+                    "query-input": "required name=search_term_string"
+                }
+            }, {
+                "@type": "CollectionPage",
+                "@id": "https://tranvohoangnam.id.vn/#collectionpage",
+                "url": "https://tranvohoangnam.id.vn",
+                "name": "Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo",
+                "description": "Tổng hợp các dự án, kỹ năng và kinh nghiệm của Nam Trần trong lĩnh vực phát triển web Front-end.",
+                "isPartOf": {
+                    "@id": "https://tranvohoangnam.id.vn/#website"
+                },
+                "about": {
+                    "@id": "https://tranvohoangnam.id.vn/#person"
+                }
+            }, {
+                "@type": "WebPage",
+                "@id": "https://tranvohoangnam.id.vn/#webpage",
+                "url": "https://tranvohoangnam.id.vn",
+                "name": "Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo",
+                "isPartOf": {
+                    "@id": "https://tranvohoangnam.id.vn/#website"
+                },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://tranvohoangnam.id.vn/src/Images/portfolio-banner.webp"
+                },
+                "description": "Trang chủ portfolio của Nam Trần, giới thiệu tổng quan về các dự án và kỹ năng nổi bật.",
+                "inLanguage": ["vi-VN", "en-US", "ja-JP", "ko-KR"]
+            }]
+        }
+    </script>
+    <script src=./js/libs/three.min.js></script>
+    <link rel=stylesheet href=./src/Theme/FontAwesome/css/all.min.css>
+    <link rel=stylesheet href=./fonts/fonts.css>
+    <link rel=stylesheet href=./css/style.css>
+</head>
+
+<body class=no-scroll>
+    <svg style=position:absolute;width:0;height:0>
+        <defs>
+            <filter id=liquid-filter>
+                <feTurbulence type=fractalNoise baseFrequency="0.02 0.05" numOctaves=1 result=turbulence />
+                <feDisplacementMap in2=turbulence in=SourceGraphic scale=15 xChannelSelector=R yChannelSelector=G />
+            </filter>
+        </defs>
+    </svg>
+    <div id=preloader>
+        <div class=preloader-content>
+            <i class="fas fa-layer-group logo-icon"></i>
+            <p data-i18n-key=preloaderText>Đang tải không gian...</p>
+        </div>
+    </div>
+    <div id=welcome-overlay role=dialog aria-modal=true aria-labelledby=welcome-title aria-describedby=welcome-subtitle>
+        <div class=welcome-panel>
+            <i class="fas fa-layer-group logo-icon"></i>
+            <h2 id=welcome-title data-i18n-key=welcomeTitle>
+                Chào mừng đến Portfolio
+            </h2>
+            <p id=welcome-subtitle data-i18n-key=welcomeSubtitle>
+                Mang đến trải nghiệm cao cấp
+            </p>
+            <button id=enter-button data-i18n-key=welcomeButton>
+                Khám Phá
+            </button>
+        </div>
+    </div>
+    <div id=thank-you-overlay role=dialog aria-modal=true aria-labelledby=thank-you-title>
+        <div class=thank-you-panel>
+            <i class="fas fa-heartbeat thank-you-icon"></i>
+            <h3 id=thank-you-title data-i18n-key=thankYouTitle>
+                Cảm ơn đã ghé thăm!
+            </h3>
+            <p data-i18n-key=thankYouLine1>
+                Hy vọng bạn đã có một trải nghiệm thú vị khi khám phá portfolio của Nam Trần.
+            </p>
+            <p data-i18n-key=thankYouLine2>Hẹn gặp lại bạn!</p>
+            <p class=closing-message data-i18n-key=thankYouClosing>
+                Cửa sổ này sẽ tự đóng trong giây lát...
+            </p>
+            <button id=manual-close-button class=glass-action-button style=display:none;margin-top:20px data-i18n-key=thankYouCloseButton>
+                Đóng Ngay
+            </button>
+        </div>
+    </div>
+    <div id=mobile-nav-catalog role=dialog aria-modal=true aria-label="Mobile Navigation">
+        <div class=overlay></div>
+        <div class=panel>
+        </div>
+    </div>
+    <div id=watermark-overlay><span>© tranvohoangnam.id.vn</span></div>
+    <div id=mobile-nav-handle title="Open Navigation">
+        <div class=handle-bar></div>
+    </div>
+    <div id=page-wrapper>
+        <canvas id=starfield-canvas></canvas>
+        <div id=brightness-overlay style="position:fixed;inset:0;background:#000;opacity:0;z-index:9999;pointer-events:none;transition:opacity .2s"></div>
+        <div class=header-container>
+            <header>
+                <div class=container>
+                    <a href=#hero class=header-logo>
+                        <i class="fas fa-layer-group logo-icon"></i>
+                        <span class=logo-text data-i18n-key=headerLogoText>Portfolio</span>
+                    </a>
+                    <nav id=main-nav aria-label="Main navigation">
+                        <ul>
+                            <li>
+                                <a href=#about class=nav-link data-i18n-key=navAbout>About</a>
+                            </li>
+                            <li>
+                                <a href=#skills class=nav-link data-i18n-key=navSkills>Skills</a>
+                            </li>
+                            <li>
+                                <a href=#experience class=nav-link data-i18n-key=navExperience>Experience</a>
+                            </li>
+                            <li>
+                                <a href=#projects class=nav-link data-i18n-key=navProjects>Projects</a>
+                            </li>
+                            <li>
+                                <a href=#education class=nav-link data-i18n-key=navEducation>Education</a>
+                            </li>
+                            <li>
+                                <a href=#contact class=nav-link data-i18n-key=navContact>Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class=header-actions>
+                        <button id=theme-toggle class=button-hover-track data-i18n-title-key=themeToggleTitle data-i18n-aria-label-key=themeToggleAria>
+                            <i class="fas fa-sun"></i><i class="fas fa-moon"></i>
+                        </button>
+                        <button id=language-toggle class=button-hover-track data-i18n-title-key=langToggleTitle data-i18n-aria-label-key=langToggleAria>
+                            <span class=lang-display style=font-size:.8rem;font-weight:700>EN</span>
+                        </button>
+                        <button class="control-center-toggle button-hover-track" data-i18n-title-key=ccToggleTitle data-i18n-aria-label-key=ccToggleAria>
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <nav id=control-center-nav role=dialog aria-modal=true aria-labelledby=cc-title>
+            <div class=panel>
+                <div class=cc-grabber></div>
+                <div class=control-center-grid>
+                    <div class=cc-widget>
+                        <div id=cc-clock>12:00</div>
+                    </div>
+                    <div class=cc-widget>
+                        <div class=ios-slider>
+                            <i class="fas fa-sun"></i>
+                            <div class=slider-container>
+                                <div class=bar>
+                                    <div class=progress id=brightness-progress></div>
+                                </div>
+                                <input type=range id=brightness-slider min=0 max=70 value=70 aria-label=Brightness>
+                            </div>
+                        </div>
+                        <div class=ios-slider>
+                            <i class="fas fa-volume-up"></i>
+                            <div class=slider-container>
+                                <div class=bar>
+                                    <div class=progress id=volume-progress></div>
+                                </div>
+                                <input type=range id=volume-slider min=0 max=100 value=100 aria-label=Volume>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=cc-widget>
+                        <div class=widget-header>
+                            <span data-i18n-key=ccAudioEngine>Audio Engine</span>
+                        </div>
+                        <div class=toggle-switch-container>
+                            <span style=color:#aaa data-i18n-key=ccAudioStandard>Standard</span>
+                            <label class=toggle-switch>
+                                <input type=checkbox id=audio-engine-toggle checked>
+                                <span class=slider></span>
+                            </label>
+                            <span style=color:var(--accent-primary-dark) data-i18n-key=ccAudioEnhanced>Enhanced</span>
+                        </div>
+                    </div>
+                    <div class=cc-widget>
+                        <div class=widget-header id=cc-title>
+                            <span data-i18n-key=ccQuickActions>Quick Actions</span>
+                        </div>
+                        <div class=quick-actions-grid>
+                            <button class=quick-action-btn id=cc-theme-toggle-mobile>
+                                <i class="fas fa-lightbulb"></i><span data-i18n-key=ccActionTheme>Theme</span>
+                            </button>
+                            <button class=quick-action-btn id=cc-animation-toggle>
+                                <i class="fas fa-magic"></i><span data-i18n-key=ccActionFX>FX On/Off</span>
+                            </button>
+                            <a href=./legacy.html class=quick-action-btn role=button style=text-decoration:none>
+                                <i class="fas fa-history"></i><span data-i18n-key=ccActionLegacy>Legacy</span>
+                            </a>
+                            <button class=quick-action-btn id=cc-exit-button>
+                                <i class="fas fa-power-off"></i><span data-i18n-key=ccActionExit>Exit</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id=page-content>
+            <main>
+                <section class=hero id=hero>
+                    <div class="container hero-content">
+                        <div id=avatar-container class=profile-pic-container>
+                            <div class=profile-pic-flipper>
+                                <div class="profile-pic front-face">
+                                    <img src=./src/Images/Avatar.webp loading=eager decoding=async width=160 height=160>
+                                </div>
+                                <div class="profile-pic back-face">
+                                    <img src=./src/Images/Avatar2.webp loading=lazy decoding=async width=160 height=160>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class=animate-on-scroll data-i18n-key=heroTitle></h1>
+                        <p class="intro-paragraph animate-on-scroll" data-i18n-key=heroSubtitle></p>
+                        <a href=#projects class="glass-action-button animate-on-scroll" role=button data-i18n-key=heroButton></a>
+                        <div class="social-links-hero animate-on-scroll">
+                            <a href=https://facebook.com/Namtran5905 target=_blank rel="noopener noreferrer" data-i18n-title-key=socialFacebook data-i18n-aria-label-key=socialFacebookAria><i class="fab fa-facebook"></i></a>
+                            <a href=https://Instragram.com/Namtran5905 target=_blank rel="noopener noreferrer" data-i18n-title-key=socialInstagram data-i18n-aria-label-key=socialInstagramAria><i class="fa-brands fa-instagram"></i></a>
+                            <a href=https://threads.com/Namtran5905 target=_blank rel="noopener noreferrer" data-i18n-title-key=socialThreads data-i18n-aria-label-key=socialThreadsAria><i class="fa-brands fa-threads"></i></a>
+                            <a href=https://www.tiktok.com/@Namtran5905 target=_blank rel="noopener noreferrer" data-i18n-title-key=socialTiktok data-i18n-aria-label-key=socialTiktokAria><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </section>
+                <section id=about>
+                    <div class=container>
+                        <h2 class="section-title animate-on-scroll" data-i18n-key=aboutTitle></h2>
+                        <div class=about-content>
+                            <div class="about-text animate-on-scroll from-left">
+                                <blockquote style=border:none data-i18n-key=aboutIntro></blockquote>
+                                <blockquote data-i18n-key=aboutCore></blockquote>
+                                <blockquote style=border:none data-i18n-key=aboutSkills></blockquote>
+                            </div>
+                            <div class="about-image-container animate-on-scroll from-right">
+                                <video src=./src/Videos/about_video.mp4 autoplay loop muted playsinline preload=metadata loading=lazy width=326 height=350></video>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id=skills>
+                    <div class=container>
+                        <h2 class="section-title animate-on-scroll" data-i18n-key=skillsTitle></h2>
+                        <div class=skills-grid id=skills-grid-container>
+                        </div>
+                    </div>
+                </section>
+                <section id=experience>
+                    <div class=container>
+                        <h2 class="section-title animate-on-scroll" data-i18n-key=experienceTitle></h2>
+                        <div class=experience-grid id=experience-grid-container>
+                        </div>
+                    </div>
+                </section>
+                <section id=projects>
+                    <div class=container>
+                        <h2 class="section-title animate-on-scroll" data-i18n-key=projectsTitle></h2>
+                        <p class="section-subtitle animate-on-scroll" data-i18n-key=projectsSubtitle></p>
+                        <div class=portfolio-grid id=projects-grid-container>
+                        </div>
+                    </div>
+                </section>
+                <section id=education>
+                    <div class=container>
+                        <h2 class="section-title animate-on-scroll" data-i18n-key=educationTitle></h2>
+                        <div class=experience-grid id=education-grid-container>
+                        </div>
+                    </div>
+                </section>
+                <section id=contact>
+                    <div class=container>
+                        <h2 class="section-title animate-on-scroll" data-i18n-key=contactTitle></h2>
+                        <p class="section-subtitle animate-on-scroll" data-i18n-key=contactSubtitle></p>
+                        <div class=contact-container>
+                            <div class="contact-form-wrapper animate-on-scroll from-left">
+                                <div class=apple-card>
+                                    <h3 data-i18n-key=contactFormTitle></h3>
+                                    <form id=contact-form action=https://formspree.io/f/xzzryjzq method=POST>
+                                        <div class=form-group>
+                                            <label for=name data-i18n-key=formLabelName></label>
+                                            <input id=name name=name required data-i18n-placeholder-key=formPlaceholderName>
+                                        </div>
+                                        <div class=form-group>
+                                            <label for=email>Email</label>
+                                            <input type=email id=email name=email required data-i18n-placeholder-key=formPlaceholderEmail>
+                                        </div>
+                                        <div class=form-group>
+                                            <label for=message data-i18n-key=formLabelMessage></label>
+                                            <textarea id=message name=message rows=5 required data-i18n-placeholder-key=formPlaceholderMessage></textarea>
+                                        </div>
+                                        <button type=submit class=contact-button>
+                                            <span data-i18n-key=formButtonSend></span>
+                                            <i class="fas fa-arrow-right" style=margin-left:8px;font-size:.8em></i>
+                                        </button>
+                                        <p id=form-status style=margin-top:15px;font-size:.9rem role=status aria-live=polite></p>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="contact-info-wrapper animate-on-scroll from-right">
+                                <div class=apple-card>
+                                    <h3 data-i18n-key=contactInfoTitle></h3>
+                                    <div class=contact-info-item>
+                                        <i class="fas fa-envelope"></i><span><a href=mailto:Namtran5905@gmail.com>Namtran5905@gmail.com</a></span>
+                                    </div>
+                                    <div class=contact-info-item>
+                                        <i class="fas fa-phone-alt"></i><span><a href=tel:+84YOURPHONENUMBER>096****439</a></span>
+                                    </div>
+                                    <div class=contact-info-item>
+                                        <i class="fas fa-map-marker-alt"></i><span data-i18n-key=contactLocation></span>
+                                    </div>
+                                    <h3 style=margin-top:30px data-i18n-key=contactSocialTitle></h3>
+                                    <div class=contact-info-item>
+                                        <i class="fab fa-facebook"></i><a href=https://fb.com/namtran5905 target=_blank rel="noopener noreferrer">Facebook</a>
+                                    </div>
+                                    <div class=contact-info-item>
+                                        <i class="fab fa-instagram"></i><a href=https://instagram.com/namtran5905 target=_blank rel="noopener noreferrer">Instagram</a>
+                                    </div>
+                                    <div class=contact-info-item>
+                                        <i class="fab fa-threads"></i><a href=https://threads.com/@namtran5905 target=_blank rel="noopener noreferrer">Threads</a>
+                                    </div>
+                                    <div class=contact-info-item>
+                                        <i class="fab fa-tiktok"></i><a href=https://www.tiktok.com/@Namtran5905 target=_blank rel="noopener noreferrer">TikTok</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <div class="footer-content container">
+                    <div class=footer-buttons>
+                        <a href=./src/File/Porfolio.pdf download class=glass-action-button role=button>
+                            <span data-i18n-key=footerCV></span>
+                            <i class="fas fa-download icon-download"></i>
+                        </a>
+                        <button id=open-tutorial-btn class="glass-action-button icon-only" aria-label="Open Tutorial">
+                            <i class="fas fa-question-circle"></i>
+                        </button>
+                    </div>
+                    <p class=footer-copyright>
+                        <span id=currentYear></span>
+                        <span data-i18n-key=footerCredit></span>
+                        <i class="fas fa-heart" style=color:red></i> by Nam Trần
+                    </p>
+                </div>
+                <div class=design-credit-footer>
+                    <p>
+                        <i class="fab fa-apple"></i>
+                        <span data-i18n-key=footerInspired></span>
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div id=internet-status-modal role=alertdialog aria-labelledby=internet-status-title aria-describedby=internet-status-desc>
+        <div class=internet-status-panel>
+            <i class="fas fa-wifi"></i>
+            <h3 id=internet-status-title data-i18n-key=offlineTitle></h3>
+            <p id=internet-status-desc data-i18n-key=offlineMessage></p>
+        </div>
+    </div>
+    <button id=scrollToTopBtn class=audio-control-btn data-i18n-title-key=scrollToTopTitle data-i18n-aria-label-key=scrollToTopAria>
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <audio id=startupSound preload=auto>
+        <source src=./src/Audio/startup.mp3 type=audio/mpeg>
+    </audio>
+    <audio id=background-music preload=auto crossorigin=anonymous>
+        <source src="" type=audio/mpeg>
+    </audio>
+    <audio id=hoverSound preload=auto>
+        <source src=src/Audio/hover.mp3 type=audio/mpeg>
+    </audio>
+    <audio id=clickSound preload=auto>
+        <source src=src/Audio/click.mp3 type=audio/mpeg>
+    </audio>
+    <div class=audio-controls>
+        <button id=music-toggle class=audio-control-btn data-i18n-title-key=musicToggleOn data-i18n-aria-label-key=musicToggleAriaOn>
+            <div class=liquid-effect></div>
+            <i class="fas fa-music"></i><i class="fas fa-slash" style=display:none></i>
+        </button>
+        <button id=sfx-toggle class=audio-control-btn data-i18n-title-key=sfxToggleOn data-i18n-aria-label-key=sfxToggleAriaOn>
+            <i class="fas fa-volume-up"></i><i class="fas fa-volume-mute" style=display:none></i>
+        </button>
+    </div>
+    <canvas id=music-visualizer></canvas>
+    <div id=music-player-popup aria-modal=true role=dialog>
+        <div class=player-content>
+            <div class=track-thumbnail-wrapper>
+                <img id=track-thumbnail src=./src/Images/Thumbnails/music1.webp alt="Track Thumbnail">
+            </div>
+            <p id=track-title>Music Title</p>
+            <div class=progress-bar-container>
+                <div class=progress-bar-fill id=track-progress-fill></div>
+            </div>
+            <div class=time-stamps>
+                <span id=current-time>0:00</span>
+                <span>—</span>
+                <span id=total-time>0:00</span>
+            </div>
+            <div class=player-controls>
+                <button id=prev-track-btn aria-label="Previous Track">
+                    <i class="fas fa-backward-step"></i>
+                </button>
+                <button id=play-pause-popup-btn aria-label=Play/Pause>
+                    <i class="fas fa-pause"></i>
+                </button>
+                <button id=next-track-btn aria-label="Next Track">
+                    <i class="fas fa-forward-step"></i>
+                </button>
+            </div>
+            <div class=playback-mode-controls>
+                <button id=shuffle-btn aria-label=Shuffle>
+                    <i class="fas fa-shuffle"></i>
+                </button>
+                <button id=repeat-btn aria-label=Repeat>
+                    <i class="fas fa-repeat"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id=tutorial-modal role=dialog aria-modal=true aria-labelledby=tutorial-title>
+        <div class=modal-overlay></div>
+        <div class=modal-panel>
+            <div class=modal-grabber></div>
+            <div class=modal-header>
+                <h3 id=tutorial-title data-i18n-key=tutorialTitle></h3>
+                <button id=close-tutorial-btn class=close-btn data-i18n-aria-label-key=tutorialCloseButtonAria>
+                    X
+                </button>
+            </div>
+            <div class=tutorial-content>
+                <div class=feature-item>
+                    <div class=feature-icon><i class="fas fa-palette"></i></div>
+                    <div class=feature-desc>
+                        <h4 data-i18n-key=tutorialFeature1Title></h4>
+                        <p data-i18n-key=tutorialFeature1Desc></p>
+                    </div>
+                </div>
+                <div class=feature-item>
+                    <div class=feature-icon><i class="fas fa-language"></i></div>
+                    <div class=feature-desc>
+                        <h4 data-i18n-key=tutorialFeature2Title></h4>
+                        <p data-i18n-key=tutorialFeature2Desc></p>
+                    </div>
+                </div>
+                <div class=feature-item>
+                    <div class=feature-icon><i class="fas fa-sliders-h"></i></div>
+                    <div class=feature-desc>
+                        <h4 data-i18n-key=tutorialFeature3Title></h4>
+                        <p data-i18n-key=tutorialFeature3Desc></p>
+                    </div>
+                </div>
+                <div class=feature-item>
+                    <div class=feature-icon><i class="fas fa-music"></i></div>
+                    <div class=feature-desc>
+                        <h4 data-i18n-key=tutorialFeature4Title></h4>
+                        <p data-i18n-key=tutorialFeature4Desc></p>
+                    </div>
+                </div>
+                <div class=feature-item>
+                    <div class=feature-icon><i class="fas fa-rocket"></i></div>
+                    <div class=feature-desc>
+                        <h4 data-i18n-key=tutorialFeature5Title></h4>
+                        <p data-i18n-key=tutorialFeature5Desc></p>
+                    </div>
+                </div>
+                <div class=feature-item>
+                    <div class=feature-icon><i class="fas fa-mobile-alt"></i></div>
+                    <div class=feature-desc>
+                        <h4 data-i18n-key=tutorialFeature6Title></h4>
+                        <p data-i18n-key=tutorialFeature6Desc></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type=module src=./js/main.js></script>
+    <script>
+        "serviceWorker" in navigator && window.addEventListener("load", (() => {
+            navigator.serviceWorker.register("./sw.js").then((e => {
+                console.log("Service Worker registered. Scope:", e.scope)
+            })).catch((e => {
+                console.error("Service Worker registration failed:", e)
+            }))
+        }))
+    </script>
+</body>
+
+</html>

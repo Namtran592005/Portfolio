@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính BMI - Công cụ Tiện ích</title>
+    <style>
+        :root {
+            --primary-bg: #f8f9fa;
+            --secondary-bg: #ffffff;
+            --text-color: #212529;
+            --light-text-color: #6c757d;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --primary-color: #0d6efd;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; background-color: #f0f2f5; color: var(--text-color); }
+        .container { max-width: 600px; margin: 20px auto; padding: 20px; background-color: var(--secondary-bg); border-radius: 8px; box-shadow: 0 2px 10px var(--shadow-color); }
+        h1 { text-align: center; color: var(--text-color); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 500; margin-bottom: 5px; }
+        input[type="number"] { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1em; box-sizing: border-box; }
+        button { display: block; width: 100%; padding: 12px; background-color: var(--primary-color); color: white; border: none; border-radius: 4px; font-size: 1.1em; cursor: pointer; transition: background-color 0.2s; }
+        button:hover { background-color: #0b5ed7; }
+        .result { margin-top: 30px; padding: 20px; border-radius: 8px; text-align: center; font-size: 1.2em; display: none; }
+        .back-link { display: inline-block; margin-top: 20px; color: var(--primary-color); text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Quay lại trang chủ</a>
+        <h1>Công cụ tính BMI</h1>
+        
+        <div class="form-group">
+            <label for="height">Chiều cao (cm)</label>
+            <input type="number" id="height" placeholder="Ví dụ: 175">
+        </div>
+
+        <div class="form-group">
+            <label for="weight">Cân nặng (kg)</label>
+            <input type="number" id="weight" placeholder="Ví dụ: 68">
+        </div>
+
+        <button id="calculateBtn">Tính BMI</button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                resultDiv.innerHTML = 'Vui lòng nhập chiều cao và cân nặng hợp lệ.';
+                resultDiv.style.display = 'block';
+                resultDiv.style.backgroundColor = '#f8d7da';
+                resultDiv.style.color = '#721c24';
+                return;
+            }
+
+            const heightInMeters = height / 100;
+            const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+            let category = '';
+            let color = '';
+            let bgColor = '';
+
+            if (bmi < 18.5) {
+                category = 'Gầy (Dưới cân)';
+                color = '#007bff'; bgColor = '#cce5ff';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = 'Bình thường';
+                color = '#28a745'; bgColor = '#d4edda';
+            } else if (bmi >= 25 && bmi < 29.9) {
+                category = 'Thừa cân';
+                color = '#ffc107'; bgColor = '#fff3cd';
+            } else {
+                category = 'Béo phì';
+                color = '#dc3545'; bgColor = '#f8d7da';
+            }
+
+            resultDiv.innerHTML = `
+                Chỉ số BMI của bạn là: <strong>${bmi}</strong>
+                <br>
+                Phân loại: <strong style="color: ${color};">${category}</strong>
+            `;
+            resultDiv.style.backgroundColor = bgColor;
+            resultDiv.style.color = 'var(--text-color)';
+            resultDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
