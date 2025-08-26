@@ -93,14 +93,28 @@
         "title": "VEGA AI 聊天机器人",
         "descriptionKey": "project1Desc",
         "tags": ["聊天机器人", "消息", "Gemini"],
-        "liveUrl": "./src/Product/Chatbot/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/chatbot/"
       },
       {
         "video": "./src/Project/Product2A.mp4",
         "title": "实用工具网站",
         "descriptionKey": "project2Desc",
         "tags": ["网站", "工具包", "实用程序"],
-        "liveUrl": "./src/Product/Ultility/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/utility/"
+      },
+      {
+        "video": "./src/Project/Product3A.mp4",
+        "title": "文件与文件夹管理云",
+        "descriptionKey": "project3Desc",
+        "tags": ["云存储", "文件管理器", "数字资产"],
+        "liveUrl": "https://tranvohoangnam.id.vn/drive/"
+      },
+      {
+        "video": "./src/Project/Product4A.mp4",
+        "title": "交互式数字时钟网站",
+        "descriptionKey": "project4Desc",
+        "tags": ["数字时钟", "日历", "效率工具"],
+        "liveUrl": "https://tranvohoangnam.id.vn/clock/"
       }
     ],
     "education": [
@@ -128,8 +142,8 @@
     "thankYouClosing": "此窗口将很快自动关闭...",
     "themeToggleTitle": "切换亮/暗模式",
     "themeToggleAria": "切换颜色主题",
-    "langToggleTitle": "切换语言 (ZH/RU/EL/KO/JA/VI/EN)",
-    "langToggleAria": "在中文、俄语、精灵语、韩语、日语、越南语和英语之间切换语言",
+    "langToggleTitle": "切换语言 (EN/VI/JA/KO/RU/ZH)",
+    "langToggleAria": "在英语、越南语、日语、韩语、俄语和中文之间切换语言",
     "ccToggleTitle": "控制中心",
     "ccToggleAria": "打开控制中心",
     "ccAudioEngine": "音频引擎",
@@ -175,6 +189,8 @@
     "exp1Task3": "培养了时间管理、独立工作和压力下表现的技能。",
     "project1Desc": "由 Google Gemini API 提供支持的智能网页聊天机器人。具有直观的界面、多语言输入支持和对话历史记录。",
     "project2Desc": "精心策划的在线实用工具网站，旨在为日常数字任务提供快速便捷的解决方案。",
+    "project3Desc": "一款强大的云解决方案，旨在实现数字文件和文件夹的无缝组织和安全访问。",
+    "project4Desc": "一个直观的数字时钟和日历平台，提供实时信息和持续的活动监控。",
     "projectLiveDemo": "实时演示",
     "edu1Date": "2024年 – 2027年 (预计)",
     "edu1School": "茶荣职业学院 (TVC)",
@@ -211,8 +227,8 @@
     "tutorialCloseButtonAria": "关闭",
     "tutorialFeature1Title": "界面与亮/暗模式",
     "tutorialFeature1Desc": "在两种界面模式之间无缝切换。该效果由JavaScript控制，从光标位置创建柔和的“能量爆发”。",
-    "tutorialFeature2Title": "多语言系统 (4种语言)",
-    "tutorialFeature2Desc": "支持越南语、英语、日语和韩语。过渡过程使用View Transitions API结合独特的“量子网格”和“色度扰乱”效果。",
+    "tutorialFeature2Title": "多语言系统 (6种语言)",
+    "tutorialFeature2Desc": "支持英语、越南语、日语、韩语、俄语和中文。过渡过程使用View Transitions API结合独特的“量子网格”和“色度扰乱”效果。",
     "tutorialFeature3Title": "控制中心",
     "tutorialFeature3Desc": "一个迷你控制中心，允许您自定义体验：亮度、音量、音频引擎和其他快速操作。",
     "tutorialFeature4Title": "交互式音乐系统",

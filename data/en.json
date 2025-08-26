@@ -93,14 +93,28 @@
         "title": "VEGA AI Chatbot",
         "descriptionKey": "project1Desc",
         "tags": ["Chatbot", "Message", "Gemini"],
-        "liveUrl": "./src/Product/Chatbot/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/chatbot/"
       },
       {
         "video": "./src/Project/Product2A.mp4",
         "title": "Utility Tools Website",
         "descriptionKey": "project2Desc",
         "tags": ["Website", "Toolkit", "Utility"],
-        "liveUrl": "./src/Product/Ultility/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/utility/"
+      },
+      {
+        "video": "./src/Project/Product3A.mp4",
+        "title": "File & Folder Management Cloud",
+        "descriptionKey": "project3Desc",
+        "tags": ["Cloud Storage", "File Organizer", "Digital Assets"],
+        "liveUrl": "https://tranvohoangnam.id.vn/drive/"
+      },
+      {
+        "video": "./src/Project/Product4A.mp4",
+        "title": "Interactive Digital Clock Website",
+        "descriptionKey": "project4Desc",
+        "tags": ["Digital Clock", "Calendar", "Productivity Tool"],
+        "liveUrl": "https://tranvohoangnam.id.vn/clock/"
       }
     ],
     "education": [
@@ -128,8 +142,8 @@
     "thankYouClosing": "This window will close automatically shortly...",
     "themeToggleTitle": "Switch Light/Dark Mode",
     "themeToggleAria": "Toggle color theme",
-    "langToggleTitle": "Switch Language (EN/VI)",
-    "langToggleAria": "Switch language between English and Vietnamese",
+    "langToggleTitle": "Switch Language (EN/VI/JA/KO/RU/ZH)",
+    "langToggleAria": "Switch language between English, Vietnamese, Japanese, Korean, Russian, and Chinese",
     "ccToggleTitle": "Control Center",
     "ccToggleAria": "Open Control Center",
     "ccAudioEngine": "Audio Engine",
@@ -175,6 +189,8 @@
     "exp1Task3": "Developed skills in time management, independent work, and performance under pressure.",
     "project1Desc": "An intelligent web-based chatbot powered by the Google Gemini API. Features an intuitive interface, multi-language input support, and conversation history.",
     "project2Desc": "A curated website of essential online utility tools, designed to provide quick and convenient solutions for everyday digital tasks.",
+    "project3Desc": "A robust cloud solution designed for seamless organization and secure access to your digital files and folders.",
+    "project4Desc": "An intuitive digital clock and calendar platform, providing real-time information and continuous activity oversight.",
     "projectLiveDemo": "Live Demo",
     "edu1Date": "2024 – 2027 (Expected)",
     "edu1School": "Tra Vinh Vocational College (TVC)",
@@ -211,8 +227,8 @@
     "tutorialCloseButtonAria": "Close",
     "tutorialFeature1Title": "Interface & Light/Dark Mode",
     "tutorialFeature1Desc": "Seamlessly switch between two interface modes. The effect is controlled by JavaScript to create a soft 'energy burst' from the cursor's position.",
-    "tutorialFeature2Title": "Multilingual System (4 Languages)",
-    "tutorialFeature2Desc": "Supports Vietnamese, English, Japanese, and Korean. The transition process uses the View Transitions API combined with unique 'Quantum Grid' and 'Chromatic Scramble' effects.",
+    "tutorialFeature2Title": "Multilingual System (6 Languages)",
+    "tutorialFeature2Desc": "Supports English, Vietnamese, Japanese, Korean, Russian, and Chinese. The transition process uses the View Transitions API combined with unique 'Quantum Grid' and 'Chromatic Scramble' effects.",
     "tutorialFeature3Title": "Control Center",
     "tutorialFeature3Desc": "A mini control center that allows you to customize the experience: brightness, volume, audio engine, and other quick actions.",
     "tutorialFeature4Title": "Interactive Music System",

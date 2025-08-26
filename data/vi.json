@@ -93,14 +93,28 @@
         "title": "VEGA AI Chatbot",
         "descriptionKey": "project1Desc",
         "tags": ["Chatbot", "Message", "Gemini"],
-        "liveUrl": "./src/Product/Chatbot/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/chatbot/"
       },
       {
         "video": "./src/Project/Product2A.mp4",
         "title": "Utility Tools Website",
         "descriptionKey": "project2Desc",
         "tags": ["Website", "Toolkit", "Utility"],
-        "liveUrl": "./src/Product/Ultility/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/utility/"
+      },
+      {
+        "video": "./src/Project/Product3A.mp4",
+        "title": "File & Folder Management Cloud",
+        "descriptionKey": "project3Desc",
+        "tags": ["Lưu trữ Đám mây", "Quản lý Tệp", "Tài sản Kỹ thuật số"],
+        "liveUrl": "https://tranvohoangnam.id.vn/drive/"
+      },
+      {
+        "video": "./src/Project/Product4A.mp4",
+        "title": "Interactive Digital Clock Website",
+        "descriptionKey": "project4Desc",
+        "tags": ["Đồng hồ Kỹ thuật số", "Lịch", "Công cụ Năng suất"],
+        "liveUrl": "https://tranvohoangnam.id.vn/clock/"
       }
     ],
     "education": [
@@ -128,8 +142,8 @@
     "thankYouClosing": "Cửa sổ này sẽ tự đóng trong giây lát...",
     "themeToggleTitle": "Chuyển chế độ Sáng/Tối",
     "themeToggleAria": "Chuyển đổi giao diện sáng và tối",
-    "langToggleTitle": "Chuyển đổi ngôn ngữ (VI/EN)",
-    "langToggleAria": "Chuyển đổi ngôn ngữ giữa Tiếng Việt và Tiếng Anh",
+    "langToggleTitle": "Chuyển đổi ngôn ngữ (EN/VI/JA/KO/RU/ZH)",
+    "langToggleAria": "Chuyển đổi ngôn ngữ giữa Tiếng Anh, Tiếng Việt, Tiếng Nhật, Tiếng Hàn, Tiếng Nga và Tiếng Trung",
     "ccToggleTitle": "Trung tâm điều khiển",
     "ccToggleAria": "Mở trung tâm điều khiển",
     "ccAudioEngine": "Bộ xử lý Âm thanh",
@@ -175,6 +189,8 @@
     "exp1Task3": "Rèn luyện kỹ năng quản lý thời gian, làm việc độc lập và chịu được áp lực.",
     "project1Desc": "Chatbot AI trên web được hỗ trợ bởi API Google Gemini. Có giao diện trực quan, hỗ trợ nhập liệu đa ngôn ngữ và lưu trữ hội thoại.",
     "project2Desc": "Một trang web tập hợp các công cụ tiện ích online cơ bản, được thiết kế để cung cấp giải pháp nhanh chóng và tiện lợi cho các tác vụ số hàng ngày.",
+    "project3Desc": "Một giải pháp đám mây mạnh mẽ được thiết kế để sắp xếp liền mạch và truy cập an toàn vào các tệp và thư mục kỹ thuật số của bạn.",
+    "project4Desc": "Một nền tảng đồng hồ kỹ thuật số và lịch trực quan, cung cấp thông tin thời gian thực và theo dõi hoạt động liên tục.",
     "projectLiveDemo": "Xem trực tiếp",
     "edu1Date": "2024 – DỰ KIẾN 2027",
     "edu1School": "Trường Cao đẳng Nghề Trà Vinh (TVC)",
@@ -211,8 +227,8 @@
     "tutorialCloseButtonAria": "Đóng",
     "tutorialFeature1Title": "Giao diện & Chuyển đổi Sáng/Tối",
     "tutorialFeature1Desc": "Chuyển đổi mượt mà giữa hai chế độ giao diện. Hiệu ứng được điều khiển bởi JavaScript để tạo ra một 'vụ nổ năng lượng' mềm mại từ vị trí con trỏ.",
-    "tutorialFeature2Title": "Hệ thống Đa ngôn ngữ (4 Ngôn ngữ)",
-    "tutorialFeature2Desc": "Hỗ trợ Tiếng Việt, Anh, Nhật, và Hàn. Quá trình chuyển đổi sử dụng View Transitions API kết hợp hiệu ứng 'Quantum Grid' và 'Chromatic Scramble' độc đáo.",
+    "tutorialFeature2Title": "Hệ thống Đa ngôn ngữ (6 Ngôn ngữ)",
+    "tutorialFeature2Desc": "Hỗ trợ Tiếng Anh, Tiếng Việt, Tiếng Nhật, Tiếng Hàn, Tiếng Nga và Tiếng Trung. Quá trình chuyển đổi sử dụng View Transitions API kết hợp hiệu ứng 'Quantum Grid' và 'Chromatic Scramble' độc đáo.",
     "tutorialFeature3Title": "Trung tâm Điều khiển (Control Center)",
     "tutorialFeature3Desc": "Một trung tâm điều khiển mini cho phép bạn tùy chỉnh trải nghiệm: độ sáng, âm lượng, bộ xử lý âm thanh, và các tác vụ nhanh khác.",
     "tutorialFeature4Title": "Hệ thống Âm nhạc Tương tác",

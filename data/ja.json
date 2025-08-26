@@ -1,7 +1,7 @@
 {
   "meta": {
     "description": "情熱的なIT学生であり、開発者を目指すナム・トランのプロフェッショナルポートフォリオ。創造的なプロジェクト、スキル、そして生涯学習へのコミットメントを紹介します。",
-    "keywords": "ナム・トラン ポートフォリオ, フロントエンド開発者, Web開発者, IT学生, ReactJS, JavaScript, HTML, CSS, ポートフォリオ, Webプロジェクト, ソフトスキル, UI/UXデザイン, AIチャットボット, トラヴィン, TVC, IT採用, ジュニア開発者, ソフトウェアエンジニア, 履歴書, CV, Github",
+    "keywords": "ナム・トラン ポートフォリオ, フロントエンド開発者, Web開発者, IT学生, ReactJS, JavaScript, HTML, CSS, ポートフォリオ, Webプロジェクト, ソフトスキル, UI/UXデザイン, AIチャットボット, トラヴィン, TVC, IT採用, ジュニア開発者, ソフトウェエンジニア, 履歴書, CV, Github",
     "ogDescription": "技術への情熱、創造的なプロジェクト、確かなスキルセットを持つ未来の開発者、ナム・トランのポートフォリオをご覧ください。詳細はこちらをクリック。",
     "lang": "ja_JP"
   },
@@ -93,14 +93,28 @@
         "title": "VEGA AI チャットボット",
         "descriptionKey": "project1Desc",
         "tags": ["チャットボット", "メッセージ", "Gemini"],
-        "liveUrl": "./src/Product/Chatbot/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/chatbot/"
       },
       {
         "video": "./src/Project/Product2A.mp4",
         "title": "ユーティリティツールウェブサイト",
         "descriptionKey": "project2Desc",
         "tags": ["ウェブサイト", "ツールキット", "ユーティリティ"],
-        "liveUrl": "./src/Product/Ultility/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/utility/"
+      },
+      {
+        "video": "./src/Project/Product3A.mp4",
+        "title": "ファイル＆フォルダ管理クラウド",
+        "descriptionKey": "project3Desc",
+        "tags": ["クラウドストレージ", "ファイル整理", "デジタル資産"],
+        "liveUrl": "https://tranvohoangnam.id.vn/drive/"
+      },
+      {
+        "video": "./src/Project/Product4A.mp4",
+        "title": "インタラクティブデジタル時計ウェブサイト",
+        "descriptionKey": "project4Desc",
+        "tags": ["デジタル時計", "カレンダー", "生産性ツール"],
+        "liveUrl": "https://tranvohoangnam.id.vn/clock/"
       }
     ],
     "education": [
@@ -128,8 +142,8 @@
     "thankYouClosing": "このウィンドウはまもなく自動的に閉じます...",
     "themeToggleTitle": "ライト/ダークモードを切り替え",
     "themeToggleAria": "カラーテーマを切り替える",
-    "langToggleTitle": "言語を切り替え (JA/KO/VI/EN)",
-    "langToggleAria": "日本語、韓国語、ベトナム語、英語の間で言語を切り替える",
+    "langToggleTitle": "言語を切り替え (EN/VI/JA/KO/RU/ZH)",
+    "langToggleAria": "英語、ベトナム語、日本語、韓国語、ロシア語、中国語の間で言語を切り替える",
     "ccToggleTitle": "コントロールセンター",
     "ccToggleAria": "コントロールセンターを開く",
     "ccAudioEngine": "オーディオエンジン",
@@ -175,6 +189,8 @@
     "exp1Task3": "時間管理、自律作業、プレッシャー下でのパフォーマンスのスキルを開発。",
     "project1Desc": "Google Gemini APIを搭載したインテリジェントなウェブベースのチャットボット。直感的なインターフェース、多言語入力サポート、会話履歴が特徴です。",
     "project2Desc": "日常のデジタルタスクに迅速かつ便利なソリューションを提供するために設計された、必須のオンラインユーティリティツールのキュレーションウェブサイト。",
+    "project3Desc": "デジタルファイルやフォルダをシームレスに整理し、安全にアクセスできるように設計された堅牢なクラウドソリューションです。",
+    "project4Desc": "リアルタイム情報と継続的な活動監視を提供する、直感的なデジタル時計とカレンダープラットフォームです。",
     "projectLiveDemo": "ライブデモ",
     "edu1Date": "2024年 – 2027年 (予定)",
     "edu1School": "トラヴィン職業大学 (TVC)",
@@ -211,8 +227,8 @@
     "tutorialCloseButtonAria": "閉じる",
     "tutorialFeature1Title": "インターフェース & ライト/ダークモード",
     "tutorialFeature1Desc": "2つのインターフェースモードをシームレスに切り替えます。このエフェクトはJavaScriptによって制御され、カーソル位置から柔らかな「エネルギーバースト」を生成します。",
-    "tutorialFeature2Title": "多言語システム (4言語)",
-    "tutorialFeature2Desc": "ベトナム語、英語、日本語、韓国語をサポート。切り替えプロセスには、独自の「量子グリッド」と「色彩スクランブル」エフェクトを組み合わせたView Transitions APIを使用しています。",
+    "tutorialFeature2Title": "多言語システム (6言語)",
+    "tutorialFeature2Desc": "英語、ベトナム語、日本語、韓国語、ロシア語、中国語をサポート。切り替えプロセスには、独自の「量子グリッド」と「色彩スクランブル」エフェクトを組み合わせたView Transitions APIを使用しています。",
     "tutorialFeature3Title": "コントロールセンター",
     "tutorialFeature3Desc": "明るさ、音量、オーディオエンジン、その他のクイックアクションなど、体験をカスタマイズできるミニコントロールセンターです。",
     "tutorialFeature4Title": "インタラクティブ音楽システム",

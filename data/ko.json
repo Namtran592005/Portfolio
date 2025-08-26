@@ -93,14 +93,28 @@
         "title": "VEGA AI 챗봇",
         "descriptionKey": "project1Desc",
         "tags": ["챗봇", "메시지", "Gemini"],
-        "liveUrl": "./src/Product/Chatbot/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/chatbot/"
       },
       {
         "video": "./src/Project/Product2A.mp4",
         "title": "유틸리티 도구 웹사이트",
         "descriptionKey": "project2Desc",
         "tags": ["웹사이트", "툴킷", "유틸리티"],
-        "liveUrl": "./src/Product/Ultility/index.html"
+        "liveUrl": "https://tranvohoangnam.id.vn/utility/"
+      },
+      {
+        "video": "./src/Project/Product3A.mp4",
+        "title": "클라우드 파일 관리 플랫폼",
+        "descriptionKey": "project3Desc",
+        "tags": ["클라우드 저장소", "파일 정리", "디지털 자산"],
+        "liveUrl": "https://tranvohoangnam.id.vn/drive/"
+      },
+      {
+        "video": "./src/Project/Product4A.mp4",
+        "title": "대화형 디지털 시계",
+        "descriptionKey": "project4Desc",
+        "tags": ["디지털 시계", "달력", "생산성 도구"],
+        "liveUrl": "https://tranvohoangnam.id.vn/clock/"
       }
     ],
     "education": [
@@ -128,8 +142,8 @@
     "thankYouClosing": "이 창은 잠시 후 자동으로 닫힙니다...",
     "themeToggleTitle": "라이트/다크 모드 전환",
     "themeToggleAria": "색상 테마 전환",
-    "langToggleTitle": "언어 전환 (KO/JA/VI/EN)",
-    "langToggleAria": "한국어, 일본어, 베트남어, 영어 간 언어 전환",
+    "langToggleTitle": "언어 전환 (EN/VI/JA/KO/RU/ZH)",
+    "langToggleAria": "영어, 베트남어, 일본어, 한국어, 러시아어, 중국어 간 언어 전환",
     "ccToggleTitle": "제어 센터",
     "ccToggleAria": "제어 센터 열기",
     "ccAudioEngine": "오디오 엔진",
@@ -175,6 +189,8 @@
     "exp1Task3": "시간 관리, 독립적인 업무 수행 및 압박감 속에서의 업무 능력 개발.",
     "project1Desc": "Google Gemini API로 구동되는 지능형 웹 기반 챗봇. 직관적인 인터페이스, 다국어 입력 지원 및 대화 기록 기능을 제공합니다.",
     "project2Desc": "일상적인 디지털 작업을 위한 빠르고 편리한 솔루션을 제공하도록 설계된 필수 온라인 유틸리티 도구 모음 웹사이트입니다.",
+    "project3Desc": "디지털 파일 및 폴더를 원활하게 구성하고 안전하게 액세스할 수 있도록 설계된 강력한 클라우드 솔루션입니다.",
+    "project4Desc": "실시간 정보와 지속적인 활동 감독을 제공하는 직관적인 디지털 시계 및 캘린더 플랫폼입니다.",
     "projectLiveDemo": "라이브 데모",
     "edu1Date": "2024년 – 2027년 (예정)",
     "edu1School": "트라빈 직업 전문 대학 (TVC)",
@@ -211,8 +227,8 @@
     "tutorialCloseButtonAria": "닫기",
     "tutorialFeature1Title": "인터페이스 & 라이트/다크 모드",
     "tutorialFeature1Desc": "두 가지 인터페이스 모드 사이를 원활하게 전환합니다. 이 효과는 JavaScript로 제어되어 커서 위치에서 부드러운 '에너지 폭발'을 만들어냅니다.",
-    "tutorialFeature2Title": "다국어 시스템 (4개 언어)",
-    "tutorialFeature2Desc": "베트남어, 영어, 일본어, 한국어를 지원합니다. 전환 과정은 독특한 '퀀텀 그리드'와 '크로마틱 스크램블' 효과가 결합된 View Transitions API를 사용합니다.",
+    "tutorialFeature2Title": "다국어 시스템 (6개 언어)",
+    "tutorialFeature2Desc": "영어, 베트남어, 일본어, 한국어, 러시아어, 중국어를 지원합니다. 전환 과정은 독특한 '퀀텀 그리드'와 '크로마틱 스크램블' 효과가 결합된 View Transitions API를 사용합니다.",
     "tutorialFeature3Title": "제어 센터",
     "tutorialFeature3Desc": "밝기, 볼륨, 오디오 엔진 및 기타 빠른 작업을 통해 경험을 맞춤 설정할 수 있는 미니 제어 센터입니다.",
     "tutorialFeature4Title": "인터랙티브 음악 시스템",
