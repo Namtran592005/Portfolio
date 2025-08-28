@@ -89,30 +89,16 @@
     ],
     "projects": [
       {
-        "video": "./src/Project/Product1A.mp4",
-        "title": "VEGA AI チャットボット",
-        "descriptionKey": "project1Desc",
-        "tags": ["チャットボット", "メッセージ", "Gemini"],
-        "liveUrl": "https://tranvohoangnam.id.vn/chatbot/"
-      },
-      {
-        "video": "./src/Project/Product2A.mp4",
-        "title": "ユーティリティツールウェブサイト",
-        "descriptionKey": "project2Desc",
-        "tags": ["ウェブサイト", "ツールキット", "ユーティリティ"],
-        "liveUrl": "https://tranvohoangnam.id.vn/utility/"
-      },
-      {
-        "video": "./src/Project/Product3A.mp4",
+        "video": "./src/Project/Product1.mp4",
         "title": "ファイル＆フォルダ管理クラウド",
-        "descriptionKey": "project3Desc",
+        "descriptionKey": "project1Desc",
         "tags": ["クラウドストレージ", "ファイル整理", "デジタル資産"],
         "liveUrl": "https://tranvohoangnam.id.vn/drive/"
       },
       {
-        "video": "./src/Project/Product4A.mp4",
+        "video": "./src/Project/Product2.mp4",
         "title": "インタラクティブデジタル時計ウェブサイト",
-        "descriptionKey": "project4Desc",
+        "descriptionKey": "project2Desc",
         "tags": ["デジタル時計", "カレンダー", "生産性ツール"],
         "liveUrl": "https://tranvohoangnam.id.vn/clock/"
       }
@@ -187,10 +173,8 @@
     "exp1Task1": "注文処理を管理し、サービス品質と顧客満足度を確保。",
     "exp1Task2": "顧客からの問い合わせやフィードバックに効果的に対応し、解決。",
     "exp1Task3": "時間管理、自律作業、プレッシャー下でのパフォーマンスのスキルを開発。",
-    "project1Desc": "Google Gemini APIを搭載したインテリジェントなウェブベースのチャットボット。直感的なインターフェース、多言語入力サポート、会話履歴が特徴です。",
-    "project2Desc": "日常のデジタルタスクに迅速かつ便利なソリューションを提供するために設計された、必須のオンラインユーティリティツールのキュレーションウェブサイト。",
-    "project3Desc": "デジタルファイルやフォルダをシームレスに整理し、安全にアクセスできるように設計された堅牢なクラウドソリューションです。",
-    "project4Desc": "リアルタイム情報と継続的な活動監視を提供する、直感的なデジタル時計とカレンダープラットフォームです。",
+    "project1Desc": "デジタルファイルやフォルダをシームレスに整理し、安全にアクセスできるように設計された堅牢なクラウドソリューションです。",
+    "project2Desc": "リアルタイム情報と継続的な活動監視を提供する、直感的なデジタル時計とカレンダープラットフォームです。",
     "projectLiveDemo": "ライブデモ",
     "edu1Date": "2024年 – 2027年 (予定)",
     "edu1School": "トラヴィン職業大学 (TVC)",

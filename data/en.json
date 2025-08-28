@@ -89,30 +89,16 @@
     ],
     "projects": [
       {
-        "video": "./src/Project/Product1A.mp4",
-        "title": "VEGA AI Chatbot",
-        "descriptionKey": "project1Desc",
-        "tags": ["Chatbot", "Message", "Gemini"],
-        "liveUrl": "https://tranvohoangnam.id.vn/chatbot/"
-      },
-      {
-        "video": "./src/Project/Product2A.mp4",
-        "title": "Utility Tools Website",
-        "descriptionKey": "project2Desc",
-        "tags": ["Website", "Toolkit", "Utility"],
-        "liveUrl": "https://tranvohoangnam.id.vn/utility/"
-      },
-      {
-        "video": "./src/Project/Product3A.mp4",
+        "video": "./src/Project/Product1.mp4",
         "title": "File & Folder Management Cloud",
-        "descriptionKey": "project3Desc",
+        "descriptionKey": "project1Desc",
         "tags": ["Cloud Storage", "File Organizer", "Digital Assets"],
         "liveUrl": "https://tranvohoangnam.id.vn/drive/"
       },
       {
-        "video": "./src/Project/Product4A.mp4",
+        "video": "./src/Project/Product2.mp4",
         "title": "Interactive Digital Clock Website",
-        "descriptionKey": "project4Desc",
+        "descriptionKey": "project2Desc",
         "tags": ["Digital Clock", "Calendar", "Productivity Tool"],
         "liveUrl": "https://tranvohoangnam.id.vn/clock/"
       }
@@ -187,10 +173,8 @@
     "exp1Task1": "Managed order fulfillment, ensuring service quality and customer satisfaction.",
     "exp1Task2": "Effectively communicated and resolved customer inquiries and feedback.",
     "exp1Task3": "Developed skills in time management, independent work, and performance under pressure.",
-    "project1Desc": "An intelligent web-based chatbot powered by the Google Gemini API. Features an intuitive interface, multi-language input support, and conversation history.",
-    "project2Desc": "A curated website of essential online utility tools, designed to provide quick and convenient solutions for everyday digital tasks.",
-    "project3Desc": "A robust cloud solution designed for seamless organization and secure access to your digital files and folders.",
-    "project4Desc": "An intuitive digital clock and calendar platform, providing real-time information and continuous activity oversight.",
+    "project1Desc": "A robust cloud solution designed for seamless organization and secure access to your digital files and folders.",
+    "project2Desc": "An intuitive digital clock and calendar platform, providing real-time information and continuous activity oversight.",
     "projectLiveDemo": "Live Demo",
     "edu1Date": "2024 – 2027 (Expected)",
     "edu1School": "Tra Vinh Vocational College (TVC)",

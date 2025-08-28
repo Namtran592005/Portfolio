@@ -89,30 +89,16 @@
     ],
     "projects": [
       {
-        "video": "./src/Project/Product1A.mp4",
-        "title": "VEGA AI 聊天机器人",
-        "descriptionKey": "project1Desc",
-        "tags": ["聊天机器人", "消息", "Gemini"],
-        "liveUrl": "https://tranvohoangnam.id.vn/chatbot/"
-      },
-      {
-        "video": "./src/Project/Product2A.mp4",
-        "title": "实用工具网站",
-        "descriptionKey": "project2Desc",
-        "tags": ["网站", "工具包", "实用程序"],
-        "liveUrl": "https://tranvohoangnam.id.vn/utility/"
-      },
-      {
-        "video": "./src/Project/Product3A.mp4",
+        "video": "./src/Project/Product1.mp4",
         "title": "文件与文件夹管理云",
-        "descriptionKey": "project3Desc",
+        "descriptionKey": "project1Desc",
         "tags": ["云存储", "文件管理器", "数字资产"],
         "liveUrl": "https://tranvohoangnam.id.vn/drive/"
       },
       {
-        "video": "./src/Project/Product4A.mp4",
+        "video": "./src/Project/Product2.mp4",
         "title": "交互式数字时钟网站",
-        "descriptionKey": "project4Desc",
+        "descriptionKey": "project2Desc",
         "tags": ["数字时钟", "日历", "效率工具"],
         "liveUrl": "https://tranvohoangnam.id.vn/clock/"
       }
@@ -187,10 +173,8 @@
     "exp1Task1": "管理订单履行，确保服务质量和客户满意度。",
     "exp1Task2": "有效沟通并解决客户咨询和反馈。",
     "exp1Task3": "培养了时间管理、独立工作和压力下表现的技能。",
-    "project1Desc": "由 Google Gemini API 提供支持的智能网页聊天机器人。具有直观的界面、多语言输入支持和对话历史记录。",
-    "project2Desc": "精心策划的在线实用工具网站，旨在为日常数字任务提供快速便捷的解决方案。",
-    "project3Desc": "一款强大的云解决方案，旨在实现数字文件和文件夹的无缝组织和安全访问。",
-    "project4Desc": "一个直观的数字时钟和日历平台，提供实时信息和持续的活动监控。",
+    "project1Desc": "一款强大的云解决方案，旨在实现数字文件和文件夹的无缝组织和安全访问。",
+    "project2Desc": "一个直观的数字时钟和日历平台，提供实时信息和持续的活动监控。",
     "projectLiveDemo": "实时演示",
     "edu1Date": "2024年 – 2027年 (预计)",
     "edu1School": "茶荣职业学院 (TVC)",
