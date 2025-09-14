@@ -50,8 +50,8 @@ function applyLanguageUpdates(t) {
         e.setAttribute("aria-label", t.other_translations[n]);
     }),
     t.meta &&
-    ((document.getElementById("meta-description").content =
-      t.meta.description),
+      ((document.getElementById("meta-description").content =
+        t.meta.description),
       (document.getElementById("og-description").content =
         t.meta.ogDescription),
       (document.getElementById("twitter-description").content =

@@ -693,7 +693,7 @@
             overflow: hidden
         }
 
-        .portfolio-item img {
+        .portfolio-item video {
             width: 100%;
             height: 250px;
             object-fit: cover;
@@ -702,7 +702,7 @@
             transition: background-color var(--transition-duration) var(--transition-cubic)
         }
 
-        body.dark-mode .portfolio-item img {
+        body.dark-mode .portfolio-item video {
             background-color: var(--dark-bg-card)
         }
 
@@ -1301,6 +1301,16 @@
         textarea {
             cursor: pointer !important
         }
+        .eco-footer span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .eco-footer i {
+            font-size: 1.1em;
+        }
     </style>
 </head>
 
@@ -1443,33 +1453,32 @@
                     Một số dự án cá nhân và bài tập Mình đã thực hiện để rèn luyện kỹ năng và khám phá niềm đam mê công nghệ.
                 </p>
                 <div class=portfolio-grid>
-                    <div class="portfolio-item animate-on-scroll" style=transition-delay:0.2s>
+                    <div class="portfolio-item animate-on-scroll" style=transition-delay:0.1s>
                         <div class=apple-card>
-                            <img src=./src/Project/Product1A.gif alt="Chatbot AI VEGA" loading=lazy decoding=async>
+                            <video src="./src/Project/Product1.mp4" autoplay loop muted playsinline loading="lazy"></video>
                             <div class=portfolio-content>
-                                <h3>VEGA AI Chatbot</h3>
-                                <p>Ứng dụng Chatbot AI được xây dựng bằng React, tích hợp API từ Google Gemini. Giao diện trực quan, hỗ trợ nhập liệu giọng nói và lưu trữ hội thoại.</p>
+                                <h3>File & Folder Management Cloud</h3>
+                                <p>Một giải pháp đám mây mạnh mẽ được thiết kế để sắp xếp liền mạch và truy cập an toàn vào các tệp và thư mục kỹ thuật số của bạn.</p>
                                 <div class=portfolio-tags>
-                                    <span class=tag>ReactJS</span><span class=tag>API</span><span class=tag>AI</span>
-                                    <span class=tag>Gemini</span>
+                                    <span class=tag>Lưu trữ Đám mây</span><span class=tag>Quản lý Tệp</span><span class=tag>Dữ liệu Kỹ thuật số</span>
                                 </div>
                                 <div class=portfolio-links>
-                                    <a href=./src/Product/Chatbot/index.html target=_blank><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="https://tranvohoangnam.id.vn/drive/" target=_blank><i class="fas fa-external-link-alt"></i> Xem trực tiếp</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-item animate-on-scroll" style=transition-delay:0.1s>
+                    <div class="portfolio-item animate-on-scroll" style=transition-delay:0.2s>
                         <div class=apple-card>
-                            <img src=./src/Project/Product2A.gif alt="Website Tiện ích" loading=lazy decoding=async>
+                            <video src="./src/Project/Product2.mp4" autoplay loop muted playsinline loading="lazy"></video>
                             <div class=portfolio-content>
-                                <h3>Utility Tools Website</h3>
-                                <p>Một trang web tập hợp các công cụ tiện ích online cơ bản. Mục tiêu cung cấp giải pháp nhanh chóng và tiện lợi cho người dùng.</p>
+                                <h3>Interactive Digital Clock Website</h3>
+                                <p>Một nền tảng đồng hồ kỹ thuật số và lịch trực quan, cung cấp thông tin thời gian thực và theo dõi hoạt động liên tục.</p>
                                 <div class=portfolio-tags>
-                                    <span class=tag>Website</span><span class=tag>Web Tools</span><span class=tag>Utility</span>
+                                    <span class=tag>Đồng hồ Kỹ thuật số</span><span class=tag>Lịch</span><span class=tag>Công cụ Năng suất</span>
                                 </div>
                                 <div class=portfolio-links>
-                                    <a href=./src/Product/Ultility/index.html target=_blank><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                    <a href="https://tranvohoangnam.id.vn/clock/" target=_blank><i class="fas fa-external-link-alt"></i> Xem trực tiếp</a>
                                 </div>
                             </div>
                         </div>
@@ -1575,10 +1584,10 @@
             </a>
         </div>
     </footer>
-    <div style="background:var(--bg-secondary);color:var(--text-tertiary);font-size:.92rem;text-align:center;padding:18px 8px 18px 8px;border-top:1px solid var(--border-color-subtle)">
-        <span style=display:inline-block;margin-bottom:4px>🌱 Trang web này đã được tối ưu hóa để tải nhanh, tiết kiệm năng lượng và giảm phát thải carbon.</span><br>
-        <span style=display:inline-block;margin-bottom:4px>🔒 An toàn & bảo mật, không thu thập dữ liệu cá nhân, không chứa mã độc hại.</span><br>
-        <span style=display:inline-block>💚 Hãy cùng bảo vệ môi trường và sử dụng công nghệ một cách có trách nhiệm!</span>
+    <div class="eco-footer" style="background:var(--bg-secondary);color:var(--text-tertiary);font-size:.92rem;text-align:center;padding:24px 15px;border-top:1px solid var(--border-color-subtle)">
+        <span><i class="fas fa-leaf" style="color: #4CAF50;"></i> <b>Thiết Kế Xanh:</b> Tối ưu hóa hiệu suất, giảm tiêu thụ năng lượng & khí thải carbon.</span>
+        <span><i class="fas fa-shield-alt" style="color: #007AFF;"></i> <b>Bảo Mật & Riêng Tư:</b> Cam kết không theo dõi, không thu thập dữ liệu cá nhân.</span>
+        <span><i class="fas fa-globe-asia" style="color: #333;"></i> Cảm ơn bạn đã cùng chúng tôi xây dựng một môi trường số bền vững.</span>
     </div>
     <a href=#hero class=scroll-to-top><i class="fas fa-arrow-up"></i></a>
     <script>
@@ -1644,7 +1653,7 @@
                     }()
             }();
         const typingTextElement = document.querySelector(".hero .typing-text"),
-            rolesToType = ["Bình tĩnh - Tự tin - Chiến thắng", "Devolper - Part-timer - Student", "Chill - Relax - Enjoy", "Moore than you know"];
+            rolesToType = ["Bình tĩnh - Tự tin - Chiến thắng", "Devolper - Part-timer - Student", "Chill - Relax - Enjoy", "More than you know"];
         let currentRoleIndex = 0,
             currentCharIndex = 0,
             isDeletingText = !1;

@@ -4,6 +4,13 @@
     "path": "./src/Audio/Messy.mp3",
     "thumbnail": "./src/Images/Thumbnails/Messy.webp"
   },
+
+  {
+    "title": "Just Keep Watching (F1® The Movie)",
+    "path": "./src/Audio/JustKeepWatching.mp3",
+    "thumbnail": "./src/Images/Thumbnails/JustKeepWatching.webp"
+  },
+
   {
     "title": "F1 (Hans Zimmer)",
     "path": "./src/Audio/F1.mp3",

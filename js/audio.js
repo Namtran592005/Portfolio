@@ -1,3 +1,5 @@
+// audio.js (Đã nâng cấp chuỗi xử lý âm thanh)
+
 let audioContext,
   analyserNode,
   sourceNode,
@@ -65,37 +67,37 @@ export function initializeAudio() {
         e.addEventListener("mouseenter", () => playSfx(a)),
           e.addEventListener("click", () => playSfx(o));
       }),
-      musicToggleButton &&
+    musicToggleButton &&
       musicToggleButton.addEventListener("click", () => {
         clickCount++,
           1 === clickCount
             ? (clickTimer = setTimeout(() => {
-              toggleMusic(), (clickCount = 0);
-            }, 250))
+                toggleMusic(), (clickCount = 0);
+              }, 250))
             : 2 === clickCount &&
-            (clearTimeout(clickTimer), showMusicPopup(), (clickCount = 0));
+              (clearTimeout(clickTimer), showMusicPopup(), (clickCount = 0));
       }),
-      sfxToggleButton?.addEventListener("click", toggleSfx),
-      backgroundMusic.addEventListener("ended", handleTrackEnd),
-      backgroundMusic.addEventListener("loadedmetadata", updateTimeStamps),
-      prevTrackBtn?.addEventListener("click", playPreviousTrack),
-      playPausePopupBtn?.addEventListener("click", toggleMusic),
-      nextTrackBtn?.addEventListener("click", playNextTrack),
-      shuffleBtn?.addEventListener("click", toggleShuffle),
-      repeatBtn?.addEventListener("click", toggleRepeat),
-      document.addEventListener("click", (e) => {
-        if (musicPlayerPopup && musicPlayerPopup.classList.contains("visible")) {
-          const t = musicPlayerPopup.contains(e.target),
-            n = musicToggleButton.contains(e.target);
-          t || n || hideMusicPopup();
-        }
-      }),
-      e &&
+    sfxToggleButton?.addEventListener("click", toggleSfx),
+    backgroundMusic.addEventListener("ended", handleTrackEnd),
+    backgroundMusic.addEventListener("loadedmetadata", updateTimeStamps),
+    prevTrackBtn?.addEventListener("click", playPreviousTrack),
+    playPausePopupBtn?.addEventListener("click", toggleMusic),
+    nextTrackBtn?.addEventListener("click", playNextTrack),
+    shuffleBtn?.addEventListener("click", toggleShuffle),
+    repeatBtn?.addEventListener("click", toggleRepeat),
+    document.addEventListener("click", (e) => {
+      if (musicPlayerPopup && musicPlayerPopup.classList.contains("visible")) {
+        const t = musicPlayerPopup.contains(e.target),
+          n = musicToggleButton.contains(e.target);
+        t || n || hideMusicPopup();
+      }
+    }),
+    e &&
       ((userVolume = e.value / 100),
-        e.addEventListener("input", handleVolumeChange),
-        (backgroundMusic.volume = userVolume),
-        updateIosSliderProgress(e)),
-      t)
+      e.addEventListener("input", handleVolumeChange),
+      (backgroundMusic.volume = userVolume),
+      updateIosSliderProgress(e)),
+    t)
   ) {
     const e = document.getElementById("brightness-overlay");
     t.addEventListener("input", () => {
@@ -144,10 +146,10 @@ function handleVolumeChange(e) {
   (userVolume = e.target.value / 100),
     isAdvancedAudioEnabled && mainGainNode
       ? mainGainNode.gain.setTargetAtTime(
-        userVolume,
-        audioContext.currentTime,
-        0.05
-      )
+          userVolume,
+          audioContext.currentTime,
+          0.05
+        )
       : (backgroundMusic.volume = userVolume),
     updateIosSliderProgress(e.target);
 }
@@ -158,7 +160,7 @@ function updateIosSliderProgress(e) {
       ((e.value - (e.min || 0)) / ((e.max || 100) - (e.min || 0))) * 100 + "%");
 }
 function playSfx(e) {
-  areSfxEnabled && e && ((e.currentTime = 0), e.play().catch(() => { }));
+  areSfxEnabled && e && ((e.currentTime = 0), e.play().catch(() => {}));
 }
 function toggleMusic() {
   if (0 === musicPlaylist.length) return;
@@ -186,27 +188,27 @@ function playTrack(e) {
     e < 0 ||
     e >= musicPlaylist.length ||
     (updatePlayerUI(e),
-      backgroundMusic.load(),
-      backgroundMusic.addEventListener(
-        "canplay",
-        () => {
-          isMusicPlaying &&
-            backgroundMusic.play().catch((e) => console.error("Play error:", e));
-        },
-        { once: !0 }
-      ));
+    backgroundMusic.load(),
+    backgroundMusic.addEventListener(
+      "canplay",
+      () => {
+        isMusicPlaying &&
+          backgroundMusic.play().catch((e) => console.error("Play error:", e));
+      },
+      { once: !0 }
+    ));
 }
 function updatePlayerUI(e) {
   const t = musicPlaylist[e];
   t &&
     (trackThumbnail &&
       ((trackThumbnail.style.opacity = "0"),
-        setTimeout(() => {
-          (trackThumbnail.src = t.thumbnail),
-            (trackThumbnail.style.opacity = "1");
-        }, 200)),
-      trackTitleElement && (trackTitleElement.textContent = t.title),
-      (backgroundMusic.src = t.path));
+      setTimeout(() => {
+        (trackThumbnail.src = t.thumbnail),
+          (trackThumbnail.style.opacity = "1");
+      }, 200)),
+    trackTitleElement && (trackTitleElement.textContent = t.title),
+    (backgroundMusic.src = t.path));
 }
 function handleTrackEnd() {
   "one" === repeatMode
@@ -214,8 +216,8 @@ function handleTrackEnd() {
     : "all" === repeatMode ||
       currentTrackIndex !== musicPlaylist.length - 1 ||
       isShuffle
-      ? playNextTrack()
-      : ((isMusicPlaying = !0), toggleMusic());
+    ? playNextTrack()
+    : ((isMusicPlaying = !0), toggleMusic());
 }
 function updateTimeStamps() {
   (totalTimeElement.textContent = formatTime(backgroundMusic.duration || 0)),
@@ -233,8 +235,8 @@ function formatTime(e) {
 function toggleShuffle() {
   if (
     ((isShuffle = !isShuffle),
-      shuffleBtn.classList.toggle("active", isShuffle),
-      isShuffle)
+    shuffleBtn.classList.toggle("active", isShuffle),
+    isShuffle)
   ) {
     let e = musicPlaylist[currentTrackIndex],
       t = musicPlaylist.filter((e, t) => t !== currentTrackIndex);
@@ -255,11 +257,11 @@ function toggleRepeat() {
       repeatBtn.classList.add("active"),
       (repeatBtn.innerHTML = '<i class="fas fa-repeat"></i>'))
     : "all" === repeatMode
-      ? ((repeatMode = "one"),
-        (repeatBtn.innerHTML = '<i class="fas fa-repeat-1"></i>'))
-      : ((repeatMode = "none"),
-        repeatBtn.classList.remove("active"),
-        (repeatBtn.innerHTML = '<i class="fas fa-repeat"></i>'));
+    ? ((repeatMode = "one"),
+      (repeatBtn.innerHTML = '<i class="fas fa-repeat-1"></i>'))
+    : ((repeatMode = "none"),
+      repeatBtn.classList.remove("active"),
+      (repeatBtn.innerHTML = '<i class="fas fa-repeat"></i>'));
 }
 function playNextTrack() {
   (currentTrackIndex = (currentTrackIndex + 1) % musicPlaylist.length),
@@ -280,11 +282,11 @@ export function updateAudioButtonLabels(e) {
         n++,
           1 === n
             ? (t = setTimeout(() => {
-              toggleMusic(), (n = 0);
-            }, 250))
+                toggleMusic(), (n = 0);
+              }, 250))
             : 2 === n && (clearTimeout(t), showMusicPopup(), (n = 0));
       }),
-      sfxToggleButton)
+    sfxToggleButton)
   ) {
     const t = areSfxEnabled ? "sfxToggleOff" : "sfxToggleOn",
       n = areSfxEnabled ? "sfxToggleAriaOff" : "sfxToggleAriaOn";
@@ -300,11 +302,11 @@ export function handleExitSite() {
     o = document.getElementById("control-center-nav");
   o && o.classList.remove("nav-open"),
     backgroundMusic &&
-    isMusicPlaying &&
-    (isAdvancedAudioEnabled &&
-      audioContext &&
-      mainGainNode &&
-      mainGainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.5),
+      isMusicPlaying &&
+      (isAdvancedAudioEnabled &&
+        audioContext &&
+        mainGainNode &&
+        mainGainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.5),
       backgroundMusic.pause()),
     visualizerCanvas.classList.remove("visible"),
     t?.classList.add("fade-out"),
@@ -325,7 +327,7 @@ export function handleExitSite() {
               (t.textContent =
                 "Browser blocked auto-close. Please close the tab manually."),
               n &&
-              ((n.style.display = "inline-flex"),
+                ((n.style.display = "inline-flex"),
                 (n.onclick = () => window.close()));
           }
         }, 3e3);
@@ -357,82 +359,100 @@ function renderVisualizerFrame() {
     }
   }
 }
+
+// =================================================================
+// === NÂNG CẤP CHUỖI XỬ LÝ ÂM THANH (UPGRADED AUDIO CHAIN) START ===
+// =================================================================
 function setupAudioAPI() {
   if (isAudioSetup) return;
-  (audioContext = new (window.AudioContext || window.webkitAudioContext)()),
-    (sourceNode = audioContext.createMediaElementSource(backgroundMusic));
-  const e = audioContext.createBiquadFilter();
-  (e.type = "highpass"), (e.frequency.value = 30);
-  const t = audioContext.createBiquadFilter();
-  (t.type = "lowpass"), (t.frequency.value = 250);
-  const n = audioContext.createBiquadFilter();
-  (n.type = "bandpass"), (n.frequency.value = 2125), (n.Q.value = 1.2);
-  const a = audioContext.createBiquadFilter();
-  (a.type = "highpass"), (a.frequency.value = 4e3);
-  const o = audioContext.createDynamicsCompressor();
-  (o.threshold.value = -30), (o.knee.value = 20), (o.ratio.value = 6);
-  const i = audioContext.createDynamicsCompressor();
-  (i.threshold.value = -24), (i.knee.value = 15), (i.ratio.value = 4);
-  const c = audioContext.createDynamicsCompressor();
-  (c.threshold.value = -20), (c.knee.value = 10), (c.ratio.value = 3);
-  const u = audioContext.createGain(),
-    l = audioContext.createBiquadFilter();
-  (l.type = "highpass"), (l.frequency.value = 7e3);
-  const s = audioContext.createWaveShaper(),
-    r = new Float32Array(256);
-  for (let e = 0; e < 256; e++) {
-    const t = (2 * e) / 255 - 1;
-    r[e] = Math.tanh(1.5 * t);
-  }
-  (s.curve = r), (s.oversample = "4x");
-  const d = audioContext.createGain();
-  d.gain.value = 0.2;
-  const p = audioContext.createConvolver(),
-    m = audioContext.createBiquadFilter();
-  (m.type = "peaking"), (m.frequency.value = 1500), (m.gain.value = -3);
-  const g = audioContext.createGain();
-  g.gain.value = 0.12;
-  p.buffer = ((e) => {
-    const t = e.sampleRate,
-      n = 1.8 * t,
-      a = e.createBuffer(2, n, t);
-    for (let e = 0; e < 2; e++) {
-      const t = a.getChannelData(e);
-      for (let e = 0; e < n; e++)
-        t[e] = (2 * Math.random() - 1) * Math.pow(1 - e / n, 2);
-    }
-    return a;
-  })(audioContext);
-  const y = audioContext.createPanner();
-  (y.panningModel = "HRTF"), (mainGainNode = audioContext.createGain());
-  const f = audioContext.createDynamicsCompressor();
-  (f.threshold.value = -0.5),
-    (analyserNode = audioContext.createAnalyser()),
-    (analyserNode.fftSize = 256),
-    (advancedAudioChainStart = audioContext.createGain()),
-    sourceNode.connect(advancedAudioChainStart),
-    advancedAudioChainStart.connect(e),
-    e.connect(t).connect(o).connect(u),
-    e.connect(n).connect(i).connect(u),
-    e.connect(a).connect(c).connect(u),
-    u.connect(y),
-    u.connect(l).connect(s).connect(d).connect(y),
-    u.connect(m).connect(p).connect(g).connect(y),
-    y.connect(mainGainNode),
-    mainGainNode.connect(f),
-    f.connect(analyserNode),
-    analyserNode.connect(audioContext.destination),
-    toggleAudioPath(),
-    (isAudioSetup = !0),
-    renderVisualizerFrame();
+
+  audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  sourceNode = audioContext.createMediaElementSource(backgroundMusic);
+
+  // --- BƯỚC 1: EQ TINH CHỈNH & TRONG TRẺO (SUBTLE CLARITY EQ) ---
+  // Mục tiêu: Loại bỏ những tần số không mong muốn một cách nhẹ nhàng.
+
+  // Low-Cut Filter: Luôn là bước đầu tiên để loại bỏ tiếng ồn siêu trầm.
+  const lowCutFilter = audioContext.createBiquadFilter();
+  lowCutFilter.type = "highpass";
+  lowCutFilter.frequency.value = 25; // Cắt bỏ những gì dưới 25Hz
+
+  // Clarity EQ: Giảm nhẹ ở vùng "đục" (muddy frequencies) để làm âm thanh sạch hơn.
+  // Đây là kỹ thuật "subtractive EQ" (EQ trừ), thường cho kết quả tự nhiên hơn là EQ cộng.
+  const clarityEQ = audioContext.createBiquadFilter();
+  clarityEQ.type = "peaking";
+  clarityEQ.frequency.value = 300; // Tần số gây "đục" phổ biến
+  clarityEQ.Q.value = 1.8;
+  clarityEQ.gain.value = -1.0; // Chỉ giảm đi 1dB, một sự thay đổi rất tinh tế.
+
+  // "Air" EQ: Thêm một chút "không khí" ở dải tần số rất cao.
+  const airEQ = audioContext.createBiquadFilter();
+  airEQ.type = "highshelf";
+  airEQ.frequency.value = 14000; // Tần số trên 14kHz
+  airEQ.gain.value = 1.0; // Tăng nhẹ 1dB để tạo cảm giác "lấp lánh", "thoáng đãng".
+
+  // --- BƯỚC 2: NÉN ÂM NHẸ NHÀNG (GENTLE "GLUE" COMPRESSION) ---
+  // Mục tiêu: Gắn kết các thành phần lại với nhau và tăng độ "punch" mà không làm mất đi δυναμική.
+  const glueCompressor = audioContext.createDynamicsCompressor();
+  glueCompressor.threshold.value = -18.0; // Ngưỡng khá cao, chỉ tác động đến những âm thanh lớn nhất.
+  glueCompressor.knee.value = 15; // Góc nén mềm mại, tự nhiên.
+  glueCompressor.ratio.value = 2.5; // Tỷ lệ nén rất thấp (2.5:1), chỉ để kiểm soát nhẹ.
+  glueCompressor.attack.value = 0.02; // Attack hơi chậm để giữ lại độ "nảy" (transient) của tiếng trống.
+  glueCompressor.release.value = 0.3; // Release vừa phải để âm thanh "thở".
+
+  // --- BƯỚC 3: ĐIỀU KHIỂN ÂM LƯỢNG VÀ TỐI ƯU HÓA CUỐI CÙNG ---
+  // Node điều khiển âm lượng chính do người dùng chỉnh.
+  mainGainNode = audioContext.createGain();
+
+  // Limiter: Đây là bức tường gạch cuối cùng, đảm bảo không vỡ tiếng và tối ưu âm lượng.
+  // Hoạt động như một compressor với tỷ lệ nén vô hạn.
+  const limiter = audioContext.createDynamicsCompressor();
+  limiter.threshold.value = -1.0; // Ngưỡng đặt rất cao, chỉ hoạt động khi tín hiệu sắp vượt 0dB.
+  limiter.knee.value = 0; // Góc nén "cứng" (hard knee) cho hiệu quả giới hạn tối đa.
+  limiter.ratio.value = 20.0; // Tỷ lệ nén cực cao.
+  limiter.attack.value = 0.001; // Tấn công siêu nhanh để bắt mọi đỉnh nhọn.
+  limiter.release.value = 0.05; // Nhả ra nhanh chóng.
+
+  // Analyser Node: Dùng cho việc vẽ visualizer, đặt sau cùng trước khi ra loa.
+  analyserNode = audioContext.createAnalyser();
+  analyserNode.fftSize = 256;
+
+  // --- KẾT NỐI CHUỖI ÂM THANH (AUDIO CHAIN CONNECTION) ---
+  // Đây là điểm bắt đầu của chuỗi hiệu ứng.
+  advancedAudioChainStart = lowCutFilter;
+
+  // Nối các node theo thứ tự: Nguồn -> EQ -> Compressor -> Gain -> Limiter -> Analyser -> Loa
+  sourceNode.connect(lowCutFilter);
+  lowCutFilter.connect(clarityEQ);
+  clarityEQ.connect(airEQ);
+  airEQ.connect(glueCompressor);
+  glueCompressor.connect(mainGainNode);
+  mainGainNode.connect(limiter);
+  limiter.connect(analyserNode);
+  analyserNode.connect(audioContext.destination);
+
+  toggleAudioPath();
+  isAudioSetup = !0;
+  renderVisualizerFrame();
 }
+
 function toggleAudioPath() {
-  isAudioSetup &&
-    (sourceNode.disconnect(),
-      isAdvancedAudioEnabled
-        ? sourceNode.connect(advancedAudioChainStart)
-        : (sourceNode.connect(analyserNode),
-          analyserNode.connect(audioContext.destination)));
+  if (!isAudioSetup) return;
+  sourceNode.disconnect();
+
+  if (isAdvancedAudioEnabled) {
+    // Kết nối với chuỗi xử lý âm thanh nâng cao
+    sourceNode.connect(advancedAudioChainStart);
+  } else {
+    // Khi tắt, bỏ qua chuỗi xử lý và chỉ kết nối trực tiếp đến Gain chính,
+    // sau đó qua Limiter/Analyser để visualizer và tính năng chống vỡ tiếng vẫn hoạt động.
+    // Điều này đảm bảo trải nghiệm nhất quán.
+    sourceNode.connect(mainGainNode);
+  }
 }
+// ===============================================================
+// === NÂNG CẤP CHUỖI XỬ LÝ ÂM THANH (UPGRADED AUDIO CHAIN) END ===
+// ===============================================================
+
 export const getAnalyserNode = () => analyserNode;
 export const isMusicActive = () => isMusicPlaying;
