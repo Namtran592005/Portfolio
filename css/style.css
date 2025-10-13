@@ -4,6 +4,11 @@
   display: inline-block;
   -webkit-text-fill-color: transparent;
 }
+:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+    border-radius: var(--border-radius-s);
+}
 #preloader,
 #welcome-overlay {
   transition: opacity 0.5s, visibility 0.5s;
@@ -2310,4 +2315,21 @@ body::-webkit-scrollbar {
   font-size: 0.9rem;
   line-height: 1.6;
   color: var(--text-secondary);
+}
+/* ================================================ */
+/* KIỂM SOÁT NGẮT DÒNG TIÊU ĐỀ BẰNG FLEXBOX       */
+/* ================================================ */
+
+/* Áp dụng chỉ cho màn hình mobile (từ 768px trở xuống) */
+@media (max-width: 768px) {
+    #hero h1 {
+        /* Biến h1 thành một flex container */
+        display: flex;
+        
+        /* Xếp các thẻ <span> bên trong theo chiều dọc */
+        flex-direction: column; 
+        
+        /* Căn giữa các dòng theo chiều ngang */
+        align-items: center; 
+    }
 }

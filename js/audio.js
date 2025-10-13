@@ -28,14 +28,9 @@ const backgroundMusic = document.getElementById("background-music"),
 let musicPlaylist = [],
   currentTrackIndex = 0,
   popupUpdateInterval = null,
-  longPressTimer = null,
-  isLongPress = !1,
   originalPlaylist = [],
   isShuffle = !1,
-  repeatMode = "none",
-  clickTimer = null,
-  clickCount = 0;
-const DOUBLE_CLICK_DELAY = 250;
+  repeatMode = "none";
 async function loadPlaylist() {
   try {
     const e = await fetch(`./data/playlist.json?v=${new Date().getTime()}`);
@@ -69,13 +64,14 @@ export function initializeAudio() {
       }),
     musicToggleButton &&
       musicToggleButton.addEventListener("click", () => {
-        clickCount++,
-          1 === clickCount
-            ? (clickTimer = setTimeout(() => {
-                toggleMusic(), (clickCount = 0);
-              }, 250))
-            : 2 === clickCount &&
-              (clearTimeout(clickTimer), showMusicPopup(), (clickCount = 0));
+        if (!isAudioSetup) {
+          setupAudioAPI();
+        }
+        if (musicPlayerPopup.classList.contains("visible")) {
+          hideMusicPopup();
+        } else {
+          showMusicPopup();
+        }
       }),
     sfxToggleButton?.addEventListener("click", toggleSfx),
     backgroundMusic.addEventListener("ended", handleTrackEnd),
@@ -173,10 +169,8 @@ function toggleMusic() {
     visualizerCanvas.classList.toggle("visible", isMusicPlaying),
     musicToggleButton.classList.toggle("spinning", isMusicPlaying),
     musicToggleButton.classList.toggle("off", !isMusicPlaying);
-  const e = document.getElementById("music-toggle-wrapper");
-  e && e.classList.toggle("music-on", isMusicPlaying),
-    updateAudioButtonLabels(),
-    isMusicPlaying && renderVisualizerFrame();
+  musicToggleButton.classList.toggle("music-on", isMusicPlaying);
+  updateAudioButtonLabels(), isMusicPlaying && renderVisualizerFrame();
 }
 function toggleSfx() {
   (areSfxEnabled = !areSfxEnabled),
@@ -274,20 +268,7 @@ function playPreviousTrack() {
 }
 export function updateAudioButtonLabels(e) {
   if (!e || !e.other_translations) return;
-  let t = null,
-    n = 0;
-  if (
-    (musicToggleButton &&
-      musicToggleButton.addEventListener("click", () => {
-        n++,
-          1 === n
-            ? (t = setTimeout(() => {
-                toggleMusic(), (n = 0);
-              }, 250))
-            : 2 === n && (clearTimeout(t), showMusicPopup(), (n = 0));
-      }),
-    sfxToggleButton)
-  ) {
+  if (sfxToggleButton) {
     const t = areSfxEnabled ? "sfxToggleOff" : "sfxToggleOn",
       n = areSfxEnabled ? "sfxToggleAriaOff" : "sfxToggleAriaOn";
     (sfxToggleButton.title = e.other_translations[t]),
