@@ -21,7 +21,7 @@
     "navProjects": "プロジェクト",
     "navEducation": "学歴",
     "navContact": "連絡先",
-    "heroTitle": "私のデジタル空間へようこそ",
+    "heroTitle": "<span>私のデジタル空間へ</span> <span>ようこそ</span>",
     "heroSubtitle": "技術への愛情と意味のあるソリューションを構築するというコミットメントに駆られた情熱的な学生。",
     "heroButton": "プロジェクトを見る",
     "aboutTitle": "私について",

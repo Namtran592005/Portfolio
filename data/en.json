@@ -21,7 +21,7 @@
     "navProjects": "Projects",
     "navEducation": "Education",
     "navContact": "Contact",
-    "heroTitle": "Welcome to My Digital Space",
+    "heroTitle": "<span>Welcome to My</span> <span>Digital Space</span>",
     "heroSubtitle": "A passionate student driven by a love for technology and a commitment to building meaningful solutions.",
     "heroButton": "View My Projects",
     "aboutTitle": "About Me",
