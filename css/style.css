@@ -1785,6 +1785,12 @@ body.dark-mode #theme-toggle .fa-moon {
 .audio-control-btn .fa-volume-mute {
   display: none !important;
 }
+
+.audio-control-btn.off .fa-music,
+.audio-control-btn.off .fa-volume-up {
+  display: none;
+}
+
 .audio-control-btn.off .fa-slash,
 .audio-control-btn.off .fa-volume-mute {
   display: inline-block !important;
