@@ -1,4 +1,4 @@
-import { updateStarColorsForTheme } from "./visuals.js";
+import { updateStarColorsForTheme, toggleStarfield } from "./visuals.js";
 import { handleExitSite } from "./audio.js";
 import { getTranslations } from "./i18n.js";
 let pageBody,
@@ -227,11 +227,15 @@ function initializeThemeToggle() {
   const e = document.getElementById("theme-toggle"),
     t = document.getElementById("cc-theme-toggle-mobile");
   window.matchMedia("(prefers-color-scheme: dark)").matches;
-  let n = localStorage.getItem("theme") || "dark";
+  let n = localStorage.getItem("theme") || "light";
   const o = (e) => {
-      pageBody.classList.toggle("dark-mode", "dark" === e),
-        localStorage.setItem("theme", e),
+      const isDark = e === "dark";
+      pageBody.classList.toggle("dark-mode", isDark);
+      localStorage.setItem("theme", e);
+      toggleStarfield(isDark);
+      if (isDark) {
         updateStarColorsForTheme(e);
+      }
     },
     i = (e) => {
       const t = pageBody.classList.contains("dark-mode") ? "light" : "dark";

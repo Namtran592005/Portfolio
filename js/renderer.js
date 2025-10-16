@@ -5,6 +5,7 @@ function _(n, e) {
     ? e.static_text[n]
     : n;
 }
+
 function renderSkills(n, e) {
   const t = document.getElementById("skills-grid-container");
   if (!t) return;
@@ -25,6 +26,7 @@ function renderSkills(n, e) {
     .join("");
   t.innerHTML = i;
 }
+
 function renderExperience(n, e) {
   const t = document.getElementById("experience-grid-container");
   if (!t) return;
@@ -52,15 +54,18 @@ function renderExperience(n, e) {
     .join("");
   t.innerHTML = i;
 }
+
 function renderProjects(n, e) {
   const t = document.getElementById("projects-grid-container");
   if (!t) return;
   const i = n
     .map(
-      (n) =>
+      (n, i) =>
         `\n        <div class="portfolio-item animate-on-scroll">\n            <div class="apple-card">\n                <video src="${
           n.video
-        }" class="portfolio-video" autoplay loop muted playsinline preload="metadata" loading="lazy" title="Video demo of ${
+        }" class="portfolio-video" autoplay loop muted playsinline preload="metadata" loading="${
+          i === 0 ? "eager" : "lazy"
+        }" title="Video demo of ${
           n.title
         } project"></video>\n                <div class="portfolio-content">\n                    <h3>${
           n.title
@@ -81,6 +86,7 @@ function renderProjects(n, e) {
     .join("");
   t.innerHTML = i;
 }
+
 function renderEducation(n, e) {
   const t = document.getElementById("education-grid-container");
   if (!t) return;

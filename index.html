@@ -3,135 +3,146 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- START: SEO and Meta Tags (Dynamically updated by JS) -->
-    <title>Nam Trần | Portfolio</title><!-- Meta Description (Cập nhật động bởi JS) -->
-    <meta id="meta-description" name="description" content="Portfolio độc quyền của Nam Trần: sinh viên IT, lập trình viên Front-end với các dự án đẳng cấp, hiệu ứng chuyển động tương lai, và công nghệ web tiên tiến. Khám phá ngay!" /><!-- Meta Keywords (Cập nhật động bởi JS) - Tối ưu cho Google RankBrain -->
-    <meta id="meta-keywords" name="keywords" content="Nam Trần, Portfolio, Front-end Developer, Lập trình viên, Sinh viên IT, Web Development, ReactJS, JavaScript, HTML, CSS, UI/UX Design, Animation, Web Audio API, Three.js, Service Worker, PWA, Đa ngôn ngữ, Trà Vinh, TVC, Tuyển dụng IT, Junior Developer, Software Engineer, CV, Github, Portfolio Đẳng cấp, Hiệu ứng tương lai, Công nghệ Web tiên tiến" /><!-- Canonical URL - Quan trọng cho SEO -->
-    <link rel="canonical" href="https://tranvohoangnam.id.vn" /><!-- Favicons & Apple Touch Icons - Trải nghiệm hình ảnh cao cấp -->
-    <link rel="icon" href="./src/Images/portfolio.png" type="image/webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- START: SEO and Meta Tags -->
+    <title>Nam Trần | Portfolio</title>
+    <!-- Các thẻ meta mô tả và từ khóa sẽ được cập nhật động bởi JS đa ngôn ngữ -->
+    <meta id="meta-description" name="description" content="Portfolio của Nam Trần: sinh viên IT và lập trình viên Front-end với các dự án web sáng tạo và công nghệ tiên tiến." />
+    <meta id="meta-keywords" name="keywords" content="Nam Trần, Portfolio, Front-end Developer, Lập trình viên, Sinh viên IT, Web Development" />
+    
+    <!-- Các URL động sẽ được chèn vào đây bởi script -->
+    <link id="canonical-url" rel="canonical" href="#" />
+    
+    <!-- Icons & Manifest -->
+    <link rel="icon" href="./src/Images/portfolio.png" type="image/png" />
     <link rel="apple-touch-icon" href="./src/Images/Apple.webp" />
-    <link rel="manifest" href="./manifest.json"><!-- Sẽ tạo ở bước sau --><!-- Open Graph / Facebook (Tối ưu cho chia sẻ trên mạng xã hội) -->
+    <link rel="manifest" href="./manifest.json" />
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tranvohoangnam.id.vn" />
+    <meta id="og-url" property="og:url" content="#" />
     <meta property="og:title" content="Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo" />
-    <meta id="og-description" property="og:description" content="Khám phá portfolio độc quyền của Nam Trần: lập trình viên Front-end với các dự án đẳng cấp, hiệu ứng chuyển động tương lai, và công nghệ web tiên tiến. Trải nghiệm ngay để thấy sự khác biệt!" />
-    <meta property="og:image" content="https://tranvohoangnam.id.vn/src/Images/portfolio-banner.webp" /><!-- Tạo một banner đẹp cho chia sẻ -->
+    <meta id="og-description" property="og:description" content="Khám phá portfolio độc quyền của Nam Trần: lập trình viên Front-end với các dự án đẳng cấp, hiệu ứng chuyển động tương lai, và công nghệ web tiên tiến." />
+    <meta id="og-image" property="og:image" content="./src/Images/portfolio-banner.webp" />
     <meta property="og:image:alt" content="Ảnh bìa Portfolio của Nam Trần, minh họa giao diện hiện đại và công nghệ." />
-    <meta id="og-locale" property="og:locale" content="vi_VN" /><!-- Thêm các locale khác nếu muốn, ví dụ: <meta property="og:locale:alternate" content="en_US" /> --><!-- Twitter Cards (Tối ưu cho chia sẻ trên Twitter) -->
+    <meta id="og-locale" property="og:locale" content="vi_VN" />
+    
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://tranvohoangnam.id.vn" />
+    <meta id="twitter-url" name="twitter:url" content="#" />
     <meta name="twitter:title" content="Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo" />
-    <meta id="twitter-description" name="twitter:description" content="Khám phá portfolio độc quyền của Nam Trần: lập trình viên Front-end với các dự án đẳng cấp, hiệu ứng chuyển động tương lai, và công nghệ web tiên tiến. Trải nghiệm ngay để thấy sự khác biệt!" />
-    <meta name="twitter:image" content="https://tranvohoangnam.id.vn/src/Images/portfolio-banner.webp" />
-    <meta name="twitter:creator" content="@Namtran5905" /><!-- Nếu bạn có tài khoản Twitter --><!-- Thẻ Meta cho PWA (Progressive Web App) - Trải nghiệm di động vượt trội -->
-    <meta name="theme-color" content="#005bea" /><!-- Màu chủ đạo của trình duyệt -->
+    <meta id="twitter-description" name="twitter:description" content="Khám phá portfolio độc quyền của Nam Trần: lập trình viên Front-end với các dự án đẳng cấp, hiệu ứng chuyển động tương lai, và công nghệ web tiên tiến." />
+    <meta id="twitter-image" name="twitter:image" content="./src/Images/portfolio-banner.webp" />
+    <meta name="twitter:creator" content="@Namtran5905" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#005bea" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Nam Trần Portfolio" /><!-- END: SEO and Meta Tags --><!-- START: Resource Preloading - Tải nhanh nhất có thể -->
-    <link rel="preload" href="./src/Images/Avatar.webp" as="image" />
-    <link rel="preload" href="./src/Images/Avatar2.webp" as="image" />
+    <meta name="apple-mobile-web-app-title" content="Nam Trần Portfolio" />
+    <!-- END: SEO and Meta Tags -->
+
+    <!-- SCRIPT TỰ ĐỘNG CẬP NHẬT URL -->
+    <script>
+        (function() {
+            // Lấy URL gốc của trang web (ví dụ: https://ten-mien-cua-ban.com)
+            const origin = window.location.origin;
+
+            // Hàm chuyển đổi đường dẫn tương đối thành tuyệt đối
+            function toAbsolute(path) {
+                return new URL(path, origin).href;
+            }
+
+            // Cập nhật các thẻ URL chính
+            const canonicalUrl = origin + window.location.pathname;
+            document.getElementById('canonical-url').href = canonicalUrl;
+            document.getElementById('og-url').content = canonicalUrl;
+            document.getElementById('twitter-url').content = canonicalUrl;
+
+            // Cập nhật các thẻ hình ảnh
+            const ogImage = document.getElementById('og-image');
+            ogImage.content = toAbsolute(ogImage.content);
+            const twitterImage = document.getElementById('twitter-image');
+            twitterImage.content = toAbsolute(twitterImage.content);
+            
+            // Cập nhật dữ liệu có cấu trúc JSON-LD
+            const schemaScript = document.getElementById('schema-ld');
+            if (schemaScript) {
+                let schemaText = schemaScript.textContent;
+                // Thay thế tất cả các placeholder bằng URL gốc thực tế
+                schemaText = schemaText.replace(/##BASE_URL##/g, origin);
+                schemaScript.textContent = schemaText;
+            }
+        })();
+    </script>
+    
+    <!-- START: Resource Preloading -->
+    <link rel="preload" href="./src/Images/Avatar.avif" as="image" />
+    <link rel="preload" href="./src/Images/Avatar2.avif" as="image" />
     <link rel="preload" href="./src/Fonts/fonts.css" as="style" />
     <link rel="preload" href="./css/style.css" as="style" />
     <link rel="preload" href="./src/Theme/FontAwesome/css/all.min.css" as="style" />
-    <link rel="preload" href="./js/main.js" as="script" crossorigin="anonymous" /><!-- Preload các file JSON dịch thuật để chuyển đổi ngôn ngữ nhanh chóng -->
-    <link rel="preload" href="./data/en.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="./data/vi.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="./data/ja.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="./data/ko.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="./data/playlist.json" as="fetch" crossorigin="anonymous" /><!-- END: Resource Preloading --><!-- START: Schema.org JSON-LD - Cấu trúc dữ liệu độc quyền cho Google -->
-    <script type="application/ld+json">
+    <link rel="preload" href="./js/main.js" as="script" crossorigin="anonymous" />
+    <!-- END: Resource Preloading -->
+    
+    <!-- START: Schema.org JSON-LD -->
+    <script id="schema-ld" type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@graph": [{
                 "@type": "Person",
-                "@id": "https://tranvohoangnam.id.vn/#person",
+                "@id": "##BASE_URL##/#person",
                 "name": "Nam Trần",
-                "url": "https://tranvohoangnam.id.vn",
-                "image": "https://tranvohoangnam.id.vn/src/Images/Avatar.webp",
-                "sameAs": ["https://facebook.com/Namtran5905", "https://instagram.com/Namtran5905", "https://threads.com/Namtran5905", "https://tiktok.com/@namtran5905", "https://github.com/Namtran5905" /* Thêm các link LinkedIn, Twitter, v.v. nếu có */ ],
+                "url": "##BASE_URL##",
+                "image": "##BASE_URL##/src/Images/Avatar.webp",
+                "sameAs": ["https://facebook.com/Namtran5905", "https://instagram.com/Namtran5905", "https://threads.com/Namtran5905", "https://tiktok.com/@namtran5905", "https://github.com/Namtran5905"],
                 "jobTitle": "IT Student & Aspiring Front-end Developer",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "ShopeeFood",
-                    "url": "https://shopeefood.vn/"
-                },
-                "alumniOf": [{
-                    "@type": "CollegeOrUniversity",
-                    "name": "Trường Cao đẳng Nghề Trà Vinh",
-                    "url": "https://tvtc.edu.vn/"
-                }, {
-                    "@type": "EducationalOrganization",
-                    "name": "Trung Cấp Kinh tế - Kỹ thuật Nguyễn Hữu Cảnh"
-                }],
-                "knowsAbout": ["Web Development", "Frontend Development", "JavaScript", "ReactJS", "HTML", "CSS", "UI/UX Design", "Web Animation", "Service Workers", "Progressive Web Apps (PWA)", "Web Audio API", "Three.js", "Software Engineering", "Problem Solving", "Multilingual Web"],
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Trà Vinh",
-                    "addressRegion": "Trà Vinh",
-                    "addressCountry": "VN"
-                },
-                "description": "Nam Trần là một sinh viên IT đầy nhiệt huyết và một lập trình viên Front-end đang lên, chuyên tạo ra các trải nghiệm web độc đáo với kỹ thuật tiên tiến và thiết kế sáng tạo. Khám phá các dự án sử dụng hiệu ứng chuyển động tương lai, công nghệ Web Audio API và Progressive Web Apps."
+                "worksFor": { "@type": "Organization", "name": "ShopeeFood", "url": "https://shopeefood.vn/" },
+                "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Trường Cao đẳng Nghề Trà Vinh", "url": "https://tvtc.edu.vn/" }, { "@type": "EducationalOrganization", "name": "Trung Cấp Kinh tế - Kỹ thuật Nguyễn Hữu Cảnh" }],
+                "knowsAbout": ["Web Development", "Frontend Development", "JavaScript", "ReactJS", "HTML", "CSS", "UI/UX Design", "Web Animation", "Service Workers", "PWA", "Software Engineering"],
+                "address": { "@type": "PostalAddress", "addressLocality": "Trà Vinh", "addressRegion": "Trà Vinh", "addressCountry": "VN" },
+                "description": "Nam Trần là một sinh viên IT đầy nhiệt huyết và một lập trình viên Front-end đang lên, chuyên tạo ra các trải nghiệm web độc đáo với kỹ thuật tiên tiến và thiết kế sáng tạo."
             }, {
                 "@type": "WebSite",
-                "@id": "https://tranvohoangnam.id.vn/#website",
-                "url": "https://tranvohoangnam.id.vn",
+                "@id": "##BASE_URL##/#website",
+                "url": "##BASE_URL##",
                 "name": "Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo",
                 "description": "Portfolio chuyên nghiệp của Nam Trần, một sinh viên IT đầy nhiệt huyết, khám phá các dự án độc quyền, kỹ năng tiên tiến và kinh nghiệm thực tế.",
-                "publisher": {
-                    "@id": "https://tranvohoangnam.id.vn/#person"
-                },
-                "creator": {
-                    "@id": "https://tranvohoangnam.id.vn/#person"
-                },
+                "publisher": { "@id": "##BASE_URL##/#person" },
+                "creator": { "@id": "##BASE_URL##/#person" },
                 "inLanguage": ["vi-VN", "en-US", "ja-JP", "ko-KR"],
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": "https://www.google.com/search?q=Nam%20Trần%20portfolio",
-                    "query-input": "required name=search_term_string"
-                }
+                "potentialAction": { "@type": "SearchAction", "target": "https://www.google.com/search?q=Nam%20Trần%20portfolio", "query-input": "required name=search_term_string" }
             }, {
                 "@type": "CollectionPage",
-                "@id": "https://tranvohoangnam.id.vn/#collectionpage",
-                "url": "https://tranvohoangnam.id.vn",
+                "@id": "##BASE_URL##/#collectionpage",
+                "url": "##BASE_URL##",
                 "name": "Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo",
                 "description": "Tổng hợp các dự án, kỹ năng và kinh nghiệm của Nam Trần trong lĩnh vực phát triển web Front-end.",
-                "isPartOf": {
-                    "@id": "https://tranvohoangnam.id.vn/#website"
-                },
-                "about": {
-                    "@id": "https://tranvohoangnam.id.vn/#person"
-                }
+                "isPartOf": { "@id": "##BASE_URL##/#website" },
+                "about": { "@id": "##BASE_URL##/#person" }
             }, {
                 "@type": "WebPage",
-                "@id": "https://tranvohoangnam.id.vn/#webpage",
-                "url": "https://tranvohoangnam.id.vn",
+                "@id": "##BASE_URL##/#webpage",
+                "url": "##BASE_URL##",
                 "name": "Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo",
-                "isPartOf": {
-                    "@id": "https://tranvohoangnam.id.vn/#website"
-                },
-                "primaryImageOfPage": {
-                    "@type": "ImageObject",
-                    "url": "https://tranvohoangnam.id.vn/src/Images/portfolio-banner.webp"
-                },
+                "isPartOf": { "@id": "##BASE_URL##/#website" },
+                "primaryImageOfPage": { "@type": "ImageObject", "url": "##BASE_URL##/src/Images/portfolio-banner.webp" },
                 "description": "Trang chủ portfolio của Nam Trần, giới thiệu tổng quan về các dự án và kỹ năng nổi bật.",
                 "inLanguage": ["vi-VN", "en-US", "ja-JP", "ko-KR"]
             }]
         }
     </script>
-    <script src=./js/libs/three.min.js></script>
-    <link rel=stylesheet href=./src/Theme/FontAwesome/css/all.min.css>
-    <link rel=stylesheet href=./fonts/fonts.css>
-    <link rel=stylesheet href=./css/style.css>
+    <!-- END: Schema.org JSON-LD -->
+
+    <!-- Stylesheets and Libraries -->
+    <script src="./js/libs/three.min.js"></script>
+    <link rel="stylesheet" href="./src/Theme/FontAwesome/css/all.min.css" />
+    <link rel="stylesheet" href="./src/Fonts/fonts.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body class=no-scroll>
-    <svg style=position:absolute;width:0;height:0>
-        <defs>
-            <filter id=liquid-filter>
-                <feTurbulence type=fractalNoise baseFrequency="0.02 0.05" numOctaves=1 result=turbulence />
-                <feDisplacementMap in2=turbulence in=SourceGraphic scale=15 xChannelSelector=R yChannelSelector=G />
-            </filter>
-        </defs>
-    </svg>
     <div id=preloader>
         <div class=preloader-content>
             <i class="fas fa-layer-group logo-icon"></i>
@@ -292,14 +303,15 @@
                 <section class=hero id=hero>
                     <div class="container hero-content">
                         <div id=avatar-container class=profile-pic-container>
-                            <div class=profile-pic-flipper>
-                                <div class="profile-pic front-face">
-                                    <img src=./src/Images/Avatar.avif loading=eager decoding=async width=160 height=160>
-                                </div>
-                                <div class="profile-pic back-face">
-                                    <img src=./src/Images/Avatar2.avif loading=lazy decoding=async width=160 height=160>
-                                </div>
-                            </div>
+                            <div class="profile-pic-flipper">
+                              <div class="profile-pic front-face">
+                                <!-- Đảm bảo có loading="eager" -->
+                                <img src="./src/Images/Avatar.avif" loading="eager" decoding="async" width="160" height="160">
+                              </div>
+                              <div class="profile-pic back-face">
+                                <img src="./src/Images/Avatar2.avif" loading="eager" decoding="async" width="160" height="160">
+                              </div>
+                          </div>
                         </div>
                         <h1 class=animate-on-scroll data-i18n-key=heroTitle></h1>
                         <p class="intro-paragraph animate-on-scroll" data-i18n-key=heroSubtitle></p>
@@ -322,7 +334,7 @@
                                 <blockquote style=border:none data-i18n-key=aboutSkills></blockquote>
                             </div>
                             <div class="about-image-container animate-on-scroll from-right">
-                                <video src=./src/Videos/about_video.mp4 autoplay loop muted playsinline preload=metadata loading=lazy width=326 height=350></video>
+                              <video src=./src/Videos/about_video.mp4 autoplay loop muted playsinline preload=metadata loading=lazy width=326 height=350></video>
                             </div>
                         </div>
                     </div>
@@ -466,18 +478,16 @@
     </audio>
     <div class=audio-controls>
         <button id=music-toggle class=audio-control-btn data-i18n-title-key=musicToggleOn data-i18n-aria-label-key=musicToggleAriaOn>
-            <div class=liquid-effect></div>
             <i class="fas fa-music"></i><i class="fas fa-slash" style=display:none></i>
         </button>
         <button id=sfx-toggle class=audio-control-btn data-i18n-title-key=sfxToggleOn data-i18n-aria-label-key=sfxToggleAriaOn>
             <i class="fas fa-volume-up"></i><i class="fas fa-volume-mute" style=display:none></i>
         </button>
     </div>
-    <canvas id=music-visualizer></canvas>
     <div id=music-player-popup aria-modal=true role=dialog>
         <div class=player-content>
             <div class=track-thumbnail-wrapper>
-                <img id=track-thumbnail src=./src/Images/Thumbnails/music1.webp alt="Track Thumbnail">
+                <img id=track-thumbnail src=./src/Images/Thumbnails/justKeepWatching.webp alt="Track Thumbnail" loading="eager">
             </div>
             <p id=track-title>Music Title</p>
             <div class=progress-bar-container>
@@ -568,13 +578,10 @@
     <script type=module src=./js/main.js></script>
     <script>
         "serviceWorker" in navigator && window.addEventListener("load", (() => {
-            navigator.serviceWorker.register("./sw.js").then((e => {
-                console.log("Service Worker registered. Scope:", e.scope)
-            })).catch((e => {
+            navigator.serviceWorker.register("./sw.js").catch((e => {
                 console.error("Service Worker registration failed:", e)
             }))
         }))
     </script>
 </body>
-
 </html>

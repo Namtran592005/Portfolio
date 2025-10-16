@@ -1,5 +1,3 @@
-// audio.js (Đã nâng cấp chuỗi xử lý âm thanh)
-
 let audioContext,
   analyserNode,
   sourceNode,
@@ -13,7 +11,6 @@ let audioContext,
 const backgroundMusic = document.getElementById("background-music"),
   musicToggleButton = document.getElementById("music-toggle"),
   sfxToggleButton = document.getElementById("sfx-toggle"),
-  visualizerCanvas = document.getElementById("music-visualizer"),
   musicPlayerPopup = document.getElementById("music-player-popup"),
   trackTitleElement = document.getElementById("track-title"),
   trackProgressFill = document.getElementById("track-progress-fill"),
@@ -166,11 +163,10 @@ function toggleMusic() {
     isMusicPlaying
       ? backgroundMusic.play().catch(console.error)
       : backgroundMusic.pause(),
-    visualizerCanvas.classList.toggle("visible", isMusicPlaying),
     musicToggleButton.classList.toggle("spinning", isMusicPlaying),
     musicToggleButton.classList.toggle("off", !isMusicPlaying);
   musicToggleButton.classList.toggle("music-on", isMusicPlaying);
-  updateAudioButtonLabels(), isMusicPlaying && renderVisualizerFrame();
+  updateAudioButtonLabels();
 }
 function toggleSfx() {
   (areSfxEnabled = !areSfxEnabled),
@@ -289,7 +285,6 @@ export function handleExitSite() {
         mainGainNode &&
         mainGainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.5),
       backgroundMusic.pause()),
-    visualizerCanvas.classList.remove("visible"),
     t?.classList.add("fade-out"),
     n?.classList.add("fade-out"),
     t?.setAttribute("aria-hidden", "true"),
@@ -314,95 +309,38 @@ export function handleExitSite() {
         }, 3e3);
     }, 1e3);
 }
-function renderVisualizerFrame() {
-  if (!document.hidden && isMusicPlaying && isAudioSetup) {
-    requestAnimationFrame(renderVisualizerFrame);
-    const e = analyserNode.frequencyBinCount,
-      t = new Uint8Array(e);
-    analyserNode.getByteFrequencyData(t);
-    const n = visualizerCanvas.getContext("2d"),
-      a = (visualizerCanvas.width = window.innerWidth),
-      o = (visualizerCanvas.height = 120);
-    n.clearRect(0, 0, a, o);
-    const i = (a / 64) * 1.5;
-    let c = 0;
-    const u = getComputedStyle(document.documentElement)
-      .getPropertyValue("--accent-primary")
-      .trim();
-    for (let e = 0; e < 64; e++) {
-      const a = 0.45 * t[e],
-        l = n.createLinearGradient(0, o - a, 0, o);
-      l.addColorStop(0, u),
-        l.addColorStop(1, "hsla(var(--hue-accent), 100%, 65%, 0.1)"),
-        (n.fillStyle = l),
-        n.fillRect(c, o - a, i, a),
-        (c += i + 2);
-    }
-  }
-}
-
-// =================================================================
-// === NÂNG CẤP CHUỖI XỬ LÝ ÂM THANH (UPGRADED AUDIO CHAIN) START ===
-// =================================================================
 function setupAudioAPI() {
   if (isAudioSetup) return;
-
   audioContext = new (window.AudioContext || window.webkitAudioContext)();
   sourceNode = audioContext.createMediaElementSource(backgroundMusic);
-
-  // --- BƯỚC 1: EQ TINH CHỈNH & TRONG TRẺO (SUBTLE CLARITY EQ) ---
-  // Mục tiêu: Loại bỏ những tần số không mong muốn một cách nhẹ nhàng.
-
-  // Low-Cut Filter: Luôn là bước đầu tiên để loại bỏ tiếng ồn siêu trầm.
   const lowCutFilter = audioContext.createBiquadFilter();
   lowCutFilter.type = "highpass";
-  lowCutFilter.frequency.value = 25; // Cắt bỏ những gì dưới 25Hz
-
-  // Clarity EQ: Giảm nhẹ ở vùng "đục" (muddy frequencies) để làm âm thanh sạch hơn.
-  // Đây là kỹ thuật "subtractive EQ" (EQ trừ), thường cho kết quả tự nhiên hơn là EQ cộng.
+  lowCutFilter.frequency.value = 25;
   const clarityEQ = audioContext.createBiquadFilter();
   clarityEQ.type = "peaking";
-  clarityEQ.frequency.value = 300; // Tần số gây "đục" phổ biến
+  clarityEQ.frequency.value = 300;
   clarityEQ.Q.value = 1.8;
-  clarityEQ.gain.value = -1.0; // Chỉ giảm đi 1dB, một sự thay đổi rất tinh tế.
-
-  // "Air" EQ: Thêm một chút "không khí" ở dải tần số rất cao.
+  clarityEQ.gain.value = -1.0;
   const airEQ = audioContext.createBiquadFilter();
   airEQ.type = "highshelf";
-  airEQ.frequency.value = 14000; // Tần số trên 14kHz
-  airEQ.gain.value = 1.0; // Tăng nhẹ 1dB để tạo cảm giác "lấp lánh", "thoáng đãng".
-
-  // --- BƯỚC 2: NÉN ÂM NHẸ NHÀNG (GENTLE "GLUE" COMPRESSION) ---
-  // Mục tiêu: Gắn kết các thành phần lại với nhau và tăng độ "punch" mà không làm mất đi δυναμική.
+  airEQ.frequency.value = 14000;
+  airEQ.gain.value = 1.0;
   const glueCompressor = audioContext.createDynamicsCompressor();
-  glueCompressor.threshold.value = -18.0; // Ngưỡng khá cao, chỉ tác động đến những âm thanh lớn nhất.
-  glueCompressor.knee.value = 15; // Góc nén mềm mại, tự nhiên.
-  glueCompressor.ratio.value = 2.5; // Tỷ lệ nén rất thấp (2.5:1), chỉ để kiểm soát nhẹ.
-  glueCompressor.attack.value = 0.02; // Attack hơi chậm để giữ lại độ "nảy" (transient) của tiếng trống.
-  glueCompressor.release.value = 0.3; // Release vừa phải để âm thanh "thở".
-
-  // --- BƯỚC 3: ĐIỀU KHIỂN ÂM LƯỢNG VÀ TỐI ƯU HÓA CUỐI CÙNG ---
-  // Node điều khiển âm lượng chính do người dùng chỉnh.
+  glueCompressor.threshold.value = -18.0;
+  glueCompressor.knee.value = 15;
+  glueCompressor.ratio.value = 2.5;
+  glueCompressor.attack.value = 0.02;
+  glueCompressor.release.value = 0.3;
   mainGainNode = audioContext.createGain();
-
-  // Limiter: Đây là bức tường gạch cuối cùng, đảm bảo không vỡ tiếng và tối ưu âm lượng.
-  // Hoạt động như một compressor với tỷ lệ nén vô hạn.
   const limiter = audioContext.createDynamicsCompressor();
-  limiter.threshold.value = -1.0; // Ngưỡng đặt rất cao, chỉ hoạt động khi tín hiệu sắp vượt 0dB.
-  limiter.knee.value = 0; // Góc nén "cứng" (hard knee) cho hiệu quả giới hạn tối đa.
-  limiter.ratio.value = 20.0; // Tỷ lệ nén cực cao.
-  limiter.attack.value = 0.001; // Tấn công siêu nhanh để bắt mọi đỉnh nhọn.
-  limiter.release.value = 0.05; // Nhả ra nhanh chóng.
-
-  // Analyser Node: Dùng cho việc vẽ visualizer, đặt sau cùng trước khi ra loa.
+  limiter.threshold.value = -1.0;
+  limiter.knee.value = 0;
+  limiter.ratio.value = 20.0;
+  limiter.attack.value = 0.001;
+  limiter.release.value = 0.05;
   analyserNode = audioContext.createAnalyser();
   analyserNode.fftSize = 256;
-
-  // --- KẾT NỐI CHUỖI ÂM THANH (AUDIO CHAIN CONNECTION) ---
-  // Đây là điểm bắt đầu của chuỗi hiệu ứng.
   advancedAudioChainStart = lowCutFilter;
-
-  // Nối các node theo thứ tự: Nguồn -> EQ -> Compressor -> Gain -> Limiter -> Analyser -> Loa
   sourceNode.connect(lowCutFilter);
   lowCutFilter.connect(clarityEQ);
   clarityEQ.connect(airEQ);
@@ -411,29 +349,17 @@ function setupAudioAPI() {
   mainGainNode.connect(limiter);
   limiter.connect(analyserNode);
   analyserNode.connect(audioContext.destination);
-
   toggleAudioPath();
   isAudioSetup = !0;
-  renderVisualizerFrame();
 }
-
 function toggleAudioPath() {
   if (!isAudioSetup) return;
   sourceNode.disconnect();
-
   if (isAdvancedAudioEnabled) {
-    // Kết nối với chuỗi xử lý âm thanh nâng cao
     sourceNode.connect(advancedAudioChainStart);
   } else {
-    // Khi tắt, bỏ qua chuỗi xử lý và chỉ kết nối trực tiếp đến Gain chính,
-    // sau đó qua Limiter/Analyser để visualizer và tính năng chống vỡ tiếng vẫn hoạt động.
-    // Điều này đảm bảo trải nghiệm nhất quán.
     sourceNode.connect(mainGainNode);
   }
 }
-// ===============================================================
-// === NÂNG CẤP CHUỖI XỬ LÝ ÂM THANH (UPGRADED AUDIO CHAIN) END ===
-// ===============================================================
-
 export const getAnalyserNode = () => analyserNode;
 export const isMusicActive = () => isMusicPlaying;

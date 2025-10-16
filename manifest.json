@@ -1,27 +1,23 @@
 {
-  "name": "Nam Trần | Portfolio Đẳng Cấp & Sáng Tạo",
-  "short_name": "Nam Trần Portfolio",
+  "name": "Nam Trần | Portfolio",
+  "short_name": "Nam Trần",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#0d0d0d",
+  "background_color": "#005bea",
   "theme_color": "#005bea",
-  "description": "Portfolio độc quyền của Nam Trần: sinh viên IT, lập trình viên Front-end với các dự án đẳng cấp, hiệu ứng chuyển động tương lai, và công nghệ web tiên tiến. Khám phá ngay!",
+  "description": "Portfolio độc quyền của Nam Trần: sinh viên IT, lập trình viên Front-end.",
   "icons": [
     {
-      "src": "./src/Images/portfolio.webp",
+      "src": "./src/Images/portfolio.png",
       "sizes": "192x192",
-      "type": "image/webp"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "./src/Images/Apple.webp",
       "sizes": "512x512",
-      "type": "image/webp"
-    },
-    {
-      "src": "./src/Images/Apple.webp",
-      "sizes": "180x180",
       "type": "image/webp",
-      "purpose": "apple touch icon"
+      "purpose": "any maskable"
     }
   ]
 }
